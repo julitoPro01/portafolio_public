@@ -1,0 +1,62 @@
+
+.content__asideBar{
+    position: fixed;
+    top: 20%;
+    right: 10px;
+}
+
+.content__asideBar .icon i{
+    cursor: pointer;
+}
+
+.content__asideBar ul li{
+    margin:0 20px;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.content__asideBar li   p{
+    border-radius: 10px;    
+    color: white;
+    font-weight: 100;
+    font-family: var(--fontRoboto);
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    align-items:end;
+}
+.content__asideBar li a p{
+    padding: 0 5px;
+    background-color: #0f172ae4;
+}
+
+
+/* ////// ACTIVE P */
+
+.content__asideBar .active{
+    background: linear-gradient( 45deg,
+    rgb(5, 2, 5), rgba(214, 64, 14, 0.804),rgb(11, 11, 9)
+    );
+    transition: background-color 1s linear;
+}
+
+
+.content__asideBar li a{
+    text-decoration: none;
+}
+
+.content__asideBar a p:active{
+    background-color: rgb(209, 70, 70);
+}
+
+.content__asideBar  .icon i:active{
+color: #b7c6c3a4;}
+
+
+.content__asideBar p:hover{
+    color: rgb(186, 189, 13);
+}
+
+.content__asideBar li i::before:active{
+    background-color: black;
+}

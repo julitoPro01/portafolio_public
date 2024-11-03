@@ -1,0 +1,55 @@
+.animation_ball_shadow{
+    width: 100%;
+    height: 100%;
+    background-image: 
+    radial-gradient(
+        circle at 50% 5% ,
+        rgba(255, 255, 255, 0.145) 50px, rgba(0, 0, 0, 0) 100px
+    ), url(../../assets/fondo01.webp);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    animation: welcome .5s ease-in-out 1;
+}
+
+@keyframes welcome {
+    0%{        
+        transform: scale(1.05,1.05);
+        filter: blur(5px);
+    }
+    100%{
+        filter: blur(0px);
+        transform: scale(1,1);
+    }
+}
+
+.animation__ball{
+    width: 90px;
+    height: 70px;
+    background-color: rgba(252, 236, 7, 0.232);
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 50px 50px rgba(230, 215, 10, 0.257);
+    left: calc(50% - 45px);
+    animation: luminate 2s ease .5s infinite ;
+
+}
+
+
+@keyframes luminate {
+    0%{
+        /* background-color: aqua; */
+       transform: scale(1,1);
+    }
+    50%{
+       transform: scale(.8,.8);
+    }
+    100%{
+       transform: scale(1,1);
+    }
+}

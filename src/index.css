@@ -1,0 +1,15 @@
+@import url(./components/css/style.css);
+@import url(./layout/css/style.css);
+@import url(./pages/style/style.css);
+
+body{
+  /* background-color: black !important; */
+  overflow: hidden;
+}
+
+
+:root{
+  --fontProtest: "Protest Guerrilla", sans-serif;
+  --fontSofadi: "Sofadi One", system-ui;;
+  --fontRoboto: "Roboto Condensed";
+}

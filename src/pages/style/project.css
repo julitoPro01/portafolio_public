@@ -1,0 +1,221 @@
+/* -----------------CONTENTIDO-------------- */
+
+.content__body__project {
+    /* background-color: #0F172A; */
+}
+
+.content__body__project,
+.content__ {
+    position: relative;
+}
+
+.content__body .title {
+    /* background-color: #0F172A; */
+    color: gray;
+    font-family: var(--fontProtest);
+    font-size: large;
+    height: 40px;
+    margin: 0;
+    padding-top: 6px;
+    position: sticky;
+    text-align: right;
+    top: 0px;
+    
+}
+
+/* -------CONTENT PREVIEW------- */
+
+.content__body .content__preview__slider {
+    background-color: rgba(0, 0, 0, 0.74);
+    position: sticky;
+    top: 40px;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    overflow: hidden;
+    height: 300px;
+
+    box-shadow: 5px 30px 50px 30px #03050ac6;
+}
+
+.content__body .content__preview {
+    scroll-snap-align: center;
+    height: 300px;
+
+    /* background-color: #0f172ae4; */
+  
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+
+}
+
+
+.content__body .content__preview .content__img {
+    width: 500px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.content__img img {
+
+    object-fit: contain;
+    width: 100%;
+
+    view-timeline-name: --image;
+    view-timeline-axis: block;
+
+    animation-timeline: --image;
+    animation-name:showimg ;
+
+    animation-range: entry 25% cover 50%;
+    animation-fill-mode: both;
+
+}
+
+@keyframes showimg {
+    0%{
+        opacity: 0;
+        scale: 25%;
+    }
+    50%{
+        opacity: .5;
+        scale: 50%; 
+    }
+
+    100%{
+        opacity: 1;
+        scale: 100%;
+    }    
+}
+
+.content__body .content__preview .content__description {
+    text-align: right;
+    padding: 20px 0px 0px 10px;
+    font-family: var(--fontSofadi);
+    margin-left: 10px;
+    height: 100%;
+}
+
+.content__body .content__preview .content__description .description {
+    max-width: 500px;
+}
+
+.content__body .content__preview 
+.content__description 
+.description01__sm {
+    background: linear-gradient(95deg, #0f172aef 30%, rgba(0, 12, 16, 0.411) 10%);
+    box-shadow: 25px 0px 55px 25px rgba(0, 12, 16, 0.411);
+    display: none;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    padding-right: 10px;
+    position: absolute;
+    text-align: start;
+    top: 0;
+    width: calc(100% - 65%);
+
+    view-timeline-name: --description;
+    view-timeline-axis: block;
+
+    animation-timeline: --description;
+    animation-name:showimg ;
+
+    animation-range: entry 25% cover 50%;
+    animation-fill-mode: both;
+}
+
+
+
+@media screen and (max-width:800px) {
+    .content__body .content__preview__slider {
+        height: 300px;
+    }
+
+    .content__body .content__preview
+     .content__img {
+        width: 100%;
+        height: 100%;
+    }
+
+   .content__body 
+   .content__preview .content__description
+    .description {
+        display: none;
+    }
+
+    .content__body .content__preview 
+    .content__description 
+    .description01__sm{
+        display: block;
+    }
+}
+
+@media screen and (max-width:500px) {
+
+    .content__body .content__preview{
+        height: 250px;
+    }
+
+    .content__body .content__preview__slider {
+        height: 250px;
+    }
+    .content__body .content__preview
+    .content__img img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+   }
+   .content__body .content__preview
+     .content__img {
+        width: 100%;
+    }
+
+}
+
+
+/* ----------CONTENT ITEM PROJECT--------- */
+
+.content__ .content__item_project {
+    overflow: auto;
+    padding-top: 50px;
+}
+
+.content__body .content__item_project ul li {
+    font-weight: 200;
+    font-family: var(--fontRoboto), Courier, monospace;
+    border-bottom: 1px solid white;
+    margin: 10px 0;
+    padding: 0 0 5px 0;
+    cursor: pointer;
+}
+
+
+.content__body .content__item_project ul li a{
+    text-decoration: none;
+    color: rgb(34, 245, 245);
+}
+
+
+
+.content__item_project span {
+    background-color: #19f1f9;
+    color: #0F172A;
+    font-family: var(--fontSofadi), Courier, monospace;
+    cursor: auto;
+    font-size: small;
+}
+
+.content__item_project ul li a:hover {
+    color: rgb(177, 198, 198);
+}
+
+.content__item_project ul li a:active {
+    color: rgb(34, 245, 245);
+}
+
+.content__item_project .active{
+    background-color: rgb(6, 40, 70);
+}

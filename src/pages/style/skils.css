@@ -1,0 +1,66 @@
+
+.content__skil__body{
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.content__skil__body .content__sphere__content{
+  top: 100px;
+  position: relative;
+}
+
+
+.content__sphere__content .content__point{
+  perspective: 499px; 
+  position: relative;
+  border: solid;
+  top: -50px;
+}
+
+
+.content__sphere__content .content__platform{
+  height: 300px;
+  perspective: 499px; 
+}
+
+
+.content__platform .platform{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 499px; 
+
+  border-bottom: none;
+  box-shadow: 0px 4px 10px rgb(37, 37, 37);
+  height: 500px;
+  left: -190px;
+  object-fit: cover;
+  overflow: hidden;
+  overflow: hidden;
+  position: absolute;
+  top: 10px;
+  transform-style: preserve-3d;
+  transform: rotate3d(1,0, 0, 90deg);
+  width: 400px;
+  z-index: -1;
+
+}
+
+
+
+.content__point .point,
+.platform .point__copy{
+  position: absolute;
+  will-change: transform;
+}
+.platform .point__copy{
+  filter: blur(1px);
+  color: rgb(18, 205, 80);
+}
+

@@ -1,0 +1,106 @@
+.content__contact {
+    /* background-color: #0f172a; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content__contact .title {
+
+    background: linear-gradient(45deg, #f4f5f6, #0a1e1e, #0e1112,
+            #d2d2cc, #0459c0, #dbd5d3);
+    border-radius: 10px;
+    background-size: 600% 600%;
+    animation: backgroundMove 5s infinite;
+}
+
+@keyframes backgroundMove {
+    0% {
+        background-position: 0% 0%;
+        box-shadow: 5px 0px 10px rgb(31, 158, 187);
+
+    }
+
+    40% {
+        background-position: 50% 100%;
+        box-shadow: 5px 0px 10px rgb(173, 176, 136);
+    }
+
+    60% {
+        background-position: 100% 100%;
+        box-shadow: 5px 0px 10px rgb(18, 114, 199);
+    }
+
+    
+
+    100% {
+        background-position: 0% 0%;
+        box-shadow: 5px 0px 10px rgb(31, 158, 187);
+    }
+}
+
+.content__contact .title .__btn {
+
+    border: none;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #0e2036cb;
+    font-family: var(--fontRoboto), Courier, monospace;
+}
+
+.content__contact .__btn span {
+    font-weight: bolder;
+
+    background: linear-gradient(270deg, #e68631, #06f0f0, #14b6ce,
+            #0b0b00, #0459c0, #dbd5d3);
+    background-size: 600% 600%;
+    color: transparent;
+    background-clip: text;
+    animation: backgroundMovespan 5s infinite;
+}
+
+@keyframes backgroundMovespan {
+    0% {
+        background-position: 100% 50%;
+    }
+
+    50% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 0%;
+    }
+}
+
+.content__contact .title:hover{
+    animation: bibrate .3s 1 forwards;
+}
+
+@keyframes bibrate {
+    0%{
+        transform: rotate(0deg);
+        scale: 100%;
+    }
+    25%{
+        transform: rotate(10deg);
+        scale: 105%;
+    }
+    
+    50%{
+        transform: rotate(0deg);
+        scale: 110%;
+    }
+    
+    74%{
+        transform: rotate(-10deg);
+        scale: 115%;
+    }
+    
+    100%{
+        scale: 120%;
+        transform: rotate(0deg);
+        box-shadow: 5px 0px 10px rgb(6, 179, 218);
+    }
+
+}

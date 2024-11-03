@@ -1,0 +1,92 @@
+.App-layout {
+    background-color: rgb(10, 7, 7);
+}
+
+.App-layout .content-theme-background {
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    z-index: 100;
+}
+
+.content-theme-background button {
+    color: antiquewhite;
+}
+
+
+.App-layout .content-theme-background button {
+    font-size: xx-large;
+    cursor: pointer;
+    background-color: rgba(128, 128, 128, 0.336);
+}
+
+
+/* //content__appMain */
+
+.content__appMain {
+    position: absolute;
+    color: wheat;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.3s linear;
+    height: 100%;
+    z-index: -1;
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.content__appMain .content__home,
+.content__appMain .content__skil__body,
+.content__appMain .content__body__project,
+.content__appMain .content__contact {
+    scroll-snap-align: center;
+    height: 100%;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* -----SCROLL--------- */
+
+.content__body__project::-webkit-scrollbar,
+.content__contact::-webkit-scrollbar,
+.content__skil__body::-webkit-scrollbar,
+.content__home::-webkit-scrollbar
+ {
+    width: 10px;
+    height: 10px;
+}
+
+.content__body__project::-webkit-scrollbar-track,
+.content__contact::-webkit-scrollbar-track,
+.content__skil__body::-webkit-scrollbar-track,
+.content__home::-webkit-scrollbar-track
+ {
+    background: #0F172A;
+}
+
+.content__body__project::-webkit-scrollbar-thumb,
+.content__contact::-webkit-scrollbar-thumb,
+.content__skil__body::-webkit-scrollbar-thumb,
+.content__home::-webkit-scrollbar-thumb
+ {
+    background-color: #0F172A;
+    border-radius: 4px;
+    border: 1px solid #605a5a;
+}
+
+.content__body__project::-webkit-scrollbar-thumb:hover,
+.content__contact::-webkit-scrollbar-thumb:hover,
+.content__skil__body::-webkit-scrollbar-thumb:hover,
+.content__home::-webkit-scrollbar-thumb:hover
+ {
+    background-color: #192f63;
+}
