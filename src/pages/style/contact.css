@@ -7,8 +7,8 @@
 
 .content__contact .title {
 
-    background: linear-gradient(45deg, #f4f5f6, #0a1e1e, #0e1112,
-            #d2d2cc, #0459c0, #dbd5d3);
+    background: linear-gradient(45deg, #f4f5f6, #0a1e1e, #CD2B40,
+    #FDD3BB, #550A31, #dbd5d3);
     border-radius: 10px;
     background-size: 600% 600%;
     animation: backgroundMove 5s infinite;
@@ -17,25 +17,25 @@
 @keyframes backgroundMove {
     0% {
         background-position: 0% 0%;
-        box-shadow: 5px 0px 10px rgb(31, 158, 187);
+        box-shadow: 5px 0px 10px #CD2B40;
 
     }
 
     40% {
         background-position: 50% 100%;
-        box-shadow: 5px 0px 10px rgb(173, 176, 136);
+        box-shadow: 5px 0px 10px #550A31;
     }
 
     60% {
         background-position: 100% 100%;
-        box-shadow: 5px 0px 10px rgb(18, 114, 199);
+        box-shadow: 5px 0px 10px #CD2B40;
     }
 
     
 
     100% {
         background-position: 0% 0%;
-        box-shadow: 5px 0px 10px rgb(31, 158, 187);
+        box-shadow: 5px 0px 10px #CD2B40;
     }
 }
 
@@ -51,8 +51,8 @@
 .content__contact .__btn span {
     font-weight: bolder;
 
-    background: linear-gradient(270deg, #e68631, #06f0f0, #14b6ce,
-            #0b0b00, #0459c0, #dbd5d3);
+    background: linear-gradient(270deg,  #f4f5f6, #e0dfcc, #CD2B40,
+    #FDD3BB, #550A31, #dbd5d3);
     background-size: 600% 600%;
     color: transparent;
     background-clip: text;
@@ -100,7 +100,7 @@
     100%{
         scale: 120%;
         transform: rotate(0deg);
-        box-shadow: 5px 0px 10px rgb(6, 179, 218);
+        box-shadow: 5px 0px 10px #FDD3BB;
     }
 
 }

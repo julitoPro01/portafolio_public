@@ -5,7 +5,7 @@
 .App-layout .content-theme-background {
     position: absolute;
     bottom: 0;
-    right: 20px;
+    left: 20px;
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;

@@ -74,6 +74,8 @@ export const AppLayout = ({ children }: any) => {
         if(!state.isScreenLock){
             target.style.zIndex='2';
         }
+
+        target.scrollIntoView({behavior:"smooth",block:"start"})
       
     }, [state.isScreenLock])
     

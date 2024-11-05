@@ -1,8 +1,11 @@
 import { RefObject, useRef } from "react";
+import { PropertyLetter } from "../context/UserType";
 
-export type Posi = { x: number, y: number, 
-    fastX: number, fastY: number, ok: boolean,left:number,top:number }
-export interface PropertiesProp{
+export type Posi = {
+    x: number, y: number,
+    fastX: number, fastY: number, ok: boolean, left: number, top: number
+}
+export interface PropertiesProp {
     dirTop: number,
     dirRight: number,
     dirBottom: number,
@@ -18,7 +21,7 @@ interface NodeProps_split {
 
 export const animationLetters = (contentRef: RefObject<HTMLDivElement>) => {
 
-   
+
 
     const txtSplit = ({ phrase, setClassNameChild, setClassNamefather }: NodeProps_split, callback: (node: NodeListOf<HTMLParagraphElement>) => void): Posi[] | false => {
 
@@ -35,7 +38,7 @@ export const animationLetters = (contentRef: RefObject<HTMLDivElement>) => {
 
         for (let value of Array_txt) {
 
-                node_father.innerHTML += `<p class="${setClassNameChild}" data-ok="true">
+            node_father.innerHTML += `<p class="${setClassNameChild}" data-ok="true">
                 <span class="span_hidden" >${value} </span> <span class="span_visibility" > ${value} </span></p>`
         }
         node_Content.append(node_father);
@@ -43,13 +46,17 @@ export const animationLetters = (contentRef: RefObject<HTMLDivElement>) => {
         const child_node = node_father.querySelectorAll('.' + setClassNameChild) as NodeListOf<HTMLParagraphElement>;
 
         child_node.forEach((node, i) => {
-            const {left,top} = node.getBoundingClientRect();
+            const { left, top } = node.getBoundingClientRect();
             if (i % 2) {
-                position.push({ x:-0 , y: 0,
-                     fastX: 30, fastY: -30, ok: true,left,top })
+                position.push({
+                    x: -0, y: 0,
+                    fastX: 30, fastY: -30, ok: true, left, top
+                })
             } else
-                position.push({ x: 0, y:-0,
-                     fastX: -30, fastY: 30, ok: true,left,top })
+                position.push({
+                    x: 0, y: -0,
+                    fastX: -30, fastY: 30, ok: true, left, top
+                })
 
         })
         callback(child_node)
@@ -57,20 +64,20 @@ export const animationLetters = (contentRef: RefObject<HTMLDivElement>) => {
         return position;
     };
 
-    const getPositionRects=(
-        txts:NodeListOf<HTMLParagraphElement>,position: Posi[])=>{
-        if(!txts) return;
-            txts.forEach((node,i)=>{
-                const {left,top}=node.getBoundingClientRect();
-                position[i].left=left;
-                position[i].top=top;
-            })
+    const getPositionRects = (
+        txts: NodeListOf<HTMLParagraphElement>, position: Posi[]) => {
+        if (!txts) return;
+        txts.forEach((node, i) => {
+            const { left, top } = node.getBoundingClientRect();
+            position[i].left = left;
+            position[i].top = top;
+        })
 
     }
 
-    const getProperties = (propertiesRef:RefObject<PropertiesProp>) => {
+    const getProperties = (propertiesRef: RefObject<PropertiesProp>) => {
         if (!contentRef.current) return;
-        
+
         const target = contentRef.current as HTMLDivElement;
         propertiesRef.current!.dirRight = target.offsetWidth;
         propertiesRef.current!.dirBottom = target.offsetHeight;
@@ -80,36 +87,23 @@ export const animationLetters = (contentRef: RefObject<HTMLDivElement>) => {
 
         txts.forEach((node, i) => {
             if (node.dataset.ok == "true") {
-                
+
                 position[i].x += position[i].fastX;
                 position[i].y += position[i].fastY;
-                position[i].left+= position[i].fastX;
-                position[i].top+=position[i].fastY;
+                position[i].left += position[i].fastX;
+                position[i].top += position[i].fastY;
                 node.style.transform = `translate(${position[i].x}px, ${position[i].y}px)`;
             }
         })
     }
 
-    const setStyleStatic = (txts: NodeListOf<HTMLParagraphElement>) => {
-    
-        txts.forEach((node, i) => {
-            const span = node.querySelector('.span_visibility') as HTMLSpanElement;
-            if (span.classList.contains('changeStyle01')) {
-                span.classList.toggle('changeStyle01');
-            }
-        });
+    const changePosition = (position: Posi[], txts: NodeListOf<HTMLSpanElement>, propertiesRef: RefObject<PropertiesProp>) => {
 
 
-    }
-
-
-    const changePosition = (position: Posi[], txts: NodeListOf<HTMLSpanElement>,propertiesRef:RefObject<PropertiesProp>) => {
-
-        
         position.forEach((dir, i) => {
 
-            const width =propertiesRef.current?.dirRight!; 
-            const height=propertiesRef.current?.dirBottom!;
+            const width = propertiesRef.current?.dirRight!;
+            const height = propertiesRef.current?.dirBottom!;
 
             if (dir.left >= width) {
                 dir.fastX = -30
@@ -126,11 +120,9 @@ export const animationLetters = (contentRef: RefObject<HTMLDivElement>) => {
                 dir.fastY = 30;
             }
 
-
-
             if (Math.random() < 0.04) {
                 dir.fastX = (Math.random() * 5 - 3) * 10;
-                dir.fastY = (Math.random() * 5 -3) * 10;
+                dir.fastY = (Math.random() * 5 - 3) * 10;
                 if (txts[i].dataset.ok == 'true')
                     txts[i].querySelector(".span_visibility")!.classList.toggle('changeStyle01');
 
@@ -141,21 +133,77 @@ export const animationLetters = (contentRef: RefObject<HTMLDivElement>) => {
         return position;
     }
 
-    const adjustPosition = (position:Posi) => {
+    const adjustPosition = (position: Posi) => {
         if (position.x > 3) position.x -= 2;
         if (position.y > 3) position.y -= 2;
         if (position.x < 0) position.x += 2;
         if (position.y < 0) position.y += 2;
     };
 
+    /// 
+
+
+
+
     return {
         txtSplit,
         getProperties,
         changePosition,
         setAnimation,
-        setStyleStatic,
         getPositionRects,
         adjustPosition
     }
 
+}
+
+export const setStyleLetters = () => {
+    const setStyleStatic = (txts: NodeListOf<HTMLParagraphElement>) => {
+
+        txts.forEach((node, i) => {
+            const span = node.querySelector('.span_visibility') as HTMLSpanElement;
+            if (span.classList.contains('changeStyle01')) {
+                span.classList.toggle('changeStyle01');
+            }
+            if (!span.classList.contains('isActiveStyle'))
+                span.classList.toggle('isActiveStyle')
+        });
+    }
+
+    const setStyleNoStatic = (txts: NodeListOf<HTMLParagraphElement>) => {
+        txts.forEach((node, i) => {
+            const span = node.querySelector('.span_visibility') as HTMLSpanElement;
+            if (span.classList.contains('isActiveStyle')) {
+                span.classList.toggle('isActiveStyle');
+            }
+
+        });
+    }
+
+    const setActiveLight = (txts: NodeListOf<HTMLParagraphElement>) => {
+        txts.forEach((node) => {
+            const span = node.querySelector('.span_visibility') as HTMLSpanElement;
+            if (!span.classList.contains('isThemeLight')) {
+                span.classList.toggle('isThemeLight');
+            }
+
+        });
+    }
+
+    const setActiveNotLight = (txts: NodeListOf<HTMLParagraphElement>) => {
+        txts.forEach((node) => {
+            const span = node.querySelector('.span_visibility') as HTMLSpanElement;
+            if (span.classList.contains('isThemeLight')) {
+                span.classList.toggle('isThemeLight');
+            }
+
+        });
+    }
+
+
+    return {
+        setStyleStatic,
+        setStyleNoStatic,
+        setActiveLight,
+        setActiveNotLight
+    }
 }

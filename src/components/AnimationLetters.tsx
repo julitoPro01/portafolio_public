@@ -1,5 +1,5 @@
 import { useContext, useEffect, useLayoutEffect, useRef, useState } from "react"
-import { animationLetters, Posi, PropertiesProp } from "../animation/animationLetters"
+import { animationLetters, Posi, PropertiesProp, setStyleLetters } from "../animation/animationLetters"
 import { ThemeContext } from "../context/UserThemeContext";
 import { tpye_uidElementViewLetter } from "./type";
 import { PropertyLetter } from "../context/UserType";
@@ -37,7 +37,11 @@ export const AnimationLetters = () => {
 
 
     const { txtSplit, getProperties, changePosition,
-        setAnimation, setStyleStatic, getPositionRects,adjustPosition } = animationLetters(contentRef);
+        setAnimation, getPositionRects,adjustPosition,
+   } = animationLetters(contentRef);
+    const {setActiveLight,setStyleNoStatic,setStyleStatic,
+        setActiveNotLight
+    } = setStyleLetters();
 
     const AnimationElements = (controll: PropertyLetter, isScreenLock: boolean) => {
         if (isScreenLock) {
@@ -270,7 +274,6 @@ export const AnimationLetters = () => {
         }
 
         if (!state.controlAnimation_letters.home) {
-            setStyleStatic(txtNode_home_Ref.current!)
             updatePosition = requestAnimationFrame(updatePosi);
         }
 
@@ -313,7 +316,6 @@ export const AnimationLetters = () => {
         }
 
         if (!state.controlAnimation_letters.skill) {
-            setStyleStatic(txtNode_skill_Ref.current!)
             updatePosition = requestAnimationFrame(updatePosi);
         }
 
@@ -356,7 +358,6 @@ export const AnimationLetters = () => {
         }
 
         if (!state.controlAnimation_letters.project) {
-            setStyleStatic(txtNode_project_Ref.current!)
             updatePosition = requestAnimationFrame(updatePosi);
         }
 
@@ -399,7 +400,6 @@ export const AnimationLetters = () => {
         }
 
         if (!state.controlAnimation_letters.contact) {
-            setStyleStatic(txtNode_contact_Ref.current!)
             updatePosition = requestAnimationFrame(updatePosi);
         }
 
@@ -408,6 +408,46 @@ export const AnimationLetters = () => {
         }
 
     }, [state.controlAnimation_letters, state.isScreenLock])
+
+    //---SET STYLE WHEN IS ACTIVE VIEW
+    useEffect(() => {
+          
+        const {home,skill,project,contact} = state.controlAnimation_letters;
+        if(state.isScreenLock){
+             setStyleNoStatic(txtNode_home_Ref.current!)
+             setStyleNoStatic(txtNode_skill_Ref.current!)
+             setStyleNoStatic(txtNode_project_Ref.current!)
+             setStyleNoStatic(txtNode_contact_Ref.current!)
+      
+        }else{   
+            !home ? setStyleStatic(txtNode_home_Ref.current!) :setStyleNoStatic(txtNode_home_Ref.current!)
+            !skill ? setStyleStatic(txtNode_skill_Ref.current!): setStyleNoStatic(txtNode_skill_Ref.current!)
+            !project ? setStyleStatic(txtNode_project_Ref.current!): setStyleNoStatic(txtNode_project_Ref.current!)
+            !contact ? setStyleStatic(txtNode_contact_Ref.current!): setStyleNoStatic(txtNode_contact_Ref.current!)
+        }
+ 
+    }, [state.controlAnimation_letters, state.isScreenLock])
+    
+
+    //---SET STYLE LIGHT WHEN IS PAGE IS LIGHT
+    useEffect(() => {
+      
+        if(state.isThemeBlack){
+            setActiveNotLight(txtNode_home_Ref.current!)
+            setActiveNotLight(txtNode_skill_Ref.current!)
+            setActiveNotLight(txtNode_project_Ref.current!)
+            setActiveNotLight(txtNode_contact_Ref.current!)
+
+        }else{
+            
+            setActiveLight(txtNode_home_Ref.current!)
+            setActiveLight(txtNode_skill_Ref.current!)
+            setActiveLight(txtNode_project_Ref.current!)
+            setActiveLight(txtNode_contact_Ref.current!)
+            
+        }
+    }, [state.isThemeBlack])
+    
 
     //---ACTUALIZAR DIRECCION
     useLayoutEffect(() => {

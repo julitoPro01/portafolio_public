@@ -11,7 +11,7 @@ export const AppRouter:FC = () => {
                 <AppLayout>
 
                     <Home/>
-                    <Skils/>
+                    {/* <Skils/> */}
                     <Project/>
                     <Contact/>
                     

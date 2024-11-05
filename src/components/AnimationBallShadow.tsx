@@ -1,6 +1,6 @@
 import { memo, useContext, useEffect, useLayoutEffect, useRef } from "react";
 
-import backgroundImg from '../assets/fondo01.webp';
+import backgroundImg from '../assets/fondodepantalla00.jpg';
 
 import { ThemeContext } from "../context/UserThemeContext";
 

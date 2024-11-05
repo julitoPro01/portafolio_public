@@ -8,7 +8,7 @@ export const ProjectCarrucel = ({ props }: { props: ProjectModel }) => {
   return (
     <div className=" content__preview" id={title+id}>
 
-    <div className=" ps-md-2 p-sm-0 p-0 content__img">
+    <div className=" content__img">
       <img className="" src={img} alt="preview" />
     </div>
 

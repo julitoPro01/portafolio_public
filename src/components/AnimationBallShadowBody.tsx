@@ -1,6 +1,6 @@
 import { memo, useContext, useEffect, useRef } from "react";
 
-import backgroundImg02 from '../assets/lenguajeImage/fondouniverso.jpg';
+import backgroundImg02 from '../assets/fondodepantalla02.jpg';
 
 import { ThemeContext } from "../context/UserThemeContext";
 

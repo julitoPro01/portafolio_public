@@ -28,25 +28,24 @@ export const Project = () => {
   }
 
   return (
-    <div className="  content__body__project" id={UidNodePage.project}>
-      <div className="container-lg content__">
+    <div className=" content__body__project" id={UidNodePage.project}>
+      <div className="container-lg p-0 content__">
         <div className="content__body">
-          <h2 className="title"></h2>
 
-          <div className="content__content">
+          <div className="row  content__content">
             {/* ________PREVIEW______ */}
-            <div className=" content__preview__slider" >
-
+            <div className=" col-md-6 col-12  content__preview__slider" >
               {
                 projectModel.map((val, i) => (
                   <ProjectCarrucel key={val.title + i} props={val} />
                 ))
               }
 
+
             </div>
             {/* _______ITEM_________ */}
 
-            <div className="content__item_project">
+            <div className="col-12 col-md-6  content__item_project">
               <ul ref={itemRef} >
 
                 {

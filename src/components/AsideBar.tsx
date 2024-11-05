@@ -114,11 +114,25 @@ useEffect(() => {
 
 
     useEffect(() => {
-        target().onscrollend = onEndScroll
+
+        let clearTime=0;
+        const activeView =()=>{
+            if(clearTime !=0) clearTimeout(clearTime);
+
+            clearTime = setTimeout(()=>{
+                onEndScroll()
+            },100)
+        }
+
+        target().addEventListener('scroll',activeView)
 
         previousNodeRef.current = nodeLinkRef.current
             ?.querySelector('a')?.querySelector('p')!;
 
+        return()=>{
+            target().removeEventListener('scroll',activeView)
+        }
+            
     }, []);
 
 

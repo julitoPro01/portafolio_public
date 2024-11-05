@@ -1,10 +1,9 @@
 .content__home {
-    /* background-color: rgba(44, 62, 62, 0.712); */
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 15px;
+    padding-right: 55px;
 }
 
 .content__home .title {
@@ -13,7 +12,11 @@
 }
 
 .content__home .description {
+    background-color:#550a31a1;
     font-size: x-large;
     font-family:var(--fontRoboto) ;
     max-width: 700px;
+    padding: 10px;
+    border-radius: 10px;
+    color:antiquewhite;
 }

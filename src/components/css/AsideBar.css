@@ -2,7 +2,7 @@
 .content__asideBar{
     position: fixed;
     top: 20%;
-    right: 10px;
+    right: 0px;
 }
 
 .content__asideBar .icon i{
