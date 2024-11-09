@@ -1,4 +1,4 @@
-import { Contact, Home, Project, Skils } from "../pages"
+import { Contact, Expertise, Home, Project, Skils } from "../pages"
 import { AppLayout } from "../layout/AppLayout"
 import { ThemeContextProvider } from "../context/UserThemeContext"
 import { AsideBar } from "../components"
@@ -12,6 +12,7 @@ export const AppRouter:FC = () => {
 
                     <Home/>
                     {/* <Skils/> */}
+                    <Expertise/>
                     <Project/>
                     <Contact/>
                     

@@ -2,7 +2,20 @@
 .content__asideBar{
     position: fixed;
     top: 20%;
-    right: 0px;
+    right: 10px;
+    left: auto;
+    z-index: 100;
+    /* background-color: red; */
+    /* padding: 0; */
+    /* margin: 0; */
+}
+
+
+@media (max-width: 576px) { 
+    .content__asideBar {
+        left: 0px;
+        right: auto;
+    }
 }
 
 .content__asideBar .icon i{

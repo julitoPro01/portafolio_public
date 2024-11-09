@@ -1,34 +1,83 @@
-.animation_ball_shadow{
+.animation_ball_shadow {
     width: 100%;
     height: 100%;
-    background-image: 
+    /* background-image: 
     radial-gradient(
         circle at 50% 5% ,
         rgba(255, 255, 255, 0.145) 50px, rgba(0, 0, 0, 0) 100px
-    ), url(../../assets/fondo01.webp);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    ), url(../../assets/fondo01.webp); */
 
     position: absolute;
     left: 0;
     top: 0;
     overflow: hidden;
-    animation: welcome .5s ease-in-out 1;
+    /* animation: welcome .5s ease-in-out 1; */
+    /* background-color: rgb(3, 32, 32); */
+
+
 }
+
+.animation_ball_shadow
+.capa_wallpaper{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgb(47, 9, 19,1); */
+    /* background:radial-gradient(
+        circle at 50% 50%,
+        rgb(48, 104, 98) , rgb(56, 97, 89),rgb(15, 41, 43), black
+    ) ; */
+    transition: background-color .3s linear;
+    display: none;
+}
+
+.animation_ball_shadow
+.wallpaper{
+
+  background-image: 
+    radial-gradient(
+        circle at 50% 5% ,
+        rgba(255, 255, 255, 0.145) 50px, rgba(0, 0, 0, 0.8) 100px
+    ), url(../../assets/fondodepantalla03.png); 
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    /* mix-blend-mode: multiply */
+    transition: filter 1s linear,mix-Blend-Mode 1s linear;
+    filter: invert(0) grayscale(1) ;
+}
+
+
+.child_night h2{
+    color: rgb(250, 250, 252);
+    filter: grayscale(0) brightness(100);
+}
+
 
 @keyframes welcome {
-    0%{        
-        transform: scale(1.05,1.05);
+    0% {
+        transform: scale(1.05, 1.05);
         filter: blur(5px);
     }
-    100%{
+
+    100% {
         filter: blur(0px);
-        transform: scale(1,1);
+        transform: scale(1, 1);
     }
 }
 
-.animation__ball{
+.animation__ball {
     width: 90px;
     height: 70px;
     background-color: rgba(252, 236, 7, 0.232);
@@ -36,20 +85,22 @@
     position: absolute;
     box-shadow: 0 0 50px 50px rgba(230, 215, 10, 0.257);
     left: calc(50% - 45px);
-    animation: luminate 2s ease .5s infinite ;
+    animation: luminate 2s ease .5s infinite;
 
 }
 
 
 @keyframes luminate {
-    0%{
+    0% {
         /* background-color: aqua; */
-       transform: scale(1,1);
+        transform: scale(1, 1);
     }
-    50%{
-       transform: scale(.8,.8);
+
+    50% {
+        transform: scale(.8, .8);
     }
-    100%{
-       transform: scale(1,1);
+
+    100% {
+        transform: scale(1, 1);
     }
 }

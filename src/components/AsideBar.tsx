@@ -84,6 +84,7 @@ export const AsideBar: FC<AsideProps> = ({ nodeAppMainRef }: AsideProps) => {
             switch(viewVisibility){
                 case "home":dispatch_lettersAnimateControl("[type_animate_lettersHome]");break;
                 case "skil":dispatch_lettersAnimateControl("[type_animate_lettersSkill]");break;
+                case "expertise":dispatch_lettersAnimateControl("[type_animate_lettersEspertise]");break;
                 case "project":dispatch_lettersAnimateControl("[type_animate_lettersProject]");break;
                 case "contact":dispatch_lettersAnimateControl("[type_animate_lettersContact]");break;
             }
@@ -114,7 +115,7 @@ useEffect(() => {
 
 
     useEffect(() => {
-
+if(!target()) return;
         let clearTime=0;
         const activeView =()=>{
             if(clearTime !=0) clearTimeout(clearTime);
@@ -130,6 +131,7 @@ useEffect(() => {
             ?.querySelector('a')?.querySelector('p')!;
 
         return()=>{
+            if(!target()) return
             target().removeEventListener('scroll',activeView)
         }
             
@@ -180,6 +182,11 @@ const ItemBar: Items[] = [
         href: UidNodePage.skil,
         title: 'Abilidades',
         icon: 'bi bi-journal-code'
+    },
+    {
+        href:UidNodePage.expertise,
+        title:'Experiencia',
+        icon:'bi bi-clock'
     },
     {
         href: UidNodePage.project,

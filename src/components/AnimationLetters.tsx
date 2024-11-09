@@ -430,23 +430,23 @@ export const AnimationLetters = () => {
     
 
     //---SET STYLE LIGHT WHEN IS PAGE IS LIGHT
-    useEffect(() => {
+    // useEffect(() => {
       
-        if(state.isThemeBlack){
-            setActiveNotLight(txtNode_home_Ref.current!)
-            setActiveNotLight(txtNode_skill_Ref.current!)
-            setActiveNotLight(txtNode_project_Ref.current!)
-            setActiveNotLight(txtNode_contact_Ref.current!)
+    //     if(state.isThemeBlack){
+    //         setActiveNotLight(txtNode_home_Ref.current!)
+    //         setActiveNotLight(txtNode_skill_Ref.current!)
+    //         setActiveNotLight(txtNode_project_Ref.current!)
+    //         setActiveNotLight(txtNode_contact_Ref.current!)
 
-        }else{
+    //     }else{
             
-            setActiveLight(txtNode_home_Ref.current!)
-            setActiveLight(txtNode_skill_Ref.current!)
-            setActiveLight(txtNode_project_Ref.current!)
-            setActiveLight(txtNode_contact_Ref.current!)
+    //         setActiveLight(txtNode_home_Ref.current!)
+    //         setActiveLight(txtNode_skill_Ref.current!)
+    //         setActiveLight(txtNode_project_Ref.current!)
+    //         setActiveLight(txtNode_contact_Ref.current!)
             
-        }
-    }, [state.isThemeBlack])
+    //     }
+    // }, [state.isThemeBlack])
     
 
     //---ACTUALIZAR DIRECCION

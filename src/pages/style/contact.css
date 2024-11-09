@@ -2,7 +2,7 @@
     /* background-color: #0f172a; */
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: end;
 }
 
 .content__contact .title {
@@ -12,6 +12,7 @@
     border-radius: 10px;
     background-size: 600% 600%;
     animation: backgroundMove 5s infinite;
+    margin-bottom: 100px;
 }
 
 @keyframes backgroundMove {

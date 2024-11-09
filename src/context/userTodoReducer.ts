@@ -53,6 +53,12 @@ export const userTodoReducer=(state:PropsState,{type,payload}:PropsThemeAction)
                 controlAnimation_letters:setControl("skill",false)
             }
         }
+        case '[type_animate_lettersEspertise]':{
+            return{
+                ...state,
+                controlAnimation_letters:setControl("expertise",false)
+            }
+        }
         case '[type_animate_lettersProject]':{
             return{
                 ...state,
@@ -72,7 +78,7 @@ export const userTodoReducer=(state:PropsState,{type,payload}:PropsThemeAction)
 
 const setControl=(property:ControlProperties,value:boolean):PropertyLetter=>{
     const control: Record<ControlProperties, boolean> ={
-        general:true,home:true,skill:true,project:true,contact:true
+        general:true,home:true,skill:true,project:true,contact:true,expertise:true
     }
     
     control[property]=value;

@@ -3,11 +3,17 @@
 @import url(./pages/style/style.css);
 
 body{
-  /* background-color: black !important; */
+  background-color:antiquewhite !important;
+  /* background-color:rgb(46, 3, 3) !important; */
   overflow: hidden;
 }
 
-
+.title__{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  color: transparent;
+}
 :root{
   --fontProtest: "Protest Guerrilla", sans-serif;
   --fontSofadi: "Sofadi One", system-ui;;

@@ -1,8 +1,11 @@
 import { UidNodePage } from "./UidPageNode"
 
-import { ProjectModel, projectModel } from "../model/ProjectModel"
-import { ProjectCarrucel } from "./component/ProjectCarrucel"
+import { ProjectModel } from "../model/ProjectModel"
+
+
 import { useRef } from "react"
+import { ItemCard } from "./component/ProjectCarrucel"
+import { SpaceHight } from "./component/Space"
 
 export const Project = () => {
 
@@ -10,70 +13,73 @@ export const Project = () => {
   const itemPreviousRef = useRef<HTMLLIElement>();
 
 
-  const onClickItem=(param:ProjectModel)=>{
+  const onClickItem = (param: ProjectModel) => {
 
-      const itemTarget = itemRef.current as HTMLUListElement;
-      const itemTargetLi = itemTarget.querySelector(`[data-set=${param.title+param.id}]`) as HTMLLIElement;
+    const itemTarget = itemRef.current as HTMLUListElement;
+    const itemTargetLi = itemTarget.querySelector(`[data-set=${param.title + param.id}]`) as HTMLLIElement;
 
-      if(!itemPreviousRef.current)
-          itemPreviousRef.current = itemTarget.querySelector('li') as HTMLLIElement;
+    if (!itemPreviousRef.current)
+      itemPreviousRef.current = itemTarget.querySelector('li') as HTMLLIElement;
 
-      if(itemTargetLi === itemPreviousRef.current) return;
+    if (itemTargetLi === itemPreviousRef.current) return;
 
-      itemTargetLi.classList.toggle('active');
-      itemPreviousRef.current!.classList.toggle('active');
-      
-      itemPreviousRef.current = itemTargetLi;
+    itemTargetLi.classList.toggle('active');
+    itemPreviousRef.current!.classList.toggle('active');
+
+    itemPreviousRef.current = itemTargetLi;
 
   }
 
   return (
     <div className=" content__body__project" id={UidNodePage.project}>
-      <div className="container-lg p-0 content__">
-        <div className="content__body">
+      <div className="container-lg p-0 content__ ">
+        <SpaceHight/>
+        <LayoutProject>
+          {
+            'dos'.split('').map(val=>(
 
-          <div className="row  content__content">
-            {/* ________PREVIEW______ */}
-            <div className=" col-md-6 col-12  content__preview__slider" >
-              {
-                projectModel.map((val, i) => (
-                  <ProjectCarrucel key={val.title + i} props={val} />
-                ))
-              }
+              <ItemCard key={val} />
+            ))
+          }
+        </LayoutProject>
+        <SpaceHight/>
 
-
-            </div>
-            {/* _______ITEM_________ */}
-
-            <div className="col-12 col-md-6  content__item_project">
-              <ul ref={itemRef} >
-
-                {
-                  projectModel.map((val, i) => (
-                    <li className={`${ !i && 'active' }`} data-set={val.title+val.id} 
-                    key={val.img+i} onClick={()=>onClickItem(val)}  >
-                      <a href={`#${val.title+val.id}`}>
-
-                      <p className="m-0 p-0 fs-2" > {val.title}</p>
-                      <div className="m-0 p-0">
-                        {
-                          val.skils.map((skil,i)=>(
-                            <span key={skil+i} className=" rounded-pill px-2 mx-1" >{skil}</span>
-                          ))
-                        }
-                      </div>
-                        </a>
-                    </li>
-                  ))
-                }
-                
-
-              </ul>
-            </div>
-
-          </div>
-        </div>
       </div>
+    </div>
+  )
+}
+
+
+
+const LayoutProject = ({ children }: any) => {
+
+  return (
+    <div className=" content__body rounded">
+      <p className="p0"> {` <!DOCTYPE html>`} </p>
+      <p className="p0"> {` <html lang="es">`} </p>
+      <p className="p1"> {` <head>`} </p>
+      <p className="p2"> {` <meta name="viewport" content="width=device-width, initial-scale=1.0"> `} </p>
+      <p className="p2">{`<link rel="stylesheet" href="style.css">`}</p>
+      <p className="p2"> {` <title>`} <span className="fs-2 text-danger">My Portfolio</span> {'</title>'} </p>
+      <p className="p1"> {` </head>`} </p>
+      <p className="p1" > {`<body>`} </p>
+      <p className="p2" > {` <header>`} </p>
+      <p className="p3"> {`  <h1> My Work </h1>`} </p>
+      <p className="p2"> {`  </header>`} </p>
+      <p className="p2"> {` <main>`} </p>
+
+      <div className="p3">
+        {children}
+      </div>
+
+      <p className="p2">{`</main>`}</p>
+      <p className="p2">{`<footer>`}</p>
+      <p className="p3">{`<p> --- </p>`}</p>
+      <p className="p2">{`</footer>`}</p>
+      <p className="p2" >{`<script type="module" src="/src/main.tsx"></script>`}</p>
+      <p className="p1">{`</body>`}</p>
+      <p className="p0">{`</html>`}</p>
+
     </div>
   )
 }

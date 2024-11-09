@@ -1,5 +1,5 @@
 import { Children, cloneElement, isValidElement, MouseEvent, ReactElement, useCallback, useContext, useEffect, useRef, useState } from "react";
-import { LockScreen, AnimationBallShadow, AnimationFillterTheme, AnimationLetters, type_uidElement, AnimationBallShadowBody } from "../components";
+import { LockScreen, AnimationFillterTheme, AnimationLetters, type_uidElement, AnimationBallShadowBody } from "../components";
 import { ThemeContext } from "../context/UserThemeContext";
 import { className_theme } from "../style/className";
 
@@ -20,7 +20,7 @@ export const AppLayout = ({ children }: any) => {
 
     const nodeAppMainRef = useRef<HTMLDivElement>(null);
 
-    const { state, dispatch_ThemeLight, dispatch_ThemeAnimationStart,
+    const { state, dispatch_ThemeLight, dispatch_ThemeNight,dispatch_ThemeAnimationStart,
         dispatch_ScreenLock
     }
         = useContext(ThemeContext);
@@ -33,21 +33,13 @@ export const AppLayout = ({ children }: any) => {
 
     const handleChangeTheme = () => {
 
-        const target = nodeFilter.current as HTMLDivElement;
-
-        if (state.isThemeBlack) {
-
-            target.style.visibility = 'visible'
+        if(state.isThemeBlack){
             dispatch_ThemeLight();
         }
-        else {
-            //TODO:dispatch_ThemeNight()
-            dispatch_ThemeAnimationStart()
+        else{
+            dispatch_ThemeNight();
         }
 
-        if (state.isAnimationStart === 0) {
-            target.classList.toggle(content__animationTheme_light);
-        }
     }
 
     const handleScreenLock = () => {
@@ -87,15 +79,15 @@ export const AppLayout = ({ children }: any) => {
                 ref={nodeLayout}
             >
                 
-                {
+                {/* <AnimationLetters /> */}
+                {/* {
                     state.isScreenLock 
                     ? <AnimationBallShadow style_prop={style_prop} />
                     :<AnimationBallShadowBody style_prop={style_prop} />
-                }
-                    
+                } */}
+                    <AnimationBallShadowBody style_prop={style_prop} />
 
-                    <AnimationFillterTheme nodeFilter={nodeFilter} />
-                    <AnimationLetters />
+                    {/* <AnimationFillterTheme nodeFilter={nodeFilter} /> */}
                     <LockScreen />
 
                 <div className=" content__appMain" style={{
@@ -131,9 +123,9 @@ export const AppLayout = ({ children }: any) => {
 
                     {
                         state.isThemeBlack
-                            ? <i className={`bi bi-sun-fill ${icon__changeTheme__light}`}
+                            ? <i className={`bi bi-moon-stars-fill ${icon__changeTheme__night}`}
                             ></i>
-                            : <i className={`bi bi-moon-stars-fill ${icon__changeTheme__night}`} >
+                            : <i className={`bi bi-sun-fill ${icon__changeTheme__light}`} >
                             </i>
                     }
 

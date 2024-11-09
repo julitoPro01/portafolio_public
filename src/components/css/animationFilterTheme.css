@@ -5,9 +5,10 @@
     left: 0;
     top: 0;
     transition: background-color 1s ease;
-    background-color: rgba(0, 0, 0, 0.95);
-    /* display: none; */
+    background-color: rgba(22, 2, 2, 0.95);
+    /* background-color: rgba(0, 0, 0, 0.95); */
     visibility: hidden;
+    
 }
 
 .content__animationTheme_light{

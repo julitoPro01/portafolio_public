@@ -9,6 +9,7 @@ export type TypesThemes =
     "[type_animate_lettersGeneral]"|
     "[type_animate_lettersHome]"|
     "[type_animate_lettersSkill]"|
+    "[type_animate_lettersEspertise]"|
     "[type_animate_lettersProject]"|
     "[type_animate_lettersContact]"
 
@@ -16,7 +17,7 @@ export type TypesThemes =
     export type ThemeIconColor = "white" | "black";
     export enum AniamtionChange { 'stop', 'starting' }
     
-    export type ControlProperties = 'general' | 'home' | 'skill' | 'project' | 'contact';
+    export type ControlProperties = 'general' | 'home' | 'skill' | 'project' | 'contact' | 'expertise';
     export type PropertyLetter={general:boolean,skill:boolean,project:boolean,home:boolean,contact:boolean};
 
 export interface PropsState{

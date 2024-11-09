@@ -62,7 +62,7 @@
     margin: 0;
     top: 0;
     left: 0;
-    color: black;
+    /* color: black; */
     transition: transform 0.55s linear;
     font-family: "Sofadi One", system-ui;
     will-change: transform;
@@ -126,7 +126,7 @@
   }
 
 .isActiveStyle{
-  color: #550A31 !important;
+  color:#CD2B40 !important;
 }
 
 .isThemeLight{

@@ -1,5 +1,5 @@
 .lock__screen {
-    /* background-color: black; */
+    
     color: wheat;
     position: absolute;
     top: 0;
@@ -129,7 +129,7 @@
 
     animation: changeColor 3s ease infinite;
     background: linear-gradient(45deg,
-    #bb2b2b 20%, white 80%);
+    #3e423e 20%, white 80%);
 
     /* border: solid #6f3342; */
 
@@ -143,7 +143,7 @@
     /* border: solid black; */
     width: 20px;
     /* background: linear-gradient(45deg, white, black); */
-    background-color: #480F24;
+    background-color: #958377;
     /* width: 100px; */
 }
 
@@ -159,8 +159,8 @@
     border-style: double;
     border-radius: 0px 100px 0px 130px;
     transform: rotate(-45deg);
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     margin: auto;
     position: relative;
     display: flex;

@@ -1,22 +1,16 @@
 .content__home {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     flex-direction: column;
-    padding-right: 55px;
-}
-
-.content__home .title {
-    font-size: 10vw;
-    font-family:var(--fontProtest) ;
 }
 
 .content__home .description {
-    background-color:#550a31a1;
-    font-size: x-large;
-    font-family:var(--fontRoboto) ;
+ 
+    font-family:var(--fontSofadi) ;
     max-width: 700px;
     padding: 10px;
     border-radius: 10px;
-    color:antiquewhite;
+    color:rgb(215, 222, 211);
+    text-shadow: 1px 1px 1px black;
 }
