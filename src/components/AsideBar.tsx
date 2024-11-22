@@ -116,9 +116,9 @@ useEffect(() => {
 
     useEffect(() => {
 if(!target()) return;
-        let clearTime=0;
+        let clearTime:ReturnType<typeof setTimeout>;
         const activeView =()=>{
-            if(clearTime !=0) clearTimeout(clearTime);
+            if(clearTime) clearTimeout(clearTime);
 
             clearTime = setTimeout(()=>{
                 onEndScroll()

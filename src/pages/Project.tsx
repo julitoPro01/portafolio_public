@@ -1,34 +1,30 @@
 import { UidNodePage } from "./UidPageNode"
 
-import { ProjectModel } from "../model/ProjectModel"
-
-
-import { useRef } from "react"
 import { ItemCard } from "./component/ProjectCarrucel"
 import { SpaceHight } from "./component/Space"
 
 export const Project = () => {
 
-  const itemRef = useRef<HTMLUListElement>(null);
-  const itemPreviousRef = useRef<HTMLLIElement>();
+  // const itemRef = useRef<HTMLUListElement>(null);
+  // const itemPreviousRef = useRef<HTMLLIElement>();
 
 
-  const onClickItem = (param: ProjectModel) => {
+  // const onClickItem = (param: ProjectModel) => {
 
-    const itemTarget = itemRef.current as HTMLUListElement;
-    const itemTargetLi = itemTarget.querySelector(`[data-set=${param.title + param.id}]`) as HTMLLIElement;
+  //   const itemTarget = itemRef.current as HTMLUListElement;
+  //   const itemTargetLi = itemTarget.querySelector(`[data-set=${param.title + param.id}]`) as HTMLLIElement;
 
-    if (!itemPreviousRef.current)
-      itemPreviousRef.current = itemTarget.querySelector('li') as HTMLLIElement;
+  //   if (!itemPreviousRef.current)
+  //     itemPreviousRef.current = itemTarget.querySelector('li') as HTMLLIElement;
 
-    if (itemTargetLi === itemPreviousRef.current) return;
+  //   if (itemTargetLi === itemPreviousRef.current) return;
 
-    itemTargetLi.classList.toggle('active');
-    itemPreviousRef.current!.classList.toggle('active');
+  //   itemTargetLi.classList.toggle('active');
+  //   itemPreviousRef.current!.classList.toggle('active');
 
-    itemPreviousRef.current = itemTargetLi;
+  //   itemPreviousRef.current = itemTargetLi;
 
-  }
+  // }
 
   return (
     <div className=" content__body__project" id={UidNodePage.project}>
