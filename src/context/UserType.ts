@@ -18,7 +18,7 @@ export type TypesThemes =
     export enum AniamtionChange { 'stop', 'starting' }
     
     export type ControlProperties = 'general' | 'home' | 'skill' | 'project' | 'contact' | 'expertise';
-    export type PropertyLetter={general:boolean,skill:boolean,project:boolean,home:boolean,contact:boolean};
+    export type PropertyLetter={general:boolean,skill:boolean,project:boolean,home:boolean,contact:boolean,expertise:boolean};
 
 export interface PropsState{
     style_icon: {colorIcon:ThemeIconColor},

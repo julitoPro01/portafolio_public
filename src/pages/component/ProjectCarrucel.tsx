@@ -3,7 +3,7 @@ import imgProject from '../../assets/fondo01.webp'
 export const ItemCard = () => {
   return (
 
-    <div className="rounded itemCard  my-2" >
+    <div className="rounded itemCard  my-2 ps-0" >
 
       <div className="card_active" ></div>
 
@@ -45,16 +45,16 @@ export const ItemCard = () => {
         <p className="p1"><span className='p__'>{'<'}</span><span className='pn'>{'div'}</span><span className='pn'>{'>'}</span> </p>
         <p className="p2"><span className='pva'>{'---'}</span></p>
         {/* -------------COLLAPSE */}
-        <div className="collapse" id="{project01}">
-          <div className="card w-100 card-body text-bg-secondary content__cards ">
+        <div className="collapse mb-2" id="{project01}">
+          <div className="card w-100 card-body content__cards ">
             {/* ----------CARD */}
-            <div className="card w-100 p-2" style={{ maxWidth: "700px" }}>
+            <div className="card w-100  p-2 content__cards_items" style={{ maxWidth: "700px" }}>
               <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                 Mollitia aperiam nisi animi voluptatibus,
                 provident quo iusto, distinctio dolorum corporis cupiditate molestiae modi quasi vero temporibus deserunt nesciunt corrupti dolorem iure.</p>
             </div>
 
-            <div className="card w-100 " style={{ maxWidth: "700px" }}>
+            <div className="card w-100  content__cards_items" style={{ maxWidth: "700px" }}>
               <img src={imgProject} className="rounded" alt="..." />
               <div className="card-body">
                 <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

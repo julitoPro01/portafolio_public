@@ -60,11 +60,11 @@ const LayoutProject = ({ children }: any) => {
       <p className="p1"> {` <head>`} </p>
       <p className="p2"> {` <meta name="viewport" content="width=device-width, initial-scale=1.0"> `} </p>
       <p className="p2">{`<link rel="stylesheet" href="style.css">`}</p>
-      <p className="p2"> {` <title>`} <span className="fs-2 text-danger">My Portfolio</span> {'</title>'} </p>
+      <p className="p2"> {` <title>`} <span className="fs-2 text-light">My Portfolio</span> {'</title>'} </p>
       <p className="p1"> {` </head>`} </p>
       <p className="p1" > {`<body>`} </p>
       <p className="p2" > {` <header>`} </p>
-      <p className="p3"> {`  <h1> My Work </h1>`} </p>
+      <p className="p3"> {`  <h1> `} <span className="text-light mx-2" >My Work </span> <span> {`</h1>`} </span> </p>
       <p className="p2"> {`  </header>`} </p>
       <p className="p2"> {` <main>`} </p>
 

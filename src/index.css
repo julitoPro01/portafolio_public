@@ -3,8 +3,7 @@
 @import url(./pages/style/style.css);
 
 body{
-  background-color:antiquewhite !important;
-  /* background-color:rgb(46, 3, 3) !important; */
+  background-color:rgb(95, 177, 180) !important;
   overflow: hidden;
 }
 

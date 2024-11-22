@@ -9,7 +9,7 @@ const InitialState: PropsState = {
     isThemeBlack:true,
     isAnimationStart:0,
     isScreenLock:true,
-    controlAnimation_letters:{general:true,home:true,skill:true,project:true,contact:true}
+    controlAnimation_letters:{general:true,home:true,skill:true,project:true,contact:true,expertise:true}
 }
 
 export const ThemeContext = createContext({} as PropsContextTheme);

@@ -71,7 +71,7 @@ export const AnimationLetters = () => {
                 setAnimation(txtNode_home_Ref.current!, newPosition_home)
 
             }
-            if (controll.skill) {
+            if (controll.skill && controll.expertise ) {
                 const newPosition_skill = changePosition(postionSkill_Ref.current,
                     txtNode_skill_Ref.current!, propertiesRef);
                 setAnimation(txtNode_skill_Ref.current!, newPosition_skill)
@@ -92,28 +92,9 @@ export const AnimationLetters = () => {
         }
     }
 
-    const AnimationElementsGeneral = () => {
-        const newPosition_general = changePosition(postionGeneral_Ref.current,
-            txtNode_general_Ref.current!, propertiesRef);
-        setAnimation(txtNode_general_Ref.current!, newPosition_general)
-
-    }
 
     // ---CREAR LETRAS
-    useEffect(() => {
-
-        const position = txtSplit({
-            phrase: "<>{}",
-            setClassNameChild: "letters__general",
-            setClassNamefather: content__txt__general
-        }, (nodes) => {
-            txtNode_general_Ref.current = nodes;
-        });
-
-        if (!position) return;
-        postionGeneral_Ref.current = position;
-
-    }, []);
+ 
     useEffect(() => {
 
         const position = txtSplit({
@@ -177,7 +158,7 @@ export const AnimationLetters = () => {
 
       setStop = setTimeout(()=>{
         setcontrolTime({timer:500})
-      },2000)
+      },3500)
     
       return () => {
         clearTimeout(setStop)
@@ -186,31 +167,6 @@ export const AnimationLetters = () => {
     
 
     //--Animar letras
-    useEffect(() => {
-        let animateFrame: number;
-        let prevStamp = 0;
-        let times = 0;
-
-        const animate = (timestamp: number) => {
-
-            const delta = timestamp - prevStamp;
-            prevStamp = timestamp;
-            times += delta;
-
-            if (times > 500) {
-                AnimationElementsGeneral()
-
-                times = 0;
-            }
-            animateFrame = requestAnimationFrame(animate);
-        }
-        animateFrame = requestAnimationFrame(animate)
-
-        return () => {
-            cancelAnimationFrame(animateFrame)
-        }
-    }, [])
-
     useEffect(() => {
         let animateFrame: number;
         let prevStamp = 0;
@@ -252,7 +208,7 @@ export const AnimationLetters = () => {
             for (let i in postionHome_Ref.current) {
                 const num: number = Number(i);
 
-                if (postionHome_Ref.current[num].x > 3 || postionHome_Ref.current[num].y > 3 ||
+                if (postionHome_Ref.current[num].x > 5 || postionHome_Ref.current[num].y > 5 ||
                     postionHome_Ref.current[num].x < 0 || postionHome_Ref.current[num].y < 0
                 ) {
                     adjustPosition(postionHome_Ref.current[num])
@@ -266,8 +222,17 @@ export const AnimationLetters = () => {
 
             }
             if (control) {
-                cancelAnimationFrame(updatePosition)
+                cancelAnimationFrame(updatePosition);
                 updatePosition = 0;
+                setStyleStatic(txtNode_home_Ref.current!) ;
+
+                txtNode_home_Ref.current!.forEach((node,i)=>{
+
+                    node.style.transform = `translate(${0}px,${0}px)`
+                })
+
+
+
             }
             else { updatePosition = requestAnimationFrame(updatePosi); }
 
@@ -281,7 +246,7 @@ export const AnimationLetters = () => {
             if (updatePosition != 0) cancelAnimationFrame(updatePosition)
         }
 
-    }, [state.controlAnimation_letters, state.isScreenLock])
+    }, [state.controlAnimation_letters.home, state.isScreenLock])
     //---SKILL
     useEffect(() => {
         let updatePosition: number = 0;
@@ -296,7 +261,7 @@ export const AnimationLetters = () => {
         const updatePosi = () => {
             for (let i in postionSkill_Ref.current) {
                 const num: number = Number(i);
-                if (postionSkill_Ref.current[num].x > 3 || postionSkill_Ref.current[num].y > 3 ||
+                if (postionSkill_Ref.current[num].x > 5 || postionSkill_Ref.current[num].y > 5 ||
                     postionSkill_Ref.current[num].x < 0 || postionSkill_Ref.current[num].y < 0
                 ) {
                     adjustPosition(postionSkill_Ref.current[num])
@@ -308,14 +273,21 @@ export const AnimationLetters = () => {
 
             }
             if (control) {
-                cancelAnimationFrame(updatePosition)
+                cancelAnimationFrame(updatePosition);
+                setStyleStatic(txtNode_skill_Ref.current!)
                 updatePosition = 0;
+                txtNode_skill_Ref.current!.forEach((node)=>{
+
+                    node.style.transform = `translate(${0}px,${0}px)`
+                })
+
             }
             else { updatePosition = requestAnimationFrame(updatePosi); }
 
         }
 
-        if (!state.controlAnimation_letters.skill) {
+        //---START
+        if (!state.controlAnimation_letters.skill || !state.controlAnimation_letters.expertise) {
             updatePosition = requestAnimationFrame(updatePosi);
         }
 
@@ -323,7 +295,7 @@ export const AnimationLetters = () => {
             if (updatePosition != 0) cancelAnimationFrame(updatePosition)
         }
 
-    }, [state.controlAnimation_letters, state.isScreenLock])
+    }, [state.controlAnimation_letters.skill,state.controlAnimation_letters.expertise, state.isScreenLock])
     //---PROJECT
     useEffect(() => {
         let updatePosition: number = 0;
@@ -338,7 +310,7 @@ export const AnimationLetters = () => {
         const updatePosi = () => {
             for (let i in postionProject_Ref.current) {
                 const num: number = Number(i);
-                if (postionProject_Ref.current[num].x > 3 || postionProject_Ref.current[num].y > 3 ||
+                if (postionProject_Ref.current[num].x > 5 || postionProject_Ref.current[num].y > 5 ||
                     postionProject_Ref.current[num].x < 0 || postionProject_Ref.current[num].y < 0
                 ) {
                     adjustPosition(postionProject_Ref.current[num])
@@ -351,7 +323,13 @@ export const AnimationLetters = () => {
             }
             if (control) {
                 cancelAnimationFrame(updatePosition)
+                setStyleStatic(txtNode_project_Ref.current!)
                 updatePosition = 0;
+                txtNode_project_Ref.current!.forEach((node)=>{
+
+                    node.style.transform = `translate(${0}px,${0}px)`
+                })
+
             }
             else { updatePosition = requestAnimationFrame(updatePosi); }
 
@@ -365,7 +343,7 @@ export const AnimationLetters = () => {
             if (updatePosition != 0) cancelAnimationFrame(updatePosition)
         }
 
-    }, [state.controlAnimation_letters, state.isScreenLock])
+    }, [state.controlAnimation_letters.project, state.isScreenLock])
     //---CONTACT
     useEffect(() => {
         let updatePosition: number = 0;
@@ -380,7 +358,7 @@ export const AnimationLetters = () => {
         const updatePosi = () => {
             for (let i in postionContact_Ref.current) {
                 const num: number = Number(i);
-                if (postionContact_Ref.current[num].x > 3 || postionContact_Ref.current[num].y > 3 ||
+                if (postionContact_Ref.current[num].x > 5 || postionContact_Ref.current[num].y > 5 ||
                     postionContact_Ref.current[num].x < 0 || postionContact_Ref.current[num].y < 0
                 ) {
                     adjustPosition(postionContact_Ref.current[num])
@@ -392,8 +370,14 @@ export const AnimationLetters = () => {
 
             }
             if (control) {
+
                 cancelAnimationFrame(updatePosition)
                 updatePosition = 0;
+                setStyleStatic(txtNode_contact_Ref.current!)
+                txtNode_contact_Ref.current!.forEach((node)=>{
+
+                    node.style.transform = `translate(${0}px,${0}px)`
+                })
             }
             else { updatePosition = requestAnimationFrame(updatePosi); }
 
@@ -407,12 +391,11 @@ export const AnimationLetters = () => {
             if (updatePosition != 0) cancelAnimationFrame(updatePosition)
         }
 
-    }, [state.controlAnimation_letters, state.isScreenLock])
-
+    }, [state.controlAnimation_letters.contact, state.isScreenLock])
     //---SET STYLE WHEN IS ACTIVE VIEW
     useEffect(() => {
           
-        const {home,skill,project,contact} = state.controlAnimation_letters;
+        const {home,skill,project,contact,expertise} = state.controlAnimation_letters;
         if(state.isScreenLock){
              setStyleNoStatic(txtNode_home_Ref.current!)
              setStyleNoStatic(txtNode_skill_Ref.current!)
@@ -420,33 +403,33 @@ export const AnimationLetters = () => {
              setStyleNoStatic(txtNode_contact_Ref.current!)
       
         }else{   
-            !home ? setStyleStatic(txtNode_home_Ref.current!) :setStyleNoStatic(txtNode_home_Ref.current!)
-            !skill ? setStyleStatic(txtNode_skill_Ref.current!): setStyleNoStatic(txtNode_skill_Ref.current!)
-            !project ? setStyleStatic(txtNode_project_Ref.current!): setStyleNoStatic(txtNode_project_Ref.current!)
-            !contact ? setStyleStatic(txtNode_contact_Ref.current!): setStyleNoStatic(txtNode_contact_Ref.current!)
+            home && setStyleNoStatic(txtNode_home_Ref.current!);
+            if(skill && expertise){setStyleNoStatic(txtNode_skill_Ref.current!)}
+            project && setStyleNoStatic(txtNode_project_Ref.current!);
+            contact && setStyleNoStatic(txtNode_contact_Ref.current!);
         }
  
     }, [state.controlAnimation_letters, state.isScreenLock])
     
 
     //---SET STYLE LIGHT WHEN IS PAGE IS LIGHT
-    // useEffect(() => {
+    useEffect(() => {
       
-    //     if(state.isThemeBlack){
-    //         setActiveNotLight(txtNode_home_Ref.current!)
-    //         setActiveNotLight(txtNode_skill_Ref.current!)
-    //         setActiveNotLight(txtNode_project_Ref.current!)
-    //         setActiveNotLight(txtNode_contact_Ref.current!)
+        if(!state.isScreenLock){
+            setActiveNotLight(txtNode_home_Ref.current!)
+            setActiveNotLight(txtNode_skill_Ref.current!)
+            setActiveNotLight(txtNode_project_Ref.current!)
+            setActiveNotLight(txtNode_contact_Ref.current!)
 
-    //     }else{
+        }else{
             
-    //         setActiveLight(txtNode_home_Ref.current!)
-    //         setActiveLight(txtNode_skill_Ref.current!)
-    //         setActiveLight(txtNode_project_Ref.current!)
-    //         setActiveLight(txtNode_contact_Ref.current!)
+            setActiveLight(txtNode_home_Ref.current!)
+            setActiveLight(txtNode_skill_Ref.current!)
+            setActiveLight(txtNode_project_Ref.current!)
+            setActiveLight(txtNode_contact_Ref.current!)
             
-    //     }
-    // }, [state.isThemeBlack])
+        }
+    }, [state.isScreenLock])
     
 
     //---ACTUALIZAR DIRECCION

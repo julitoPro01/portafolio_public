@@ -10,7 +10,7 @@ export const Expertise = () => {
             <div>
 
                 <div className="container-md  content__body" >
-                    <div className="row  ms-sm-0 ms-5 ps-sm-0 ps-2  content__child ">
+                    <div className="row  ms-sm-0 ms-5 pt-0 pt-md-5 mt-md-5 mt-0 ps-sm-0 ps-2  content__child ">
 
                         <div className="row col-12 col-lg-4 col-md-6 col-sm-10  p-2 m-0  child__web">
                             <div className="child_icon p-0" >

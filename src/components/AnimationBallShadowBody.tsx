@@ -12,7 +12,7 @@ export const AnimationBallShadowBody = memo(({ style_prop }: Props) => {
     const contentBallRed = useRef<HTMLDivElement>(null);
 
     const { state } = useContext(ThemeContext);
-    const [numLight, setnumLight] = useState({ num: 0.8, stopNum: 0})
+    const [numLight, setnumLight] = useState({ num: 0.8, stopNum: 0 })
 
     const wallpaper = useMemo(() => contentBallRed.current?.querySelector('.wallpaper') as HTMLDivElement,
         [contentBallRed.current]);
@@ -21,11 +21,11 @@ export const AnimationBallShadowBody = memo(({ style_prop }: Props) => {
         [contentBallRed.current]);
 
 
-    const handleMoveCircle = (target: HTMLDivElement, wallpaper: string, light: number,ballLight:number) => {
+    const handleMoveCircle = (target: HTMLDivElement, wallpaper: string, light: number, ballLight: number) => {
         target.style.backgroundImage = `
         radial-gradient(
         circle at ${style_prop.x}px ${style_prop.y}px ,
-        rgba(255, 255, 255, 0.145) 25px, rgba(0, 0, 0, ${light}) 50px
+        rgba(255, 255, 255, 0) 25px, rgba(0, 0, 0, ${light}) 50px
          ), url(${wallpaper})`
     }
 
@@ -46,7 +46,7 @@ export const AnimationBallShadowBody = memo(({ style_prop }: Props) => {
         const target = wallpaper as HTMLDivElement;
         if (!target) return;
         if (!state.isThemeBlack) return;
-        handleMoveCircle(target, img_wallpaper, numLight.num,0.145)
+        handleMoveCircle(target, img_wallpaper, numLight.num, 0.145)
     }, [style_prop])
 
     //----SET THE THEME (LIGHT | NIGHT)
@@ -109,12 +109,11 @@ export const AnimationBallShadowBody = memo(({ style_prop }: Props) => {
         if (numLight.num > 0.8)
             setStaticNumLight(0.8, numLight.stopNum)
 
-        if(state.isThemeBlack  ){
-
-            handleMoveCircle(wallpaper, img_wallpaper, numLight.num,0.145)
+        if (state.isThemeBlack) {
+            handleMoveCircle(wallpaper, img_wallpaper, numLight.num, 0.145)
         }
-        else{
-            handleMoveCircle(wallpaper, img_wallpaper, numLight.num,0)
+        else {
+            handleMoveCircle(wallpaper, img_wallpaper, numLight.num, 0)
         }
     }, [numLight.num])
 
@@ -122,53 +121,25 @@ export const AnimationBallShadowBody = memo(({ style_prop }: Props) => {
 
         if (!wallpaper) return;
         if (state.isScreenLock) {
-            wallpaper.style.filter = `invert(0) grayscale(${1})`;
-            capa_wallpaper.style.display='none'
+            wallpaper.style.filter = ` grayscale(${1}) brightness(100%) hue-rotate(0)`;
         } else {
-            wallpaper.style.filter = `invert(0) grayscale(${0})`;
-            capa_wallpaper.style.display='block'
-            // wallpaper.style.mixBlendMode="multiply";
+            // wallpaper.style.filter = ` grayscale(${'50%'}) brightness(150%) hue-rotate(110deg) `;
+            wallpaper.style.filter = ` grayscale(${'50%'}) brightness(100%) hue-rotate(110deg) `;
         }
 
     }, [state.isScreenLock])
 
     useEffect(() => {
 
-        if(!capa_wallpaper) return;
-        if(!state.controlAnimation_letters.project){
-        //    capa_wallpaper.style.backgroundColor="rgb(14, 34, 60)";
-        }else{
+        if (!capa_wallpaper) return;
+        if (!state.controlAnimation_letters.project) {
+        } else {
 
-           capa_wallpaper.style.backgroundColor="rgba(14,34,60,0)";
-   
+            capa_wallpaper.style.backgroundColor = "rgba(14,34,60,0)";
+
         }
-      
+
     }, [state.controlAnimation_letters.project])
-    
-
-    // useEffect(() => {
-    //   let clear:number=0;
-    //   if(state.isScreenLock) return
-    //   if(!wallpaper) return;
-
-    //   if(!state.controlAnimation_letters.project){
-    //       if(!state.isThemeBlack){
-    //           if (clear !=0) clearInterval(clear);
-    //         //   clear = updateNumLight(+1);
-    //         }
-    //     console.log('project')
-    //     handleMoveCircle(wallpaper, img_wallpaper, 0.8,0)
-           
-    //         // wallpaper.style.filter = `invert(0) grayscale(${1})`;
-    //         console.log(state.isThemeBlack)
-    //         setnumLight(val => ({ ...val, stopNum: clear }));
-    //     }
-        
-    //     return () => {
-    //         if (clear !=0) clearInterval(clear)
-    //     }
-    // }, [state.controlAnimation_letters.project])
-    
 
 
     return (
@@ -180,8 +151,10 @@ export const AnimationBallShadowBody = memo(({ style_prop }: Props) => {
             <div className="wallpaper" >
 
             </div>
-            <div className="capa_wallpaper" >
-
+            <div className="capa_wallpaper">
+                <div className="spinner-grow" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                </div>
             </div>
         </div>
     )

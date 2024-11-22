@@ -8,8 +8,8 @@
     display: flex;
     flex-wrap: wrap;
     z-index: 100;
-    width: 100%;
-    background-color: #0f172a48;
+    /* width: 100%; */
+    /* background-color: #0f172a48; */
 }
 
 .content-theme-background button {
@@ -45,6 +45,7 @@
 
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
+
 }
 
 

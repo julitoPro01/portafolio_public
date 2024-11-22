@@ -86,9 +86,8 @@
     align-items: center;
     font-family: "Sofadi One", system-ui;
     font-weight: 400;
-    font-style: normal;
     color: #90D899;
-    /* color: #90D899; */
+    text-shadow: 1px 1px 1px rgb(1, 48, 4);
 }
 
 /* ////.-------------------------- */

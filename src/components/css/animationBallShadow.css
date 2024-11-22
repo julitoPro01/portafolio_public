@@ -11,25 +11,44 @@
     left: 0;
     top: 0;
     overflow: hidden;
-    /* animation: welcome .5s ease-in-out 1; */
-    /* background-color: rgb(3, 32, 32); */
 
-
+color: aquamarine;
 }
 
 .animation_ball_shadow
 .capa_wallpaper{
-    position: relative;
-    z-index: 1;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 111;
     width: 100%;
     height: 100%;
-    /* background-color: rgb(47, 9, 19,1); */
-    /* background:radial-gradient(
-        circle at 50% 50%,
-        rgb(48, 104, 98) , rgb(56, 97, 89),rgb(15, 41, 43), black
-    ) ; */
-    transition: background-color .3s linear;
-    display: none;
+    background-color: black;
+    transition: background-color .2s linear;
+    animation: loading 5s linear 1 forwards;
+}
+
+@keyframes loading {
+    0%{
+    background-color: black;
+        
+    }
+    20%{
+        background-color: black;
+
+    }
+    80%{
+        background-color: black;
+
+    }
+    90%{
+    background-color: rgba(0, 0, 0, 0);
+    }
+    100%{
+    background-color: rgba(0, 0, 0, 0);
+        display: none;
+    }
 }
 
 .animation_ball_shadow
@@ -37,8 +56,8 @@
 
   background-image: 
     radial-gradient(
-        circle at 50% 5% ,
-        rgba(255, 255, 255, 0.145) 50px, rgba(0, 0, 0, 0.8) 100px
+        circle at 3% 3% ,
+        rgba(255, 255, 255, 0.145) 30px, rgba(0, 0, 0, 0.8) 70px
     ), url(../../assets/fondodepantalla03.png); 
 
     background-position: center;
@@ -53,8 +72,7 @@
     display: flex;
     align-items: end;
     justify-content: center;
-    /* mix-blend-mode: multiply */
-    transition: filter 1s linear,mix-Blend-Mode 1s linear;
+    transition: filter .3s linear,mix-Blend-Mode 1s linear;
     filter: invert(0) grayscale(1) ;
 }
 

@@ -1,11 +1,10 @@
-import { Children, cloneElement, isValidElement, MouseEvent, ReactElement, useCallback, useContext, useEffect, useRef, useState } from "react";
-import { LockScreen, AnimationFillterTheme, AnimationLetters, type_uidElement, AnimationBallShadowBody } from "../components";
+import { Children, cloneElement, isValidElement, MouseEvent, ReactElement, useContext, useEffect, useRef, useState } from "react";
+import { LockScreen, AnimationLetters, type_uidElement, AnimationBallShadowBody } from "../components";
 import { ThemeContext } from "../context/UserThemeContext";
 import { className_theme } from "../style/className";
 
 const { icon__changeTheme__light,
     icon__changeTheme__night,
-    content__animationTheme_light
 } = className_theme;
 
 export const AppLayout = ({ children }: any) => {
@@ -16,7 +15,6 @@ export const AppLayout = ({ children }: any) => {
 
     const nodeLayout = useRef<HTMLDivElement>(null);
 
-    const nodeFilter = useRef<HTMLDivElement>(null);
 
     const nodeAppMainRef = useRef<HTMLDivElement>(null);
 
@@ -73,13 +71,13 @@ export const AppLayout = ({ children }: any) => {
     
 
     return (
-        <div className=" p-0 App-layout" >
+        <div className="container-md p-0 App-layout" >
             <div className="content-app-layout"
                 onMouseMove={handleMove}
                 ref={nodeLayout}
             >
                 
-                {/* <AnimationLetters /> */}
+                 <AnimationLetters /> 
                 {/* {
                     state.isScreenLock 
                     ? <AnimationBallShadow style_prop={style_prop} />
@@ -90,7 +88,7 @@ export const AppLayout = ({ children }: any) => {
                     {/* <AnimationFillterTheme nodeFilter={nodeFilter} /> */}
                     <LockScreen />
 
-                <div className=" content__appMain" style={{
+                <div className=" content__appMain " style={{
                     opacity:state.isScreenLock ?0:1,
                 } } ref={nodeAppMainRef}
                 onTransitionEnd={(e)=>{

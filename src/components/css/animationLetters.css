@@ -18,11 +18,11 @@
   display: flex;  
   flex-wrap: nowrap;
   position: absolute;
-  top: 10px;
+  top:100px;
   width: 100%;
   align-items: center;
   justify-content: center;
-  color: red;
+  /* color: rgb(227, 78, 19); */
 }
 .content_animation_letters .content__txt__skill{
   display: flex;  
@@ -30,8 +30,9 @@
   position: absolute;
   width: 100%;
   top: 20px;
-  justify-content: center;
-  color: white;
+  right: 40px;
+  justify-content: end;
+  /* color: rgb(227, 78, 19); */
 }
 
 .content_animation_letters .content__txt__project
@@ -40,9 +41,10 @@
   flex-wrap: nowrap;
   position: absolute;
   width: 100%;
+  top: 10px;
   justify-content: end;
   right: 40px;
-  color: yellow;
+  /* color: rgb(227, 78, 19); */
 }
 
 
@@ -51,10 +53,9 @@
   display: flex;  
   flex-wrap: nowrap;
   position: absolute;
-  top: 40px;
+  top: 100px;
   width: 100%;
   justify-content: center;
-  color: blue;
 }
 
 .content_animation_letters p {
@@ -62,13 +63,11 @@
     margin: 0;
     top: 0;
     left: 0;
-    /* color: black; */
     transition: transform 0.55s linear;
     font-family: "Sofadi One", system-ui;
     will-change: transform;
-    position: relative;
-    animation: isShow 3s ease 1;
-    
+    position: relative;    
+    color: rgb(241, 28, 28);
   }
 
   @keyframes isShow {
@@ -85,7 +84,7 @@
   
   .content_animation_letters p .span_visibility{
     position: absolute;
-    font-size: 5vw;
+    font-size: 3vw;
     animation: trans ease-out 1s infinite;
     transition: font-size ease 5s, opacity ease 5s, color ease 2s;
     top: 0;
@@ -93,8 +92,9 @@
 }
 
 .content_animation_letters p .span_hidden{
-  font-size: 5vw;
+  font-size: 6vw;
   color: transparent;
+
 }
 
 @keyframes trans {
@@ -117,19 +117,68 @@
 
 .changeStyle01{
     font-size: 1vw !important;
-    opacity:0 
+    opacity:0.5 
+
   }
   
-  .changeStyle02{
-    font-size: 5vw !important;
-    opacity:1 
-  }
 
-.isActiveStyle{
-  color:#CD2B40 !important;
+  .isActiveStyle{
+    color:rgb(231, 237, 239) ;
+    text-shadow: 3px 1px 1px rgb(13, 65, 73);
+    font-size: 6vw !important;
+    animation: trans ease-out 1s 1 !important;
+    transition: font-size ease 1s, opacity ease 5s, color ease 2s !important; 
+    
 }
 
 .isThemeLight{
-  color: #CD2B40;
+  color: gray !important;
 }
 
+@keyframes shower {
+  0%{
+    scale: 100%;
+  }
+  40%{
+    scale: 140%;
+  }
+  50%{
+    scale: 0%;
+  }
+  80%{
+    scale: 0%;
+  }
+  90%{
+    scale: 140%;
+
+  }
+  100%{
+    scale:100%;
+    z-index: 1;
+
+  }
+}
+
+@keyframes shower02 {
+  0%{
+    scale: 100%;
+    z-index: 1;
+
+  }
+  15%{
+    scale: 50%;
+    z-index: 1;
+
+  }
+  30%{
+    scale: 0%;
+  }
+  60%{
+    scale: 0%;
+
+  }
+
+  100%{
+    scale:100%;
+  }
+}

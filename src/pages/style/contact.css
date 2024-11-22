@@ -7,8 +7,8 @@
 
 .content__contact .title {
 
-    background: linear-gradient(45deg, #f4f5f6, #0a1e1e, #CD2B40,
-    #FDD3BB, #550A31, #dbd5d3);
+    background: linear-gradient(45deg, #f4f5f6, #0a1e1e, #777c0c,
+    #fcfafa, #021507, #dbd5d3);
     border-radius: 10px;
     background-size: 600% 600%;
     animation: backgroundMove 5s infinite;
@@ -18,25 +18,24 @@
 @keyframes backgroundMove {
     0% {
         background-position: 0% 0%;
-        box-shadow: 5px 0px 10px #CD2B40;
+        box-shadow: 5px 0px 10px #c0cd2b;
 
     }
 
     40% {
         background-position: 50% 100%;
-        box-shadow: 5px 0px 10px #550A31;
+        box-shadow: 5px 0px 10px #8e9a0e;
     }
 
     60% {
         background-position: 100% 100%;
-        box-shadow: 5px 0px 10px #CD2B40;
+        box-shadow: 5px 0px 10px #1f2404;
     }
 
-    
 
     100% {
         background-position: 0% 0%;
-        box-shadow: 5px 0px 10px #CD2B40;
+        box-shadow: 5px 0px 10px #94cd2b;
     }
 }
 
@@ -52,8 +51,8 @@
 .content__contact .__btn span {
     font-weight: bolder;
 
-    background: linear-gradient(270deg,  #f4f5f6, #e0dfcc, #CD2B40,
-    #FDD3BB, #550A31, #dbd5d3);
+    background: linear-gradient(270deg,  #f4f5f6, #e0dfcc, #0f0103,
+    #17d4e9, #29550a, #dbd5d3);
     background-size: 600% 600%;
     color: transparent;
     background-clip: text;

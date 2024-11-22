@@ -3,21 +3,26 @@ import { AppLayout } from "../layout/AppLayout"
 import { ThemeContextProvider } from "../context/UserThemeContext"
 import { AsideBar } from "../components"
 import { FC } from "react"
+import { UserDataContext } from "../context/UserDataContext"
 
-export const AppRouter:FC = () => {
+export const AppRouter: FC = () => {
 
     return (
-            <ThemeContextProvider>
+        <ThemeContextProvider>
+            <UserDataContext>
+
                 <AppLayout>
 
-                    <Home/>
-                    {/* <Skils/> */}
-                    <Expertise/>
-                    <Project/>
-                    <Contact/>
-                    
-                    <AsideBar/>
+                    <Home />
+                    <Skils />
+                    <Expertise />
+                    <Project />
+                    <Contact />
+
+                    <AsideBar />
                 </AppLayout>
-            </ThemeContextProvider>
+                
+            </UserDataContext>
+        </ThemeContextProvider>
     )
 }

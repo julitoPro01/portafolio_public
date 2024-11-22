@@ -17,7 +17,7 @@ export const IconAsideBar = ({ Props }: { Props: IconsProps }) => {
     return (
             <li key={value.href} >
                 <a className="bg-primary" href={`#${value.href}`} onClick={() => onGetPosition()}>
-                    <p className={`fs-3 m-1 ${i == 0 && 'active'}`}>
+                    <p className={`fs-3 my-1 ${i == 0 && 'active'}`}>
                        
                         <i className={`${value.icon} pt-1`}></i>
                     </p>

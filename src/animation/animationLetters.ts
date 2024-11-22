@@ -134,10 +134,14 @@ export const animationLetters = (contentRef: RefObject<HTMLDivElement>) => {
     }
 
     const adjustPosition = (position: Posi) => {
-        if (position.x > 3) position.x -= 2;
-        if (position.y > 3) position.y -= 2;
-        if (position.x < 0) position.x += 2;
-        if (position.y < 0) position.y += 2;
+        if (position.x > 5) position.x -= 5
+        //  else position.x = 0 ;
+        if (position.y > 5) position.y -= 5
+        // else position.y =0;
+        if (position.x < 0) position.x += 5;
+        // else position.x =0;
+        if (position.y < 0) position.y += 5;
+        // else position.y=0;
     };
 
     /// 
@@ -164,8 +168,12 @@ export const setStyleLetters = () => {
             if (span.classList.contains('changeStyle01')) {
                 span.classList.toggle('changeStyle01');
             }
-            if (!span.classList.contains('isActiveStyle'))
+            if (!span.classList.contains('isActiveStyle')){
                 span.classList.toggle('isActiveStyle')
+                
+                node.style.animation="";
+                node.style.animation="shower 1s linear 1 forwards "
+            }
         });
     }
 
@@ -174,6 +182,8 @@ export const setStyleLetters = () => {
             const span = node.querySelector('.span_visibility') as HTMLSpanElement;
             if (span.classList.contains('isActiveStyle')) {
                 span.classList.toggle('isActiveStyle');
+                node.style.animation="";
+                node.style.animation="shower02 1s linear 1 forwards"
             }
 
         });

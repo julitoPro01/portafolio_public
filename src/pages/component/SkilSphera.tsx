@@ -37,8 +37,11 @@ export const animationPointsRotation=(contentBodyRef:RefObject<HTMLDivElement>,c
                   let z = num.z < 0 ? (num.z - 100) : (num.z + 150)
                   points[i].style.transform = `translate3d(${num.x}px, ${num.y}px, ${z}px)`
                   points[i].style.zIndex = Math.floor(num.z).toString();
-                  points[i].style.transition = "all .5s linear"
-        
+                  // points[i].style.transition = "all .5s linear"
+                  if(z<0)
+                  points[i].style.color="rgba(255,255,255,.7)"
+                else
+                points[i].style.color="white"
                 })
         
                 angleRef.current.angleX = (angleX + 10) % 360;
@@ -54,8 +57,10 @@ export const animationPointsRotation=(contentBodyRef:RefObject<HTMLDivElement>,c
                   let z = num.z < 0 ? (num.z - 100) : (num.z+150)
                   points[i].style.transform = `translate3d(${num.x}px, ${num.y}px, ${z}px)`
                   points[i].style.zIndex = Math.floor(num.z).toString();
-                  points[i].style.transition = "all .5s linear"
-        
+                  if(z<0)
+                    points[i].style.color="rgba(100,100,50,1)"
+                  else
+                  points[i].style.color="gray"        
                 })
         
           }
@@ -72,16 +77,15 @@ export const animationPointsRotation=(contentBodyRef:RefObject<HTMLDivElement>,c
         contentPlatform = target.querySelector('.platform') as HTMLDivElement;
         pointsCopy = contentPlatform.querySelectorAll('.point__copy') as NodeListOf<HTMLDivElement>;
           
-    }, [contentBodyRef.current])
+    }, [contentBodyRef.current,cords])
           
 
 
   useEffect(() => {
     let animationFrameId: number=0;
-    let clearTimeOut: number;
+    let clearTimeOut: ReturnType<typeof setTimeout>;
     let previousTime = 0;
     let elapsed = 0
-
     
     if (!contentPoint) return;
     if (!points.length) return;
@@ -93,16 +97,16 @@ export const animationPointsRotation=(contentBodyRef:RefObject<HTMLDivElement>,c
 
       elapsed += delta;
 
-      if (elapsed >= 200) {
+      if (elapsed >= 500) {
 
         // TODO: ANIMATION ELEMENT POINT
         updatePointRotation(points)
         updatePointCopyRotation(pointsCopy)
         
         elapsed = 0;
-
+        
       }
-
+      
       animationFrameId = requestAnimationFrame(animateRotate)
     }
 
@@ -124,17 +128,17 @@ export const animationPointsRotation=(contentBodyRef:RefObject<HTMLDivElement>,c
     const startAnimate = () => {
       animationFrameId = requestAnimationFrame(animateRotate)
     }
-
+    
     
     content_appMain.addEventListener("scroll", stopAnimate)
-
+    
     if(!state.controlAnimation_letters.skill){
-
+      
       startAnimate()
     }else{
-   
+      
       if(animationFrameId!==0) {
-
+        
         cancelAnimationFrame(animationFrameId)
       } 
     }
@@ -145,7 +149,7 @@ export const animationPointsRotation=(contentBodyRef:RefObject<HTMLDivElement>,c
       cancelAnimationFrame(animationFrameId)
       animationFrameId=0;
     }
-  }, [cords,state.controlAnimation_letters])
+  }, [cords,state.controlAnimation_letters.skill])
         
     }
         
