@@ -1,30 +1,16 @@
+import { useContext, memo, useEffect, useState } from "react"
 import { UidNodePage } from "./UidPageNode"
 
 import { ItemCard } from "./component/ProjectCarrucel"
 import { SpaceHight } from "./component/Space"
+import { DataContext } from "../context/UserDataContext"
 
-export const Project = () => {
+export const Project =memo( () => {
 
-  // const itemRef = useRef<HTMLUListElement>(null);
-  // const itemPreviousRef = useRef<HTMLLIElement>();
+  const {state} = useContext(DataContext);
 
 
-  // const onClickItem = (param: ProjectModel) => {
-
-  //   const itemTarget = itemRef.current as HTMLUListElement;
-  //   const itemTargetLi = itemTarget.querySelector(`[data-set=${param.title + param.id}]`) as HTMLLIElement;
-
-  //   if (!itemPreviousRef.current)
-  //     itemPreviousRef.current = itemTarget.querySelector('li') as HTMLLIElement;
-
-  //   if (itemTargetLi === itemPreviousRef.current) return;
-
-  //   itemTargetLi.classList.toggle('active');
-  //   itemPreviousRef.current!.classList.toggle('active');
-
-  //   itemPreviousRef.current = itemTargetLi;
-
-  // }
+  
 
   return (
     <div className=" content__body__project" id={UidNodePage.project}>
@@ -32,9 +18,10 @@ export const Project = () => {
         <SpaceHight/>
         <LayoutProject>
           {
-            'dos'.split('').map(val=>(
+            state.stateProject.length>0 &&
+            state.stateProject.map(item=>(
 
-              <ItemCard key={val} />
+              <ItemCard key={item.id} item={item} />
             ))
           }
         </LayoutProject>
@@ -43,7 +30,7 @@ export const Project = () => {
       </div>
     </div>
   )
-}
+})
 
 
 

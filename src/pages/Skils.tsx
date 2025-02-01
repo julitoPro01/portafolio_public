@@ -1,12 +1,10 @@
-import { memo, useContext, useEffect, useLayoutEffect, useRef, useState } from "react"
+import { memo, useContext, useEffect, useRef, useState } from "react"
 
 import { UidNodePage } from "./UidPageNode";
 import { getCords_sphere} from "./component/geometryUtils";
-import { animationPointsRotation, updateSizeNode } from "./component/SkilSphera";
+import { animationPointsRotation } from "./component/SkilSphera";
 import { DataContext } from '../context/UserDataContext';
 import { StateDataSkills } from "../context/UserDataType";
-
-let Node_contentSphere: HTMLDivElement;
 
 export const Skils = memo(() => {
 
@@ -15,30 +13,8 @@ export const Skils = memo(() => {
   const [value, setvalue] = useState<StateDataSkills[]>([])
 
   const cords = getCords_sphere(value.length + 1, 100);
-  // const cords = getCords_sphere(value.length, 100);
  animationPointsRotation(contentBodyRef,cords);
 
-  useLayoutEffect(() => {
-
-    if (!contentBodyRef.current) return;
-    const { width } = contentBodyRef.current?.getBoundingClientRect()!;
-    Node_contentSphere = contentBodyRef.current.querySelector('.content__sphere__content') as HTMLDivElement;
-    updateSizeNode(width, Node_contentSphere)
-
-  }, []);
-
-  useEffect(() => {
-    const target = contentBodyRef.current as HTMLDivElement;
-
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
-        const width = entry.contentRect.width;
-         updateSizeNode(width, Node_contentSphere)
-      }
-
-    });
-    resizeObserver.observe(target);
-  }, []);
 
   useEffect(() => {
     
@@ -46,7 +22,6 @@ export const Skils = memo(() => {
   
   }, [state.stateSkills])
   
-
   return (
     <div className=" content__skil__body" ref={contentBodyRef}
       id={UidNodePage.skil} >
@@ -57,7 +32,6 @@ export const Skils = memo(() => {
               <div key={val.name+i} className="point" >{val.name}</div>
             ))
           }
-    
         </div>
 
         <div className="content__platform">
@@ -74,10 +48,14 @@ export const Skils = memo(() => {
           {/* SKILS */}
       <div className="skils">
           <ul className=" skil_name">
+          <span className="ms-4 fs-6 --title">Experiencias</span>
+
             {
               value.map((val,i)=>{
                 if(val.percentage)
-                return  <li key={val.color+i}> <p style={{color:val.color}}> {val.name} <span 
+                return  <li key={val.color+i}>
+                   <p className="mt-1" style={{color:val.color}}> {val.name}
+                     <span 
                   style={{
                     background:val.color,width:val.percentage+'%'
                   }}
@@ -86,8 +64,10 @@ export const Skils = memo(() => {
             }
 
           </ul>
-      </div>
-
+      </div >
+            <p className="--footer" >
+              "Lenguajes y tecnologías con los que he trabajado, algunos con mayor experiencia y otros explorados a nivel básico."
+            </p>
     </div>
   )
 })

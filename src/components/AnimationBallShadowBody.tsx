@@ -71,36 +71,6 @@ export const AnimationBallShadowBody = memo(({ style_prop }: Props) => {
 
     }, [state.isThemeBlack,]);
 
-    //DOTO::
-    // useEffect(() => {
-    //     let clear;
-    //     if (!wallpaper) return;
-
-    //     if (state.isThemeBlack) {
-    //         if (clear) clearInterval(clear);
-    //         clear = updateNumLight(+1);
-
-    //     } else {
-    //         if (clear) clearInterval(clear);
-    //         clear = updateNumLight(-1);
-    //     }
-
-    //     if(!state.isThemeBlack && !state.controlAnimation_letters.project && !state.isScreenLock ){
-    //         if (clear) clearInterval(clear);
-    //         clear = updateNumLight(+1);
-    //     }else if(!state.isThemeBlack && state.controlAnimation_letters.project && !state.isScreenLock ){
-    //         if (clear) clearInterval(clear);
-    //         clear = updateNumLight(-1);
-    //     }
-
-    //     setnumLight(val => ({ ...val, stopNum: clear }));
-
-    //     return () => {
-    //         if (clear) clearInterval(clear)
-    //     }
-
-    // }, [state.isThemeBlack,state.controlAnimation_letters.project]);
-
     //----UPDATE THE NUM THEME 
     useEffect(() => {
         if (!wallpaper) return;
@@ -123,8 +93,7 @@ export const AnimationBallShadowBody = memo(({ style_prop }: Props) => {
         if (state.isScreenLock) {
             wallpaper.style.filter = ` grayscale(${1}) brightness(100%) hue-rotate(0)`;
         } else {
-            // wallpaper.style.filter = ` grayscale(${'50%'}) brightness(150%) hue-rotate(110deg) `;
-            wallpaper.style.filter = ` grayscale(${'50%'}) brightness(100%) hue-rotate(110deg) `;
+            wallpaper.style.filter = ` grayscale(${'50%'}) brightness(100%) hue-rotate(200deg) `;
         }
 
     }, [state.isScreenLock])

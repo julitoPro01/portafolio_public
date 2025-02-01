@@ -47,6 +47,8 @@ export const ThemeContextProvider = ({ children }: { children: any }) => {
         dispatch({type,payload:{...state}})
     }
 
+    
+
     return (
         <ThemeContext.Provider value={{
             state,
