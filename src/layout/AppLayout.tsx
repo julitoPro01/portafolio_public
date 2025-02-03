@@ -18,7 +18,7 @@ export const AppLayout = ({ children }: any) => {
 
     const nodeAppMainRef = useRef<HTMLDivElement>(null);
 
-    const { state, dispatch_ThemeLight, dispatch_ThemeNight,dispatch_ThemeAnimationStart,
+    const { state, dispatch_ThemeLight, dispatch_ThemeNight,
         dispatch_ScreenLock
     }
         = useContext(ThemeContext);

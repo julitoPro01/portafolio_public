@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { getCords_sphere, PointCordsProps, rotateSphera } from '../pages/component/geometryUtils';
+import { PointCordsProps, rotateSphera } from '../pages/component/geometryUtils';
 
 
 export const updateSizeNode=(width:number,container:HTMLDivElement)=>{
@@ -23,14 +23,14 @@ export const updateSizeNode=(width:number,container:HTMLDivElement)=>{
     const angleRef= useRef({angleX:0.0,angleY:360});
     const pointRef = useRef<NodeListOf<Element>>();
      
-     const createPoint_elements = ({content, className_child,values}:CreatePoinElementProps) => {
+     const createPoint_elements = ({content, className_child}:CreatePoinElementProps) => {
          const cord02 = cords;
          let point;
-         cord02.forEach((num,i) => {
+         cord02.forEach((num) => {
              
              point = document.createElement('div');
              point.innerHTML = `<p class="ball">${0}</p>`
-            //  point.innerHTML = `<p class="ball">${values[i]}</p>`
+
              point.style.color = "red"
              point.style.transform = `translate3d(${num.x}px, ${num.y}px, ${num.z}px)`
              point.classList.add(className_child);

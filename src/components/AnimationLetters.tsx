@@ -5,7 +5,7 @@ import { tpye_uidElementViewLetter } from "./type";
 import { PropertyLetter } from "../context/UserType";
 
 const { content__txt__home, content__txt__skill,
-    content__txt__general, content__txt__project, content__txt__contact
+     content__txt__project, content__txt__contact
 } = tpye_uidElementViewLetter;
 
 export const AnimationLetters = () => {
@@ -226,7 +226,7 @@ export const AnimationLetters = () => {
                 updatePosition = 0;
                 setStyleStatic(txtNode_home_Ref.current!) ;
 
-                txtNode_home_Ref.current!.forEach((node,i)=>{
+                txtNode_home_Ref.current!.forEach((node)=>{
 
                     node.style.transform = `translate(${0}px,${0}px)`
                 })

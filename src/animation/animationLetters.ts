@@ -1,5 +1,4 @@
-import { RefObject, useRef } from "react";
-import { PropertyLetter } from "../context/UserType";
+import { RefObject } from "react";
 
 export type Posi = {
     x: number, y: number,
@@ -163,7 +162,7 @@ export const animationLetters = (contentRef: RefObject<HTMLDivElement>) => {
 export const setStyleLetters = () => {
     const setStyleStatic = (txts: NodeListOf<HTMLParagraphElement>) => {
 
-        txts.forEach((node, i) => {
+        txts.forEach((node) => {
             const span = node.querySelector('.span_visibility') as HTMLSpanElement;
             if (span.classList.contains('changeStyle01')) {
                 span.classList.toggle('changeStyle01');
@@ -178,7 +177,7 @@ export const setStyleLetters = () => {
     }
 
     const setStyleNoStatic = (txts: NodeListOf<HTMLParagraphElement>) => {
-        txts.forEach((node, i) => {
+        txts.forEach((node) => {
             const span = node.querySelector('.span_visibility') as HTMLSpanElement;
             if (span.classList.contains('isActiveStyle')) {
                 span.classList.toggle('isActiveStyle');
