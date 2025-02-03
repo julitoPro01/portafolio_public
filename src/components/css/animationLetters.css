@@ -64,7 +64,7 @@
     top: 0;
     left: 0;
     transition: transform 0.55s linear;
-    font-family: "Sofadi One", system-ui;
+    font-family: var(--fontSofadi), system-ui;
     will-change: transform;
     position: relative;    
     color: rgba(250, 252, 251, 0.463);

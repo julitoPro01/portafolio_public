@@ -1,5 +1,4 @@
-
-.content__skil__body{
+.content__skil__body {
   margin: 0;
   height: 100vh;
   width: 100%;
@@ -7,175 +6,205 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
+
   position: relative;
   overflow-x: hidden;
 
 }
 
+.content__skil__body .escena {
+  position: absolute;
+  transform-style: preserve-3d;
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.content__skil__body .content__sphere__content{
-  top: 100px;
-  position: relative;
+  .cubo {
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transform: rotateX(30deg) rotateY(30deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    animation: girar 10s infinite linear;
+
+    .cara {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 18px;
+      color: #90c5ed;
+      text-shadow: 0px 0px 5px rgba(144, 197, 237, 0.8);
+      box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.5);
+
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(144, 197, 237, 0.3);
+      transition: transform 1s ease-in-out;
+    }
+    
+    .cara::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      box-shadow: 0 0 15px rgba(144, 197, 237, 0.3);
+      z-index: -1;
+      background: linear-gradient(145deg, rgba(144, 197, 237, 0.1), rgba(255, 255, 255, 0.05));
+    }
+
+    .frente {
+      transform: translateZ(100px);
+
+      perspective: 500px;
+
+      .point {
+        position: absolute;
+        will-change: transform;
+        font-size: x-small;
+        text-shadow: 0px 0px 1px rgb(63, 139, 155);
+        transition: transform 1s linear, color 1s linear;
+        font-family: var(--fontSofadi), 'Courier New', Courier, monospace;
+      }
+    }
+
+    .atras {
+      transform: rotate3d(1, 0, 0, 180deg) translateZ(100px);
+      
+    }
+
+    .derecha {
+      transform: rotate3d(0, 1, 0, 90deg) translateZ(100px);
+      border-top: transparent;
+    }
+
+    .izquierda {
+      transform: rotate3d(0, 1, 0, -90deg) translateZ(100px);
+      border-top: transparent;
+
+    }
+
+    .arriba {
+      transform: rotate3d(1, 0, 0, 90deg) translateZ(100px);
+    }
+
+    .abajo {
+      transform: rotate3d(1, 0, 0, -90deg) translateZ(100px);
+    }
+  }
+
+}
+
+
+
+@keyframes animate_cubo {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
 }
 
 @media screen and (max-width:600px) {
-  .content__skil__body .content__sphere__content{
-    transform: scale(0.85,0.85);
+  .content__skil__body .content__sphere__content {
+    transform: scale(0.85, 0.85);
   }
 }
 
 @media screen and (max-width:500px) {
-  .content__skil__body .content__sphere__content{
-    transform: scale(0.8,0.8);
+  .content__skil__body .content__sphere__content {
+    transform: scale(0.8, 0.8);
   }
 }
 
 @media screen and (max-width:400px) {
-  .content__skil__body .content__sphere__content{
-    transform: scale(0.7,0.7);
+  .content__skil__body .content__sphere__content {
+    transform: scale(0.7, 0.7);
   }
 }
 
 @media screen and (max-width:300px) {
-  .content__skil__body .content__sphere__content{
-    transform: scale(0.6,0.6);
+  .content__skil__body .content__sphere__content {
+    transform: scale(0.6, 0.6);
   }
-}
-
-
-.content__sphere__content .content__point{
-  perspective: 499px; 
-  position: relative;
-  top: -50px;
-}
-
-
-.content__sphere__content .content__platform{
-  height: 300px;
-  perspective: 499px; 
-}
-
-
-.content__platform .platform{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  perspective: 499px; 
-
-  border-bottom: none;
-  box-shadow: 0px 7px 7px #16413d;
-  height: 500px;
-  left: -190px;
-  object-fit: cover;
-  overflow: hidden;
-  overflow: hidden;
-  position: absolute;
-  top: 10px;
-  transform-style: preserve-3d;
-  transform: rotate3d(1,0, 0, 90deg);
-  width: 400px;
-  z-index: -1;
-
-}
-
-
-.content__point .point,
-.platform .point__copy{
-  position: absolute;
-  will-change: transform;
-  color: #90c5ed;
-  font-size: x-small;
-  text-shadow: 1px 1px 1px black;
-  transition: transform 1s linear,color 1s linear;
-  font-family:var(--fontSofadi), 'Courier New', Courier, monospace;  
-  
-}
-.platform .point__copy{
-  filter: blur(.5px);
-  color: rgb(52, 72, 147);
-  font-family:var(--fontSofadi), 'Courier New', Courier, monospace;
-
-}
-
-.txt_back{
-  color: red !important;
 }
 
 /* --------------SKILS */
 
-.content__skil__body
-.skils{
+.content__skil__body .skils {
   position: absolute;
   left: 0px;
   bottom: 20px;
 }
 
-.skils
-.skil_name{
+.skils .skil_name {
   padding: 0;
 }
 
-.skils
-.skil_name li{
+.skils .skil_name li {
   width: 150px;
   position: relative;
 
-  border: 1px solid yellow;
   border-left: 0px;
   border-radius: 0 20px 20px 0;
   list-style: none;
   height: 10px;
   scale: 70%;
   margin-bottom: 15px;
-}
-.skils
-.skil_name li p{
-  border-radius: 0 20px 20px 0;
-  color: #edd206;
-  padding-top: 4px;
-
+  border-right: 1px solid rgb(232, 232, 222);
+  
 }
 
-.skils
-.skil_name li p span{
+.skils .skil_name li p {
+  padding-top: 7px;
+  color: rgb(183, 251, 251);
+}
+
+.skils .skil_name li p span {
   position: absolute;
   top: 0px;
   height: 10px;
   left: 0%;
   width: 50%;
-  background: #edd206;
-  }
-
-.skils .skil_name .--title{
-  text-shadow: 1px 1px 1px black;
-  font-family: var(--fontSofadi);
+  background: #165D6C;
 }
 
-.content__skil__body .--footer{
+.skils .skil_name .--title {
+  text-shadow: 1px 1px 1px black;
+  font-family: var(--fontSofadi);
+  color: rgb(148, 195, 195);
+}
+
+.content__skil__body .--footer {
   position: absolute;
   width: 25%;
   left: 10px;
   top: 100px;
   font-family: var(--fontSofadi);
-  text-shadow: 1px 1px 1px black;
+  text-shadow: 1px 1px 1px rgb(6, 6, 6);
+  color:#d8dfb0;
 }
 
 
-@media (max-width: 576px) { 
-  .content__skil__body
-  .skils {
-      left: auto;
-      right: 0;
+@media (max-width: 576px) {
+  .content__skil__body .skils {
+    left: auto;
+    right: 0;
   }
 
-  .content__skil__body .--footer{
+  .content__skil__body .--footer {
     position: absolute;
     width: 90%;
     left: 10px;
     top: 100px;
   }
-  
+
 }
-
-

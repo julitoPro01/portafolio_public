@@ -5,12 +5,13 @@
   justify-content: center;
   font-family: var(--fontRoboto), Courier, monospace;
   font-family: var(--fontSofadi);
-
+overflow-y: hidden;
 }
 
 .content__body__project .content__ p {
   margin: 0;
   font-size: small;
+  
 }
 
 .content__body__project .content__ .content__body {
@@ -35,7 +36,7 @@
 
 .content__body__project .content__ .content__body .itemCard {
   padding: 10px 0 10px 5px;
-  background-color: rgba(2, 19, 32, 0.634);
+  background-color: rgba(2, 19, 32, 0.348);
   filter: invert(0) grayscale(1);
   transition: filter 0.2s linear;
   position: relative;
@@ -102,6 +103,9 @@
 
 .content__body__project .content__ .content__body .itemCard .pn {
   color: rgb(56, 213, 237);
+  /* color: rgb(6, 146, 246); */
+  text-shadow: 0px 0px 1px black
+
 }
 
 .content__body__project .content__ .content__body .itemCard .pva {
@@ -113,6 +117,7 @@
   font-family: var(--fontSofadi);
   margin: 0 15px;
   color: rgb(64, 219, 47);
+  text-shadow: 1px 1px 1px black;
 }
 
 .content__body__project .content__ .content__body .itemCard .p4 {

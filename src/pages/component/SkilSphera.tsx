@@ -6,11 +6,9 @@ import { ThemeContext } from '../../context/UserThemeContext';
 
 let content_appMain: HTMLDivElement;
 let contentPoint: HTMLDivElement;
-let contentPlatform: HTMLDivElement;
 let points: NodeListOf<HTMLDivElement>;
-let pointsCopy: NodeListOf<HTMLDivElement>;
 
-export const animationPointsRotation = (contentBodyRef: RefObject<HTMLDivElement>, cords: PointCordsProps[]) => {
+export const useAnimationPointsRotation = (contentBodyRef: RefObject<HTMLDivElement>, cords: PointCordsProps[]) => {
 
   const angleRef = useRef({ angleX: 0.0, angleY: 360 });
   const { state } = useContext(ThemeContext);
@@ -27,7 +25,7 @@ export const animationPointsRotation = (contentBodyRef: RefObject<HTMLDivElement
       points[i].style.transform = `translate3d(${num.x}px, ${num.y}px, ${z}px)`
       points[i].style.zIndex = Math.floor(num.z).toString();
       if (z < 0)
-        points[i].style.color = "rgba(255,255,255,.7)"
+        points[i].style.color = "rgba(255, 255, 255, 0.5)"
       else
         points[i].style.color = "white"
     })
@@ -36,34 +34,14 @@ export const animationPointsRotation = (contentBodyRef: RefObject<HTMLDivElement
     angleRef.current.angleY = (angleY + 5) % 360;
   }
 
-  const updatePointCopyRotation = (points: NodeListOf<HTMLDivElement>) => {
-
-    const { angleX, angleY } = angleRef.current;
-    const getRotate = rotateSphera(cords, angleX, angleY);
-
-    getRotate.forEach((num, i) => {
-      let z = num.z < 0 ? (num.z - 100) : (num.z + 150)
-      points[i].style.transform = `translate3d(${num.x}px, ${num.y}px, ${z}px)`
-      points[i].style.zIndex = Math.floor(num.z).toString();
-      if (z < 0)
-        points[i].style.color = "rgba(100,100,50,1)"
-      else
-        points[i].style.color = "gray"
-    })
-
-  }
 
 
   useEffect(() => {
     const target = contentBodyRef.current as HTMLDivElement;
-
     content_appMain = document.querySelector('.content__appMain') as HTMLDivElement;
 
-    contentPoint = target.querySelector('.content__point') as HTMLDivElement;
+    contentPoint = target.querySelector('.frente') as HTMLDivElement;
     points = contentPoint.querySelectorAll('.point') as NodeListOf<HTMLDivElement>;
-
-    contentPlatform = target.querySelector('.platform') as HTMLDivElement;
-    pointsCopy = contentPlatform.querySelectorAll('.point__copy') as NodeListOf<HTMLDivElement>;
 
   }, [contentBodyRef.current, cords])
 
@@ -89,7 +67,6 @@ export const animationPointsRotation = (contentBodyRef: RefObject<HTMLDivElement
 
         // TODO: ANIMATION ELEMENT POINT
         updatePointRotation(points)
-        updatePointCopyRotation(pointsCopy)
 
         elapsed = 0;
 
@@ -137,7 +114,7 @@ export const animationPointsRotation = (contentBodyRef: RefObject<HTMLDivElement
       cancelAnimationFrame(animationFrameId)
       animationFrameId = 0;
     }
-  }, [cords, state.controlAnimation_letters.skill])
+  }, [cords])
 
 }
 

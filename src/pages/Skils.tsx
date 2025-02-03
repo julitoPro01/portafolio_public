@@ -1,75 +1,73 @@
-import { memo, useContext, useEffect, useRef, useState } from "react"
+import { memo, useContext, useRef } from "react"
 
 import { UidNodePage } from "./UidPageNode";
-import { getCords_sphere} from "./component/geometryUtils";
-import { animationPointsRotation } from "./component/SkilSphera";
+import { getCords_sphere } from './component/geometryUtils';
+import { useAnimationPointsRotation } from "./component/SkilSphera";
 import { DataContext } from '../context/UserDataContext';
-import { StateDataSkills } from "../context/UserDataType";
 
 export const Skils = memo(() => {
 
-  const {state} = useContext(DataContext);
+  const { state } = useContext(DataContext);
   const contentBodyRef = useRef<HTMLDivElement>(null);
-  const [value, setvalue] = useState<StateDataSkills[]>([])
 
-  const cords = getCords_sphere(value.length + 1, 100);
- animationPointsRotation(contentBodyRef,cords);
+  const cords = getCords_sphere(state.stateSkills.length + 1, 75);
+  useAnimationPointsRotation(contentBodyRef, cords);
+
+  const handleTransitionEnd = () => {
+    console.log(0)
+  }
 
 
-  useEffect(() => {
-    
-    setvalue(state.stateSkills)
-  
-  }, [state.stateSkills])
-  
+  console.log(state.stateSkills)
   return (
     <div className=" content__skil__body" ref={contentBodyRef}
       id={UidNodePage.skil} >
-      <div className="content__sphere__content">
-        <div className="content__point">
-          {
-            value.map((val, i) => (
-              <div key={val.name+i} className="point" >{val.name}</div>
-            ))
-          }
-        </div>
 
-        <div className="content__platform">
-          <div className="platform">
-          {
-            value.map((val, i) => (
-              <div key={val.name+i} className="point__copy" >{val.name}</div>
-            ))
-          }
+      <div className="escena">
+
+        <div className="cubo" onPlaying={handleTransitionEnd}>
+          <div className="cara frente">
+            {
+                state.stateSkills.length > 0 &&
+                state.stateSkills.map((val, i) => (
+                  <div key={val.name + i} className="point" >{val.name}</div>
+                ))
+              }
+
           </div>
+          <div className="cara atras"></div>
+          <div className="cara derecha"></div>
+          <div className="cara izquierda"></div>
+          <div className="cara arriba"></div>
+          <div className="cara abajo"></div>
         </div>
 
       </div>
-          {/* SKILS */}
+
+      {/* SKILS */}
       <div className="skils">
-          <ul className=" skil_name">
+        <ul className=" skil_name">
           <span className="ms-4 fs-6 --title">Experiencias</span>
 
-            {
-              value.map((val,i)=>{
-                if(val.percentage)
-                return  <li key={val.color+i}>
-                   <p className="mt-1" style={{color:val.color}}> {val.name}
-                     <span 
-                  style={{
-                    background:val.color,width:val.percentage+'%'
-                  }}
-                  ></span>  </p></li>
-              })
-            }
+          {
+            state.stateSkills.length > 0 &&
+            state.stateSkills.map((val, i) => {
+              if (val.percentage)
+                return <li key={val.color + i}>
+                  <p className="mt-1"> {val.name}
+                    <span
+                      style={{
+                         width: val.percentage + '%'
+                      }}
+                    ></span>  </p></li>
+            })
+          }
 
-          </ul>
+        </ul>
       </div >
-            <p className="--footer" >
-              "Lenguajes y tecnologías con los que he trabajado, algunos con mayor experiencia y otros explorados a nivel básico."
-            </p>
+      <p className="--footer" >
+        "Lenguajes y tecnologías con los que he trabajado, algunos con mayor experiencia y otros explorados a nivel básico."
+      </p>
     </div>
   )
 })
-
-
