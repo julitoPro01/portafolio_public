@@ -4,7 +4,13 @@
 
 body{
   background-color:rgb(95, 177, 180) !important;
+  background-image: url(./assets/paisaje-anime-atardecer-arte-digital_5640x2400_xtrafondos.com.jpg);
+  background-position: center;
+  background-size:cover;
+  background-repeat: no-repeat;
+  
   overflow: hidden;
+  height: 100vh;
 }
 
 .title__{
@@ -17,4 +23,8 @@ body{
   --fontProtest: "Protest Guerrilla", sans-serif;
   --fontSofadi: "Sofadi One", system-ui;;
   --fontRoboto: "Roboto Condensed";
+  --swanky: "Fontdiner Swanky", serif;
+  
 }
+
+

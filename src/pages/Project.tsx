@@ -1,9 +1,14 @@
+import { useContext, memo } from "react"
 import { UidNodePage } from "./UidPageNode"
 
 import { ItemCard } from "./component/ProjectCarrucel"
 import { SpaceHight } from "./component/Space"
+import { DataContext } from "../context/UserDataContext"
 
-export const Project = () => {
+export const Project =memo( () => {
+
+  const {state} = useContext(DataContext);
+  
 
   return (
     <div className=" content__body__project" id={UidNodePage.project}>
@@ -11,9 +16,10 @@ export const Project = () => {
         <SpaceHight/>
         <LayoutProject>
           {
-            'dos'.split('').map(val=>(
+            state.stateProject.length>0 &&
+            state.stateProject.map(item=>(
 
-              <ItemCard key={val} />
+              <ItemCard key={item.id} item={item} />
             ))
           }
         </LayoutProject>
@@ -22,7 +28,7 @@ export const Project = () => {
       </div>
     </div>
   )
-}
+})
 
 
 

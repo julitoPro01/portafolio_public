@@ -8,9 +8,66 @@
     display: flex;
     flex-wrap: wrap;
     z-index: 100;
-    /* width: 100%; */
-    /* background-color: #0f172a48; */
 }
+
+
+.App-layout .content_of_proyect{
+    
+    overflow: auto;
+    position: absolute;
+    background-color: #0f172af3;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    .of_detailsProyect{
+        background-color: #1d414e;
+        position: absolute;
+        left:50% ;
+        top: 0;
+        transform: translate(-50%, 0%);
+        margin-top: 100px;
+        width: 90%;
+        max-width: 750px;
+        .__close{
+            margin: 0 ;
+            background-color: #0f172ad9;
+            color: aliceblue;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            display: flex;
+            justify-content: end;
+            p{
+
+                cursor: pointer;
+            }
+            .P_close{
+                
+                background-color: rgba(1, 1, 0, 0.797);
+            }
+            .P_close:hover{
+                background-color: rgb(211, 206, 206);
+                color: #0F172A !important;
+            }
+        }
+        .content_DetailsProject{
+            color: aliceblue;
+            p{
+            }
+        }
+    }
+}
+
+.App-layout .of_detailsProyect_toogle{
+    opacity: 1;
+}
+
 
 .content-theme-background button {
     color: antiquewhite;
@@ -59,6 +116,9 @@
     overflow-y: auto;
     scroll-behavior: smooth;
 }
+
+
+
 
 /* -----SCROLL--------- */
 

@@ -64,10 +64,10 @@
     top: 0;
     left: 0;
     transition: transform 0.55s linear;
-    font-family: "Sofadi One", system-ui;
+    font-family: var(--fontSofadi), system-ui;
     will-change: transform;
     position: relative;    
-    color: rgb(241, 28, 28);
+    color: rgba(250, 252, 251, 0.463);
   }
 
   @keyframes isShow {
@@ -132,7 +132,7 @@
 }
 
 .isThemeLight{
-  color: gray !important;
+  color: #1d1d1da3 !important;
 }
 
 @keyframes shower {

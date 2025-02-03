@@ -1,4 +1,4 @@
-import { memo, MouseEvent, TransitionEvent, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { memo, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { ThemeContext } from "../context/UserThemeContext";
 import img_wallpaper from '../assets/fondodepantalla03.png';
 
@@ -21,7 +21,7 @@ export const AnimationBallShadowBody = memo(({ style_prop }: Props) => {
         [contentBallRed.current]);
 
 
-    const handleMoveCircle = (target: HTMLDivElement, wallpaper: string, light: number, ballLight: number) => {
+    const handleMoveCircle = (target: HTMLDivElement, wallpaper: string, light: number) => {
         target.style.backgroundImage = `
         radial-gradient(
         circle at ${style_prop.x}px ${style_prop.y}px ,
@@ -29,7 +29,7 @@ export const AnimationBallShadowBody = memo(({ style_prop }: Props) => {
          ), url(${wallpaper})`
     }
 
-    const updateNumLight = (signo: -1 | 1): number => {
+    const updateNumLight = (signo: -1 | 1): any => {
         return setInterval(() => {
             setnumLight((val) => ({ ...val, num: (val.num += (0.2 * signo)) }))
         }, 60)
@@ -46,7 +46,7 @@ export const AnimationBallShadowBody = memo(({ style_prop }: Props) => {
         const target = wallpaper as HTMLDivElement;
         if (!target) return;
         if (!state.isThemeBlack) return;
-        handleMoveCircle(target, img_wallpaper, numLight.num, 0.145)
+        handleMoveCircle(target, img_wallpaper, numLight.num)
     }, [style_prop])
 
     //----SET THE THEME (LIGHT | NIGHT)
@@ -71,36 +71,6 @@ export const AnimationBallShadowBody = memo(({ style_prop }: Props) => {
 
     }, [state.isThemeBlack,]);
 
-    //DOTO::
-    // useEffect(() => {
-    //     let clear;
-    //     if (!wallpaper) return;
-
-    //     if (state.isThemeBlack) {
-    //         if (clear) clearInterval(clear);
-    //         clear = updateNumLight(+1);
-
-    //     } else {
-    //         if (clear) clearInterval(clear);
-    //         clear = updateNumLight(-1);
-    //     }
-
-    //     if(!state.isThemeBlack && !state.controlAnimation_letters.project && !state.isScreenLock ){
-    //         if (clear) clearInterval(clear);
-    //         clear = updateNumLight(+1);
-    //     }else if(!state.isThemeBlack && state.controlAnimation_letters.project && !state.isScreenLock ){
-    //         if (clear) clearInterval(clear);
-    //         clear = updateNumLight(-1);
-    //     }
-
-    //     setnumLight(val => ({ ...val, stopNum: clear }));
-
-    //     return () => {
-    //         if (clear) clearInterval(clear)
-    //     }
-
-    // }, [state.isThemeBlack,state.controlAnimation_letters.project]);
-
     //----UPDATE THE NUM THEME 
     useEffect(() => {
         if (!wallpaper) return;
@@ -110,10 +80,10 @@ export const AnimationBallShadowBody = memo(({ style_prop }: Props) => {
             setStaticNumLight(0.8, numLight.stopNum)
 
         if (state.isThemeBlack) {
-            handleMoveCircle(wallpaper, img_wallpaper, numLight.num, 0.145)
+            handleMoveCircle(wallpaper, img_wallpaper, numLight.num)
         }
         else {
-            handleMoveCircle(wallpaper, img_wallpaper, numLight.num, 0)
+            handleMoveCircle(wallpaper, img_wallpaper, numLight.num)
         }
     }, [numLight.num])
 
@@ -123,8 +93,7 @@ export const AnimationBallShadowBody = memo(({ style_prop }: Props) => {
         if (state.isScreenLock) {
             wallpaper.style.filter = ` grayscale(${1}) brightness(100%) hue-rotate(0)`;
         } else {
-            // wallpaper.style.filter = ` grayscale(${'50%'}) brightness(150%) hue-rotate(110deg) `;
-            wallpaper.style.filter = ` grayscale(${'50%'}) brightness(100%) hue-rotate(110deg) `;
+            wallpaper.style.filter = ` grayscale(${'50%'}) brightness(100%) hue-rotate(200deg) `;
         }
 
     }, [state.isScreenLock])
