@@ -1,5 +1,5 @@
 import { Children, cloneElement, isValidElement, MouseEvent, ReactElement, useCallback, useContext, useEffect, useRef, useState } from "react";
-import { LockScreen, AnimationLetters, type_uidElement, AnimationBallShadowBody } from "../components";
+import { LockScreen, type_uidElement, AnimationBallShadowBody } from "../components";
 import { ThemeContext } from "../context/UserThemeContext";
 import { className_theme } from "../style/className";
 import { DataContext } from "../context/UserDataContext";

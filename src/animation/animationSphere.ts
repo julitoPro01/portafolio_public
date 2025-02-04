@@ -43,7 +43,6 @@ export const updateSizeNode=(width:number,container:HTMLDivElement)=>{
     useEffect(() => {
         let animationFrameId:number;
         if(!pointRef.current) return;
-        console.log("animando")
 
         const points = pointRef.current as NodeListOf<HTMLDivElement>;
         const toIntString=(num:number)=>(num|0).toString();

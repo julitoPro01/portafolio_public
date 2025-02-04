@@ -1,5 +1,5 @@
 import { RefObject, useCallback, useContext, useEffect, useRef } from 'react';
-import { getCords_sphere, PointCordsProps, rotateSphera } from './geometryUtils';
+import { getCords_sphere, rotateSphera } from './geometryUtils';
 import { ThemeContext } from '../../context/UserThemeContext';
 
 
