@@ -10,7 +10,6 @@ let points: NodeListOf<HTMLDivElement>;
 
 export const useAnimationPointsRotation = (
   contentBodyRef: RefObject<HTMLDivElement>,
-  // cords: PointCordsProps[],
   numState:number
   ) => {
 
