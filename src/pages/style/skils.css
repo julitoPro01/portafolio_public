@@ -14,8 +14,7 @@
 
 .content__skil__body .escena {
   position: absolute;
-  transform-style: preserve-3d;
-  perspective: 1200px;
+  perspective: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,7 +28,7 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    animation: girar 10s infinite linear;
+    /* animation: girar 10s infinite linear; */
 
     .cara {
       position: absolute;
