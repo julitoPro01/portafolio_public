@@ -46,7 +46,6 @@
 
       backdrop-filter: blur(5px);
       border: 1px solid rgba(144, 197, 237, 0.3);
-      transition: transform 1s ease-in-out;
     }
     
     .cara::before {

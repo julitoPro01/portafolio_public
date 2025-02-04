@@ -62,16 +62,19 @@ export const getCords_sphere = (num:number, r:number = 1):PointCordsProps[] => {
 const angle=Math.PI/180
 
 export const rotateSphera = (cords:PointCordsProps[], alpha:number,betha:number):PointCordsProps[] => {
-    const newCords:PointCordsProps[] = [];
     const angleAlpha = alpha * angle;
     const angleBetha = betha * angle;
     cords.forEach((num, i) => {
 
         const { x, y, z } = getRotate({x:num.x,y:num.y,z:num.z,
             alpha:angleAlpha,betha:angleBetha});
+        num.x=x;
+        num.y=y;
+        num.i=i;
+        num.z=z;
 
-        newCords.push({ x, y, z, i })
     });
 
-    return newCords
+    
+    return cords
 }

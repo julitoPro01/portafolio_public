@@ -165,7 +165,7 @@ export const AppLayout = ({ children }: any) => {
                 ref={nodeLayout}
             >
 
-                <AnimationLetters />
+                {/* <AnimationLetters /> */}
 
                 <AnimationBallShadowBody style_prop={style_prop} />
 

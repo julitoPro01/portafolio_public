@@ -5,7 +5,6 @@
   justify-content: center;
   font-family: var(--fontRoboto), Courier, monospace;
   font-family: var(--fontSofadi);
-overflow-y: hidden;
 }
 
 .content__body__project .content__ p {

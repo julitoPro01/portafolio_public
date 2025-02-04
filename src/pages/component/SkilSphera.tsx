@@ -1,5 +1,5 @@
-import { RefObject, useContext, useEffect, useRef } from 'react';
-import { PointCordsProps, rotateSphera } from './geometryUtils';
+import { RefObject, useCallback, useContext, useEffect, useRef } from 'react';
+import { getCords_sphere, PointCordsProps, rotateSphera } from './geometryUtils';
 import { ThemeContext } from '../../context/UserThemeContext';
 
 
@@ -8,26 +8,35 @@ let content_appMain: HTMLDivElement;
 let contentPoint: HTMLDivElement;
 let points: NodeListOf<HTMLDivElement>;
 
-export const useAnimationPointsRotation = (contentBodyRef: RefObject<HTMLDivElement>, cords: PointCordsProps[]) => {
+export const useAnimationPointsRotation = (
+  contentBodyRef: RefObject<HTMLDivElement>,
+  // cords: PointCordsProps[],
+  numState:number
+  ) => {
 
-  const angleRef = useRef({ angleX: 0.0, angleY: 360 });
   const { state } = useContext(ThemeContext);
+
+  const cords = useCallback(() => getCords_sphere(numState,75), [numState]);
+  
+  const angleRef = useRef({ angleX: 0.0, angleY: 360 });
 
 
   const updatePointRotation = (points: NodeListOf<HTMLDivElement>) => {
 
 
     const { angleX, angleY } = angleRef.current;
-    const getRotate = rotateSphera(cords, angleX, angleY);
+    const getRotate = rotateSphera(cords(), angleX, angleY);
 
     getRotate.forEach((num, i) => {
+      const point = points[i];
       let z = num.z < 0 ? (num.z - 100) : (num.z + 150)
-      points[i].style.transform = `translate3d(${num.x}px, ${num.y}px, ${z}px)`
-      points[i].style.zIndex = Math.floor(num.z).toString();
+      
+      point.style.transform = `translate3d(${num.x}px, ${num.y}px, ${z}px)`
+      point.style.zIndex = Math.floor(num.z).toString();
       if (z < 0)
-        points[i].style.color = "rgba(255, 255, 255, 0.5)"
+        point.style.color = "rgba(255, 255, 255, 0.5)"
       else
-        points[i].style.color = "white"
+        point.style.color = "white"
     })
 
     angleRef.current.angleX = (angleX + 10) % 360;
@@ -64,10 +73,8 @@ export const useAnimationPointsRotation = (contentBodyRef: RefObject<HTMLDivElem
       elapsed += delta;
 
       if (elapsed >= 500) {
-
         // TODO: ANIMATION ELEMENT POINT
         updatePointRotation(points)
-
         elapsed = 0;
 
       }
@@ -114,7 +121,9 @@ export const useAnimationPointsRotation = (contentBodyRef: RefObject<HTMLDivElem
       cancelAnimationFrame(animationFrameId)
       animationFrameId = 0;
     }
-  }, [cords])
+  }, [
+    cords
+  ])
 
 }
 

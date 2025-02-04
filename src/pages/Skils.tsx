@@ -1,7 +1,6 @@
 import { memo, useContext, useRef } from "react"
 
 import { UidNodePage } from "./UidPageNode";
-import { getCords_sphere } from './component/geometryUtils';
 import { useAnimationPointsRotation } from "./component/SkilSphera";
 import { DataContext } from '../context/UserDataContext';
 
@@ -10,15 +9,13 @@ export const Skils = memo(() => {
   const { state } = useContext(DataContext);
   const contentBodyRef = useRef<HTMLDivElement>(null);
 
-  const cords = getCords_sphere(state.stateSkills.length + 1, 75);
-  useAnimationPointsRotation(contentBodyRef, cords);
+  // const cords = getCords_sphere(state.stateSkills.length + 1, 75);
+  useAnimationPointsRotation(contentBodyRef, state.stateSkills.length+1);
 
   const handleTransitionEnd = () => {
     console.log(0)
   }
 
-
-  console.log(state.stateSkills)
   return (
     <div className=" content__skil__body" ref={contentBodyRef}
       id={UidNodePage.skil} >
