@@ -32,11 +32,11 @@ export const Skils = memo(() => {
               }
 
           </div>
-          {/* <div className="cara atras"></div>
+          <div className="cara atras"></div>
           <div className="cara derecha"></div>
           <div className="cara izquierda"></div>
           <div className="cara arriba"></div>
-          <div className="cara abajo"></div> */}
+          <div className="cara abajo"></div>
         </div>
 
       </div>
