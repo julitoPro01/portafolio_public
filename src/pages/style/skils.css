@@ -63,7 +63,7 @@
       height: 100%;
       box-shadow: 0 0 15px rgba(144, 197, 237, 0.3);
       z-index: -1;
-      /* background: linear-gradient(145deg, rgba(144, 197, 237, 0.1), rgba(255, 255, 255, 0.05)); */
+      background: linear-gradient(145deg, rgba(144, 197, 237, 0.1), rgba(255, 255, 255, 0.05));
     }
 
     .frente {
