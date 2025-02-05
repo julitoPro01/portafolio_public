@@ -21,8 +21,9 @@ export const useAnimationPointsRotation = (
 
 
   const updatePointRotation = (points: NodeListOf<HTMLDivElement>) => {
-
-
+    
+    if(!points) return;
+    
     const { angleX, angleY } = angleRef.current;
     const getRotate = rotateSphera(cords(), angleX, angleY);
 

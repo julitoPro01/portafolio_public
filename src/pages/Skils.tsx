@@ -9,7 +9,6 @@ export const Skils = memo(() => {
   const { state } = useContext(DataContext);
   const contentBodyRef = useRef<HTMLDivElement>(null);
 
-  // const cords = getCords_sphere(state.stateSkills.length + 1, 75);
   useAnimationPointsRotation(contentBodyRef, state.stateSkills.length+1);
 
   const handleTransitionEnd = () => {
@@ -24,12 +23,12 @@ export const Skils = memo(() => {
 
         <div className="cubo" onPlaying={handleTransitionEnd}>
           <div className="cara frente">
-            {
+            {/* {
                 state.stateSkills.length > 0 &&
                 state.stateSkills.map((val, i) => (
                   <div key={val.name + i} className="point" >{val.name}</div>
                 ))
-              }
+              } */}
 
           </div>
           <div className="cara atras"></div>
