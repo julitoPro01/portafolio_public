@@ -28,7 +28,6 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    perspective: 500px;
 
 
     .point {
@@ -41,8 +40,8 @@
 
     .cara {
       position: absolute;
-      width: 200px;
-      height: 200px;
+      width: 280px;
+      height: 280px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -54,7 +53,7 @@
       backdrop-filter: blur(5px);
       border: 1px solid rgba(144, 197, 237, 0.3);
     }
-    
+
     .cara::before {
       content: "";
       position: absolute;
@@ -67,12 +66,10 @@
 
     .frente {
       transform: translateZ(100px);
+      perspective: 500px;
 
     }
 
-    .abajo {
-      transform: rotate3d(1, 0, 0, -90deg) translateZ(100px);
-    }
   }
 
 }
@@ -124,7 +121,7 @@
   scale: 70%;
   margin-bottom: 15px;
   border-right: 1px solid rgb(232, 232, 222);
-  
+
 }
 
 .skils .skil_name li p {
@@ -154,7 +151,7 @@
   top: 100px;
   font-family: var(--fontSofadi);
   text-shadow: 1px 1px 1px rgb(6, 6, 6);
-  color:#d8dfb0;
+  color: #d8dfb0;
 }
 
 

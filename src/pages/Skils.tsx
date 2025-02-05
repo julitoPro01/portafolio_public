@@ -31,7 +31,6 @@ export const Skils = memo(() => {
               }
 
           </div>
-          <div className="cara abajo"></div>
         </div>
 
       </div>
