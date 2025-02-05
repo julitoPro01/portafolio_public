@@ -52,7 +52,7 @@
 
       width: 200px;
       height: 200px;
-      /* box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.5); */
+      box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.5);
 
     }
     
