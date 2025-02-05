@@ -29,8 +29,6 @@
     align-items: center;
     position: relative;
 
-    animation: rotar 10s linear infinite;
-
     .cara {
       position: absolute;
       width: 200px;
@@ -98,11 +96,6 @@
     }
   }
 
-}
-
-@keyframes rotar {
-  from{transform: rotateX(0deg) rotateY(0deg);}
-  to{ transform: rotateX(360deg) rotateY(360deg); }
 }
 
 @media screen and (max-width:600px) {
