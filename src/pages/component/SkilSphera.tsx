@@ -21,7 +21,7 @@ export const useAnimationPointsRotation = (
 
 
   const updatePointRotation = (points: NodeListOf<HTMLDivElement>) => {
-    
+
     if(!points) return;
     
     const { angleX, angleY } = angleRef.current;
@@ -49,7 +49,7 @@ export const useAnimationPointsRotation = (
     const target = contentBodyRef.current as HTMLDivElement;
     content_appMain = document.querySelector('.content__appMain') as HTMLDivElement;
 
-    contentPoint = target.querySelector('.frente') as HTMLDivElement;
+    contentPoint = target.querySelector('.cubo') as HTMLDivElement;
     points = contentPoint.querySelectorAll('.point') as NodeListOf<HTMLDivElement>;
 
   }, [contentBodyRef.current, cords])

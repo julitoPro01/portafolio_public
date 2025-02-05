@@ -23,18 +23,14 @@ export const Skils = memo(() => {
 
         <div className="cubo" onPlaying={handleTransitionEnd}>
           <div className="cara frente">
-            {/* {
+            {
                 state.stateSkills.length > 0 &&
                 state.stateSkills.map((val, i) => (
                   <div key={val.name + i} className="point" >{val.name}</div>
                 ))
-              } */}
+              }
 
           </div>
-          <div className="cara atras"></div>
-          <div className="cara derecha"></div>
-          <div className="cara izquierda"></div>
-          <div className="cara arriba"></div>
           <div className="cara abajo"></div>
         </div>
 
