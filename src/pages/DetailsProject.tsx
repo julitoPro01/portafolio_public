@@ -9,8 +9,8 @@ export const DetailsProject = memo(({ handleCloseContent }: { handleCloseContent
     const [details, setdetails] = useState([]);
 
     useEffect(() => {
-        if (state.stateProject.length == 0) return;
-
+        if (!state.stateProject.length) return;
+        if(!state.stateCordOfProyect.item) return
         const details: [] = JSON.parse(state.stateProject[state.stateCordOfProyect.item - 1].details);
         setvalues(state.stateProject[state.stateCordOfProyect.item - 1]);
         setdetails(details)
@@ -45,8 +45,7 @@ export const DetailsProject = memo(({ handleCloseContent }: { handleCloseContent
                     {values?.description}
                 </p>
                 {
-                    details &&
-                    details.length > 0 &&
+                    !!details.length &&
                     details.map((detail: any, i: number) => (
                         <div key={i} className="m-2" >
                             <div className=' w-100'>

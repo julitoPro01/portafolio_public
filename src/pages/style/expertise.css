@@ -10,11 +10,12 @@
 }
 
 .content__child .child__web {
-  background-color: rgba(27, 34, 40, 0.828);
-  border: solid 1px rgb(74, 96, 96);
-  color: #d4e2e2;
-  text-shadow: 1px 1px 1px black;
+  color: lightgray;
+  text-shadow: 1px 1px 1px rgb(8, 8, 8);
+  font-weight: lighter;
+
 }
+
 
 .child__web .child_icon {
   width: 50px;
@@ -23,12 +24,13 @@
 
 /* /////child_title */
 .child__web .child_title p {
-  font-family: var(--fontSofadi);
+  font-family: var(--fontRoboto);
+
 }
 .child__web .child_title p span {
   text-wrap: nowrap;
   font-weight: bold;
-  color: rgb(74, 246, 246);
+  color: lightgrey;
   font-family: var(--fontRoboto);
 }
 
@@ -36,7 +38,6 @@
   padding: 25px 10px;
   display: flex;
   align-items: center;
-  font-family: var(--fontSofadi);
 }
 
 .child__web .child_p div {
@@ -51,6 +52,7 @@
 }
 .child__web .child_p div p {
   position: absolute;
+  font-weight: bolder;
 }
 .child__web .child_p div p:last-child {
   bottom: -40px;

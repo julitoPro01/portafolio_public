@@ -2,9 +2,10 @@
 @import url(./layout/css/style.css);
 @import url(./pages/style/style.css);
 
+
 body{
-  background-color:rgb(95, 177, 180) !important;
-  background-image: url(./assets/paisaje-anime-atardecer-arte-digital_5640x2400_xtrafondos.com.jpg);
+  background-color:black!important;
+  background-image: url(./assets/dark-black-abstract-background-with-wood-chips.jpg);
   background-position: center;
   background-size:cover;
   background-repeat: no-repeat;

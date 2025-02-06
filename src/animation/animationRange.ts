@@ -31,7 +31,7 @@ export const animationRange = ({ nodeRange, nodeScreen }: Props) => {
 
         if (client.xy > maxWidth) {
 
-            nodeRange.style.background = '#958377';
+            nodeRange.style.background = '#f4f7f4';
             nodeRange.style.width = "20px";
 
             if (nodeLock) {

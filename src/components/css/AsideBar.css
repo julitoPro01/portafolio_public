@@ -1,11 +1,12 @@
 
 .content__asideBar{
     position: fixed;
-    top: 20%;
-    right: 10px;
+    top: 0;
     left: auto;
     z-index: 100;
-
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 
@@ -47,7 +48,7 @@
 
 .content__asideBar .active{
     background: linear-gradient( 45deg,
-    rgb(23, 56, 46), rgba(14, 214, 157, 0.804),rgb(11, 11, 9)
+    rgb(151, 200, 199), rgba(147, 163, 159, 0.804),rgb(11, 11, 9)
     );
     transition: background-color 1s linear;
 }
@@ -58,7 +59,7 @@
 }
 
 .content__asideBar a p:active{
-    background-color: rgb(209, 70, 70);
+    background-color: rgb(51, 59, 103);
 }
 
 .content__asideBar  .icon i:active{

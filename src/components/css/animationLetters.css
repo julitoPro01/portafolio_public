@@ -22,7 +22,6 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  /* color: rgb(227, 78, 19); */
 }
 .content_animation_letters .content__txt__skill{
   display: flex;  
@@ -32,7 +31,6 @@
   top: 20px;
   right: 40px;
   justify-content: end;
-  /* color: rgb(227, 78, 19); */
 }
 
 .content_animation_letters .content__txt__project
@@ -44,7 +42,6 @@
   top: 10px;
   justify-content: end;
   right: 40px;
-  /* color: rgb(227, 78, 19); */
 }
 
 
@@ -64,10 +61,10 @@
     top: 0;
     left: 0;
     transition: transform 0.55s linear;
-    font-family: var(--fontSofadi), system-ui;
+    font-family: var(--fontRoboto), system-ui;
     will-change: transform;
     position: relative;    
-    color: rgba(250, 252, 251, 0.463);
+    color: rgba(211, 211, 211, 0.479);
   }
 
   @keyframes isShow {
@@ -84,7 +81,7 @@
   
   .content_animation_letters p .span_visibility{
     position: absolute;
-    font-size: 3vw;
+    font-size: large;
     animation: trans ease-out 1s infinite;
     transition: font-size ease 5s, opacity ease 5s, color ease 2s;
     top: 0;
@@ -123,8 +120,8 @@
   
 
   .isActiveStyle{
-    color:rgb(231, 237, 239) ;
-    text-shadow: 3px 1px 1px rgb(13, 65, 73);
+    color:lightgrey ;
+    text-shadow: 3px 1px 1px rgb(1, 5, 5);
     font-size: 6vw !important;
     animation: trans ease-out 1s 1 !important;
     transition: font-size ease 1s, opacity ease 5s, color ease 2s !important; 
@@ -132,7 +129,7 @@
 }
 
 .isThemeLight{
-  color: #1d1d1da3 !important;
+  color: #3a3939a3 !important;
 }
 
 @keyframes shower {

@@ -14,8 +14,8 @@
 
 .content__contact .title {
 
-    background: linear-gradient(45deg, #f4f5f6, #0a1e1e, #0c717c,
-    #fcfafa, #021507, #dbd5d3);
+    background: linear-gradient(45deg, #f4f5f6, #bccccc, #2d3435,
+    #292121, #acb7af, #dbd5d3);
     border-radius: 10px;
     background-size: 600% 600%;
     animation: backgroundMove 5s infinite;
@@ -24,24 +24,24 @@
 @keyframes backgroundMove {
     0% {
         background-position: 0% 0%;
-        box-shadow: 5px 0px 10px #2bc2cd;
+        box-shadow: 5px 0px 10px #435859;
 
     }
 
     40% {
         background-position: 50% 100%;
-        box-shadow: 5px 0px 10px #0e6e9a;
+        box-shadow: 5px 0px 10px #445056;
     }
 
     60% {
         background-position: 100% 100%;
-        box-shadow: 5px 0px 10px #1f2404;
+        box-shadow: 5px 0px 10px #67695b;
     }
 
 
     100% {
         background-position: 0% 0%;
-        box-shadow: 5px 0px 10px #2bc2cd;
+        box-shadow: 5px 0px 10px #596e70;
     }
 }
 
@@ -58,7 +58,7 @@
     font-weight: bolder;
 
     background: linear-gradient(270deg,  #f4f5f6, #e0dfcc, #0f0103,
-    #17d4e9, #29550a, #dbd5d3);
+    #3e4061, #281105, #dbd5d3);
     background-size: 600% 600%;
     color: transparent;
     background-clip: text;
@@ -80,6 +80,7 @@
 }
 
 .content__contact .title:hover{
+
     animation: bibrate .3s 1 forwards;
 }
 
@@ -106,7 +107,7 @@
     100%{
         scale: 120%;
         transform: rotate(0deg);
-        box-shadow: 5px 0px 10px #FDD3BB;
+        box-shadow: 5px 0px 10px #161515;
     }
 
 }

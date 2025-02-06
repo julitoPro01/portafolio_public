@@ -1,13 +1,9 @@
 import { Children, cloneElement, isValidElement, MouseEvent, ReactElement, useCallback, useContext, useEffect, useRef, useState } from "react";
 import { LockScreen, AnimationLetters, type_uidElement, AnimationBallShadowBody } from "../components";
 import { ThemeContext } from "../context/UserThemeContext";
-import { className_theme } from "../style/className";
 import { DataContext } from "../context/UserDataContext";
 import { DetailsProject } from "../pages";
 
-const { icon__changeTheme__light,
-    icon__changeTheme__night,
-} = className_theme;
 
 export const AppLayout = ({ children }: any) => {
 
@@ -16,6 +12,9 @@ export const AppLayout = ({ children }: any) => {
     });
 
     const { state: stateCord } = useContext(DataContext);
+    const { state, dispatch_ThemeLight, dispatch_ThemeNight,
+        dispatch_ScreenLock
+    } = useContext(ThemeContext);
 
     const [positionClip, setpositionClip] = useState({
         x1: '0', y1: '0',
@@ -32,9 +31,7 @@ export const AppLayout = ({ children }: any) => {
 
     const nodeAppMainRef = useRef<HTMLDivElement>(null);
 
-    const { state, dispatch_ThemeLight, dispatch_ThemeNight,
-        dispatch_ScreenLock
-    } = useContext(ThemeContext);
+
 
     const handleEndTransition = () => {
         if (!RefContainerOfProyect.current) return;
@@ -49,7 +46,7 @@ export const AppLayout = ({ children }: any) => {
 
             setTimeout(() => {
                 targetFather.style.transition = '';
-                targetFather.scrollTo(0,0)
+                targetFather.scrollTo(0, 0)
                 setpositionClip({ x1: '0', y1: '0', x2: '0', y2: '0', x3: '0', y3: '0', x4: '0', y4: '0' })
             }, 600)
 
@@ -59,14 +56,14 @@ export const AppLayout = ({ children }: any) => {
 
 
 
-    const handleCloseContent =useCallback( () => {
+    const handleCloseContent = useCallback(() => {
 
         const btn = document.getElementById(stateCord.stateCordOfProyect.id) as HTMLDivElement;
 
         if (!btn) return;
         btn.click();
 
-    },[stateCord.stateCordOfProyect.open])
+    }, [stateCord.stateCordOfProyect.open])
 
     const handleMove = (e: MouseEvent) => {
         const { clientX, clientY } = e;
@@ -159,7 +156,14 @@ export const AppLayout = ({ children }: any) => {
 
 
     return (
+        
         <div className="container-md p-0 App-layout" >
+             <div className="_backgroundImga"
+                    style={{
+                        transform: `translateX( ${state.isScreenLock ? '50%' : '0%'}) translateY(10%)`
+                    }}
+                >
+                </div>
             <div className="content-app-layout"
                 onMouseMove={handleMove}
                 ref={nodeLayout}
@@ -204,9 +208,9 @@ export const AppLayout = ({ children }: any) => {
 
                     {
                         state.isThemeBlack
-                            ? <i className={`bi bi-moon-stars-fill ${icon__changeTheme__night}`}
+                            ? <i className={`bi bi-moon-stars-fill text-light`}
                             ></i>
-                            : <i className={`bi bi-sun-fill ${icon__changeTheme__light}`} >
+                            : <i className={`bi bi-sun-fill text-light`} >
                             </i>
                     }
 
@@ -244,6 +248,7 @@ export const AppLayout = ({ children }: any) => {
 
                 </div>
             </div>
+
 
         </div>
     )

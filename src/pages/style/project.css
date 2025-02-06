@@ -1,5 +1,5 @@
 .content__body__project .content__ {
-  color: rgb(68, 89, 89);
+  color: rgba(211, 211, 211, 0.329);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,7 +35,6 @@
 
 .content__body__project .content__ .content__body .itemCard {
   padding: 10px 0 10px 5px;
-  background-color: rgba(2, 19, 32, 0.348);
   filter: invert(0) grayscale(1);
   transition: filter 0.2s linear;
   position: relative;
@@ -61,7 +60,7 @@
   width: 120px;
   margin-left: 10px;
   overflow: hidden;
-  color: rgb(56, 213, 237);
+  /* color: rgb(56, 213, 237); */
 }
 
 .content__ .container_contend_toogle{
@@ -70,19 +69,19 @@
 
 @keyframes loading_box {
   0% {
-    border-color: rgb(56, 213, 237) transparent transparent transparent; 
+    border-color: rgb(243, 246, 247) transparent transparent transparent; 
   }
   25% {
-    border-color: transparent rgb(56, 213, 237) transparent transparent; 
+    border-color: transparent rgb(239, 242, 243) transparent transparent; 
   }
   50% {
-    border-color: transparent transparent rgb(56, 213, 237) transparent; 
+    border-color: transparent transparent rgb(231, 236, 237) transparent; 
   }
   75% {
-    border-color: transparent transparent transparent rgb(56, 213, 237); 
+    border-color: transparent transparent transparent rgb(234, 239, 240); 
   }
   100% {
-    border-color: rgb(56, 213, 237) transparent transparent transparent; 
+    border-color: rgb(236, 241, 241) transparent transparent transparent; 
   }
 }
 
@@ -101,8 +100,7 @@
 }
 
 .content__body__project .content__ .content__body .itemCard .pn {
-  color: rgb(56, 213, 237);
-  /* color: rgb(6, 146, 246); */
+  color: rgb(56, 146, 237);
   text-shadow: 0px 0px 1px black
 
 }
@@ -115,7 +113,7 @@
   font-size: larger;
   font-family: var(--fontSofadi);
   margin: 0 15px;
-  color: rgb(64, 219, 47);
+  color: rgb(227, 231, 227);
   text-shadow: 1px 1px 1px black;
 }
 

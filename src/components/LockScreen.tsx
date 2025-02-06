@@ -36,7 +36,7 @@ export const LockScreen = () => {
 
     return (
         <>
-            <div className={`row m-0 ${type_uidElement.lock_screen}`} id={type_uidElement.lock_screen}
+            <div className={`row m-0 pb-4 ${type_uidElement.lock_screen}`} id={type_uidElement.lock_screen}
                 onMouseMove={(e) => { handleMove_range(e); handleMove_eye(e) }}
                 onMouseDown={handleDown}
                 onMouseUp={handleUp}
@@ -46,7 +46,7 @@ export const LockScreen = () => {
                 onTransitionEnd={handleTransitionEnd}
             >
 
-                <div className={`row ${type_uidElement.lock_content}`}
+                <div className={`row m-0 ${type_uidElement.lock_content}`}
                  ref={nodeScreen} >
 
                     <div className="content-eye">
@@ -95,6 +95,8 @@ export const LockScreen = () => {
                         <p className="range-txt" ref={nodeRange}></p>
                     </div>
                 </div>
+
+               
             </div>
         </>
     )

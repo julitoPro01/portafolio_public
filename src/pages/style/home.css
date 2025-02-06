@@ -3,14 +3,18 @@
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
+    
 }
 
 .content__home .description {
- 
-    font-family:var(--fontSofadi) ;
+    text-align: justify;
+    font-family:var(--fontRoboto) ;
+    font-weight: lighter;
     max-width: 700px;
     padding: 10px;
     border-radius: 10px;
-    color: #5FB1B4;
+    color: lightgray;
     text-shadow: 1px 1px 1px rgb(1, 11, 25);
+    letter-spacing: 1px;
+    
 }

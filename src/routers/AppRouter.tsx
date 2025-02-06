@@ -9,6 +9,7 @@ export const AppRouter: FC = () => {
 
     return (
         <ThemeContextProvider>
+
             <UserDataContext>
 
                 <AppLayout>
@@ -20,8 +21,9 @@ export const AppRouter: FC = () => {
                     <Contact />
 
                     <AsideBar />
+                    
                 </AppLayout>
-                
+
             </UserDataContext>
         </ThemeContextProvider>
     )

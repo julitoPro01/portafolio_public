@@ -5,7 +5,7 @@ import { PropsContextTheme, PropsState, TypesThemes } from "./UserType";
 
 const InitialState: PropsState = {
     style_icon: {
-        colorIcon: 'black'},
+        colorIcon: 'white'},
     isThemeBlack:true,
     isAnimationStart:0,
     isScreenLock:true,
