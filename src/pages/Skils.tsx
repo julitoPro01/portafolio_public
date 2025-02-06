@@ -37,7 +37,7 @@ export const Skils = memo(() => {
 
       {/* SKILS */}
       <div className="skils">
-        <ul className=" skil_name">
+        <ul className="m-0 skil_name">
           <span className="ms-4 fs-6 --title">Experiencias</span>
 
           {

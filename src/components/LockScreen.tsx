@@ -78,7 +78,7 @@ export const LockScreen = () => {
 
                     <div className="col content-profile text-center pt-5 ">
                         <figure className="">
-                            <img src={perfil} alt="perfil" className="w-50" />
+                            <img src={perfil} alt="perfil" className="w-75" />
                             <figcaption className="mt-5 fs-5">
                                 Hola, <br />
                                 Me llamo Zosimo Torres <br />

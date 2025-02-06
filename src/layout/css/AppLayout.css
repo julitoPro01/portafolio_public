@@ -1,7 +1,11 @@
 
 
 .App-layout{
-    overflow: hidden !important;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    position: relative;
+    overflow: hidden;
 }
 
 .App-layout .content-theme-background {
@@ -24,10 +28,9 @@
     background-size:contain;
     background-repeat: no-repeat;
     left: 0;
+    top: 0px;
     transform: translateX(0%)  translateY(50%);
     transition: transform 1s linear;
-    overflow: hidden;
-
 }
 
 .App-layout .content_of_proyect{
@@ -116,8 +119,6 @@
     height: 100%;
     z-index: -1;
 
-    /* overflow-y: scroll; */
-    /* overflow-x: hidden; */
     overflow: hidden;
 
     scroll-snap-type: y mandatory;

@@ -18,9 +18,9 @@ color: aquamarine;
     z-index: 111;
     width: 100%;
     height: 100%;
-    background-color: black;
+    background-color: black ;
     transition: background-color .2s linear;
-    animation: loading 5s linear 1 forwards;
+    /* animation: loading 5s linear infinite forwards; */
 }
 
 @keyframes loading {
@@ -28,20 +28,8 @@ color: aquamarine;
     background-color: black;
         
     }
-    20%{
-        background-color: black;
-
-    }
-    80%{
-        background-color: black;
-
-    }
-    90%{
-    background-color: rgba(0, 0, 0, 0);
-    }
     100%{
-    background-color: rgba(0, 0, 0, 0);
-        display: none;
+        background-color: black;
     }
 }
 

@@ -157,7 +157,7 @@ export const AppLayout = ({ children }: any) => {
 
     return (
         
-        <div className="container-md p-0 App-layout" >
+        <div className="container-fluid p-0 App-layout" >
              <div className="_backgroundImga"
                     style={{
                         transform: `translateX( ${state.isScreenLock ? '50%' : '0%'}) translateY(10%)`
