@@ -1,4 +1,4 @@
-import { useContext, useRef } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { StateDataProject } from '../../context/UserDataType'
 import { DataContext } from '../../context/UserDataContext';
 
@@ -6,7 +6,7 @@ export const ItemCard = ({ item }: { item: StateDataProject }) => {
 
   const refContent = useRef<HTMLDivElement>(null);
   const { dispatch_setCord_ofProyect, state } = useContext(DataContext);
-
+  const [isImgLoad, setisImgLoad] = useState(false);
 
   const handleOpenContent = () => {
     if (!refContent.current) return;
@@ -15,7 +15,6 @@ export const ItemCard = ({ item }: { item: StateDataProject }) => {
 
     target.classList.toggle('container_contend_toogle');
 
-    // target.style.animation='loading 1s linear infinite';
     const { left, top, height, width } = target.getBoundingClientRect();
 
     dispatch_setCord_ofProyect({
@@ -24,7 +23,19 @@ export const ItemCard = ({ item }: { item: StateDataProject }) => {
       id: item.name.split(' ').join(''), open: !state.stateCordOfProyect.open,
       item: item.id
     })
-  }
+  };
+
+
+  useEffect(() => {
+    const img = new Image();
+    if( !item.img) return;
+
+    img.src = item.img;
+    img.onload = function(){
+      setisImgLoad(true)
+    }
+  }, [item.img])
+  
 
   return (
 
@@ -49,8 +60,13 @@ export const ItemCard = ({ item }: { item: StateDataProject }) => {
       <div>
 
         <figure className="m-0">
-
-          <img className="p3 my-2" src={item.img} alt="img" />
+          {
+            isImgLoad 
+            ? <img className="p3 my-2" src={item.img} alt={item.name} />
+            : <p className='p3 my-2 text-light' > Cargando imagen... </p>
+          }
+           
+          
           <figcaption className="p5">
             <span className='p p__' >{`<`}</span><span className='pn'>{`figcaption`}</span><span className='p__'>{`>`} </span>
             <span className='pv'> {item.name} </span>

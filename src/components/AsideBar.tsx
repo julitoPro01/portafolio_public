@@ -1,5 +1,5 @@
 import { FC, RefObject, useCallback, useContext, useEffect, useRef } from "react";
-import { UidNodePage,UidNodePagevalue } from "../pages/UidPageNode";
+import { UidNodePage, UidNodePagevalue } from "../pages/UidPageNode";
 import { IconAsideBar, Items } from "./IconAsideBar";
 import { ThemeContext } from "../context/UserThemeContext";
 
@@ -11,7 +11,9 @@ const uids = Object.values(UidNodePage);
 
 export const AsideBar: FC<AsideProps> = ({ nodeAppMainRef }: AsideProps) => {
 
-    const {dispatch_lettersAnimateControl}=useContext(ThemeContext);
+    const { dispatch_lettersAnimateControl } = useContext(ThemeContext);
+    
+    const isActiveLink = useRef(false)
 
     const previousNodeRef = useRef<HTMLParagraphElement>();
     const nodeLinkRef = useRef<HTMLUListElement>(null);
@@ -54,7 +56,7 @@ export const AsideBar: FC<AsideProps> = ({ nodeAppMainRef }: AsideProps) => {
 
     const onEndScroll = () => {
         getVisibleView().then(pageNode => {
-            
+
             const visibleElement = pageNode as HTMLDivElement;
 
             const id = visibleElement.id;
@@ -68,6 +70,10 @@ export const AsideBar: FC<AsideProps> = ({ nodeAppMainRef }: AsideProps) => {
                 const Attribute = node.getAttribute('href')
 
                 if (Attribute == '#' + id) {
+                    if(isActiveLink.current){
+                        window.history.replaceState(null, '', window.location.origin)
+                        window.history.pushState(null, '', window.location.origin + `#${id}`)
+                    }
 
                     previousNodeRef.current?.classList.toggle('active')
 
@@ -80,13 +86,13 @@ export const AsideBar: FC<AsideProps> = ({ nodeAppMainRef }: AsideProps) => {
                 }
             }
 
-            const viewVisibility:UidNodePagevalue=visibleElement.id as UidNodePagevalue;
-            switch(viewVisibility){
-                case "home":dispatch_lettersAnimateControl("[type_animate_lettersHome]");break;
-                case "skil":dispatch_lettersAnimateControl("[type_animate_lettersSkill]");break;
-                case "expertise":dispatch_lettersAnimateControl("[type_animate_lettersEspertise]");break;
-                case "project":dispatch_lettersAnimateControl("[type_animate_lettersProject]");break;
-                case "contact":dispatch_lettersAnimateControl("[type_animate_lettersContact]");break;
+            const viewVisibility: UidNodePagevalue = visibleElement.id as UidNodePagevalue;
+            switch (viewVisibility) {
+                case "home": dispatch_lettersAnimateControl("[type_animate_lettersHome]"); break;
+                case "skil": dispatch_lettersAnimateControl("[type_animate_lettersSkill]"); break;
+                case "expertise": dispatch_lettersAnimateControl("[type_animate_lettersEspertise]"); break;
+                case "project": dispatch_lettersAnimateControl("[type_animate_lettersProject]"); break;
+                case "contact": dispatch_lettersAnimateControl("[type_animate_lettersContact]"); break;
             }
         })
     }
@@ -107,66 +113,97 @@ export const AsideBar: FC<AsideProps> = ({ nodeAppMainRef }: AsideProps) => {
         numGetPositionUid.current.isScroll = false;
     }
 
-useEffect(() => {
-  
-    onEndScroll()
-  
-}, []);
+
+    useEffect(() => {
+        const home = window.location.origin + '/';
+        const handleChangePage = () => {
+            const act = window.location.href;
+
+            if (home == act) {
+                window.location.replace(home + '#home')
+
+            }
+        }
+
+
+        window.addEventListener('popstate', handleChangePage)
+
+        return () => {
+            window.removeEventListener('popstate', handleChangePage)
+
+        }
+    }, [])
+
 
 
     useEffect(() => {
-if(!target()) return;
-        let clearTime:ReturnType<typeof setTimeout> | null= null;
-        const activeView =()=>{
-            if(clearTime !== null) clearTimeout(clearTime);
 
-            clearTime = setTimeout(()=>{
+        let clear;
+
+        onEndScroll();
+        clear = setTimeout(() => {
+            isActiveLink.current = true;
+        }, 5000);
+
+        return ()=>{
+            if(clear) clearTimeout(clear)
+        }
+    }, []);
+
+
+    useEffect(() => {
+        if (!target()) return;
+        let clearTime: ReturnType<typeof setTimeout> | null = null;
+        const activeView = () => {
+            if (clearTime !== null) clearTimeout(clearTime);
+
+            clearTime = setTimeout(() => {
                 onEndScroll()
-            },100)
+            }, 100)
         }
 
-        target().addEventListener('scroll',activeView)
+        target().addEventListener('scroll', activeView)
 
         previousNodeRef.current = nodeLinkRef.current
             ?.querySelector('a')?.querySelector('p')!;
 
-        return()=>{
-            if(!target()) return
-            target().removeEventListener('scroll',activeView)
+        return () => {
+            if (!target()) return
+            target().removeEventListener('scroll', activeView)
         }
-            
+
     }, []);
 
 
 
     return (
 
-            <aside className=" content__asideBar m-0 p-0">
-                <ul className="m-0 p-0 " ref={nodeLinkRef}>
+        <aside className=" content__asideBar m-0 p-0">
+            <ul className="m-0 p-0 " ref={nodeLinkRef}>
 
-                    <li className="icon text-center">
-                        <p className="fs-1 m-0" >
-                            <i className=" bi bi-arrow-up-short py-0 "
-                                onClick={() => onScroll(-1)} ></i>
-                        </p>
-                    </li>
+                <li className="icon text-center">
+                    <p className="fs-1 m-0" >
+                        <i className=" bi bi-arrow-up-short py-0 "
+                            onClick={() => onScroll(-1)} ></i>
+                    </p>
+                </li>
 
-                    {
-                        ItemBar.map((value, i) => (
-                            <IconAsideBar key={value.href} Props={{ value, i, onGetPosition }} />
-                        ))
-                    }
+                {
+                    ItemBar.map((value, i) => (
+                        <IconAsideBar key={value.href} Props={{ value, i, onGetPosition }} />
+                    ))
+                }
 
-                    <li className=" icon text-center">
+                <li className=" icon text-center">
 
-                        <p className="fs-1">
-                            <i className=" bi bi-arrow-down-short "
-                                onClick={() => onScroll(1)} ></i>
-                        </p>
-                    </li>
+                    <p className="fs-1">
+                        <i className=" bi bi-arrow-down-short "
+                            onClick={() => onScroll(1)} ></i>
+                    </p>
+                </li>
 
-                </ul>
-            </aside>
+            </ul>
+        </aside>
     )
 }
 
@@ -184,9 +221,9 @@ const ItemBar: Items[] = [
         icon: 'bi bi-journal-code'
     },
     {
-        href:UidNodePage.expertise,
-        title:'Experiencia',
-        icon:'bi bi-clock'
+        href: UidNodePage.expertise,
+        title: 'Experiencia',
+        icon: 'bi bi-clock'
     },
     {
         href: UidNodePage.project,

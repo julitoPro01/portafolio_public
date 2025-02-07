@@ -48,9 +48,10 @@
 
 .content__asideBar .active{
     background: linear-gradient( 45deg,
-    rgb(151, 200, 199), rgba(147, 163, 159, 0.804),rgb(11, 11, 9)
+    rgb(1, 18, 18), rgba(217, 225, 223, 0.804),rgb(9, 10, 11)
     );
     transition: background-color 1s linear;
+    color: rgb(0, 0, 0);
 }
 
 
@@ -67,7 +68,7 @@ color: #b7c6c3a4;}
 
 
 .content__asideBar p:hover{
-    color: rgb(186, 189, 13);
+    color: rgb(13, 113, 189);
 }
 
 .content__asideBar li i::before:active{

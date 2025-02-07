@@ -7,7 +7,8 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
-
+    justify-content: center;
+    user-select: none;
 }
 .content_animation_letters .content__txt__general{
   position: absolute;
@@ -17,7 +18,6 @@
 .content_animation_letters .content__txt__home{
   display: flex;  
   flex-wrap: nowrap;
-  position: absolute;
   top:100px;
   width: 100%;
   align-items: center;
@@ -49,8 +49,8 @@
 {
   display: flex;  
   flex-wrap: nowrap;
-  position: absolute;
-  top: 100px;
+  position: relative;
+  top: -100px;
   width: 100%;
   justify-content: center;
 }
@@ -151,7 +151,7 @@
   }
   100%{
     scale:100%;
-    z-index: 1;
+    z-index: 10;
 
   }
 }

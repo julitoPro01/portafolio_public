@@ -3,8 +3,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-family: var(--fontRoboto), Courier, monospace;
-  font-family: var(--fontSofadi);
+  font-family: Courier,var(--fontSofadi), monospace;
 }
 
 .content__body__project .content__ p {
@@ -55,7 +54,6 @@
 
 .content__ .container_contend {
   box-sizing: border-box;
-  box-sizing: content-box;
   border: solid;
   width: 120px;
   margin-left: 10px;
@@ -127,6 +125,7 @@
 
 .content__body__project .content__ .content__body .itemCard div figure {
   width: 70%;
+
   max-width: 600px;
 
   img {

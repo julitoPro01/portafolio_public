@@ -1,48 +1,50 @@
 import { useContext, useEffect } from "react";
 import { UidNodePage } from "./UidPageNode";
 import { DataContext } from '../context/UserDataContext';
-import { getSkills_db,getDevSkills_db, getProject_db } from "../store/dbProvider";
+import { getSkills_db, getDevSkills_db, getProject_db } from "../store/dbProvider";
 
 export const Home = () => {
 
-  const {dispatch_getSkills,dispatch_getDevSkills,dispatch_getProject} = useContext(DataContext);
+  const { dispatch_getSkills, dispatch_getDevSkills, dispatch_getProject } = useContext(DataContext);
 
-    useEffect(() => {
+  useEffect(() => {
 
-      getSkills_db()
+    getSkills_db()
       .then(dispatch_getSkills);
-      
+
   }, []);
-  
+
 
   useEffect(() => {
-    
+
     getDevSkills_db()
-    .then(dispatch_getDevSkills)
-    
+      .then(dispatch_getDevSkills)
+
   }, [])
-  
+
   useEffect(() => {
-    
+
     getProject_db()
-    .then(result=>{
-      const items=result.sort((a,b)=>a.id - b.id);
-       dispatch_getProject(items)
+      .then(result => {
+        const items = result.sort((a, b) => a.id - b.id);
+        dispatch_getProject(items)
       })
 
-  
-  }, [])
+  }, []);
+
   
 
   return (
     <div className=" content__home" id={UidNodePage.home}>
+        <p className="loading_img">
+        </p>
       <p className="description fs-5 mb-5 ms-5 ps-md-0 ps-4"  >
         Soy Julano, actualmente culminando la carrera de desarrollo de software.
-        Me apasiona crear aplicaciones web y móviles utilizando 
-        tecnologías como JavaScript, 
+        Me apasiona crear aplicaciones web y móviles utilizando
+        tecnologías como JavaScript,
         .NET y Kotlin. Siempre estoy buscando mejorar
-         mis habilidades y aprender nuevas herramientas
-          para desarrollar soluciones eficientes.
+        mis habilidades y aprender nuevas herramientas
+        para desarrollar soluciones eficientes.
       </p>
     </div>
   )

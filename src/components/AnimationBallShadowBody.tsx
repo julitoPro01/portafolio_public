@@ -66,8 +66,8 @@ export const AnimationBallShadowBody = memo(({ style_prop }: Props) => {
         let clear;
 
         clear = setTimeout(() => {
-
-            setcloseLoading(val => ({ ...val, loading: true }))
+            if (closeLoading.isOk)
+                setcloseLoading(val => ({ ...val, loading: true }))
 
         }, 5000)
 
