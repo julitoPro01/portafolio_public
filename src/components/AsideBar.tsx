@@ -54,6 +54,14 @@ export const AsideBar: FC<AsideProps> = ({ nodeAppMainRef }: AsideProps) => {
 
     }
 
+    const handleChengePage =(href:string)=>{
+        if(window.history.length > 2){
+            window.history.replaceState(null,'', window.location.origin+`/#${href}`)
+        }else{
+            window.location.href = window.location.origin+`/#${href}`
+        }
+    }
+
     const onEndScroll = () => {
         getVisibleView().then(pageNode => {
 
@@ -62,7 +70,7 @@ export const AsideBar: FC<AsideProps> = ({ nodeAppMainRef }: AsideProps) => {
             const id = visibleElement.id;
 
             numGetPositionUid.current.isScroll &&
-                (window.location.href = '#' + id);
+            handleChengePage(id);
 
             const link = nodeLinkRef.current?.querySelectorAll('a');
 
@@ -190,7 +198,7 @@ export const AsideBar: FC<AsideProps> = ({ nodeAppMainRef }: AsideProps) => {
 
                 {
                     ItemBar.map((value, i) => (
-                        <IconAsideBar key={value.href} Props={{ value, i, onGetPosition }} />
+                        <IconAsideBar key={value.href} Props={{ value, i, onGetPosition }} handleChengePage={handleChengePage} />
                     ))
                 }
 
