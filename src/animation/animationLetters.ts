@@ -132,20 +132,6 @@ export const animationLetters = (contentRef: RefObject<HTMLDivElement>) => {
         return position;
     }
 
-    const adjustPosition = (position: Posi) => {
-        if (position.x > 5) position.x -= 5
-        //  else position.x = 0 ;
-        if (position.y > 5) position.y -= 5
-        // else position.y =0;
-        if (position.x < 0) position.x += 5;
-        // else position.x =0;
-        if (position.y < 0) position.y += 5;
-        // else position.y=0;
-    };
-
-    /// 
-
-
 
 
     return {
@@ -154,7 +140,6 @@ export const animationLetters = (contentRef: RefObject<HTMLDivElement>) => {
         changePosition,
         setAnimation,
         getPositionRects,
-        adjustPosition
     }
 
 }
@@ -163,9 +148,10 @@ export const setStyleLetters = () => {
     const setStyleStatic = (txts: NodeListOf<HTMLParagraphElement>) => {
 
         txts.forEach((node) => {
-            const span = node.querySelector('.span_visibility') as HTMLSpanElement;
+            const span = node.querySelector('.span_visibility') as HTMLSpanElement; 
+
             if (span.classList.contains('changeStyle01')) {
-                span.classList.toggle('changeStyle01');
+                    span.classList.toggle('changeStyle01');
             }
             if (!span.classList.contains('isActiveStyle')){
                 span.classList.toggle('isActiveStyle')
@@ -173,6 +159,36 @@ export const setStyleLetters = () => {
                 node.style.animation="";
                 node.style.animation="shower 1s linear 1 forwards "
             }
+        });
+    }
+
+    const updateStyleToNoStatic=( txtNode:NodeListOf<HTMLParagraphElement> | undefined,positionMatrix:RefObject<Posi[]> )=>{
+        if(!txtNode?.length) return;
+
+        txtNode.forEach((node, i) => {
+            const span = node.querySelector('.span_visibility') as HTMLSpanElement;
+
+                const computedStyle = getComputedStyle(node);
+                const {m41:x,m42:y} = new DOMMatrix(computedStyle.transform);
+                positionMatrix.current![i].x = x;
+                positionMatrix.current![i].y = y;
+
+                node.style.transition = `transform .55s linear`;
+                if (span.classList.contains('isActiveStyle')) {
+                    span.classList.toggle('isActiveStyle');
+                    node.style.animation="";
+                    node.style.animation="shower02 1s linear 1 forwards"
+                }
+            });
+    }
+
+    const updateStyleToStatic=(txtNode:NodeListOf<HTMLParagraphElement> | undefined)=>{
+        if(!txtNode?.length) return
+
+        txtNode.forEach((node) => {
+            node.style.transition = `transform 2s linear`;
+            node.style.transform = `translate(${0}px,${0}px)`
+
         });
     }
 
@@ -213,6 +229,8 @@ export const setStyleLetters = () => {
         setStyleStatic,
         setStyleNoStatic,
         setActiveLight,
-        setActiveNotLight
+        setActiveNotLight,
+        updateStyleToNoStatic,
+        updateStyleToStatic
     }
 }

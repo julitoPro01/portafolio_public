@@ -79,8 +79,7 @@
         }
         .content_DetailsProject{
             color: aliceblue;
-            p{
-            }
+            
         }
     }
 }
@@ -150,8 +149,8 @@
 .content__skil__body::-webkit-scrollbar,
 .content__home::-webkit-scrollbar
  {
-    width: 10px;
-    height: 10px;
+    width: 5px;
+    height: 5px;
 }
 
 .content__body__project::-webkit-scrollbar-track,
@@ -169,7 +168,7 @@
 .content__appMain .content__expersite::-webkit-scrollbar-thumb,
 .content__home::-webkit-scrollbar-thumb
  {
-    background-color: #0F172A;
+    background-color: #3f4041;
     border-radius: 4px;
     border: 1px solid #605a5a;
 }

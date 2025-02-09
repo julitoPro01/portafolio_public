@@ -17,7 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  color: lightgrey;
   .cubo {
     width: 200px;
     height: 200px;

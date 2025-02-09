@@ -60,7 +60,7 @@
     margin: 0;
     top: 0;
     left: 0;
-    transition: transform 0.55s linear;
+    transition: transform .55s linear;
     font-family: var(--fontRoboto), system-ui;
     will-change: transform;
     position: relative;    
@@ -124,58 +124,41 @@
     text-shadow: 3px 1px 1px rgb(1, 5, 5);
     font-size: 6vw !important;
     animation: trans ease-out 1s 1 !important;
-    transition: font-size ease 1s, opacity ease 5s, color ease 2s !important; 
+    transition: font-size ease .5s, color ease 2s !important; 
     
 }
+
+
 
 .isThemeLight{
   color: #3a3939a3 !important;
 }
 
-@keyframes shower {
+@keyframes shower{
   0%{
-    scale: 100%;
-  }
-  40%{
-    scale: 140%;
+    opacity: 1;
   }
   50%{
-    scale: 0%;
-  }
-  80%{
-    scale: 0%;
-  }
-  90%{
-    scale: 140%;
-
+    z-index: 10;
+    opacity: .5;
   }
   100%{
-    scale:100%;
     z-index: 10;
-
+    opacity: 1;
   }
 }
 
+
 @keyframes shower02 {
   0%{
-    scale: 100%;
+    opacity: 1;
+  }
+  50%{
     z-index: 1;
-
+    opacity: .5;
   }
-  15%{
-    scale: 50%;
-    z-index: 1;
-
-  }
-  30%{
-    scale: 0%;
-  }
-  60%{
-    scale: 0%;
-
-  }
-
   100%{
-    scale:100%;
+    z-index: 0;
+    opacity: 1;
   }
 }

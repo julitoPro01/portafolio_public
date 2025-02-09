@@ -46,7 +46,7 @@ export const LockScreen = () => {
                 onTransitionEnd={handleTransitionEnd}
             >
 
-                <div className={`row m-0 ${type_uidElement.lock_content}`}
+                <div className={`row m-0  ${type_uidElement.lock_content}`}
                  ref={nodeScreen} >
 
                     <div className="content-eye">
@@ -89,8 +89,8 @@ export const LockScreen = () => {
 
                 </div>
 
-                <div className="col-12 text-center content-txt-lock">
-                    <p className=" text-white txt-msg-lock" ><small>Desliza para desbloquear!</small></p>
+                <div className="col-12 p-0 text-center content-txt-lock">
+                    <p className="text-white txt-msg-lock" ><small>Desliza para desbloquear!</small></p>
                     <div className="range-lock">
                         <p className="range-txt" ref={nodeRange}></p>
                     </div>
