@@ -19,12 +19,15 @@ export const AnimationLetters = () => {
     const postionContact_Ref = useRef<Posi[]>([]);
     const [controlTime, setcontrolTime] = useState({ timer: 60 });
 
+
     const contentRef = useRef(null);
     const txtNode_general_Ref = useRef<NodeListOf<HTMLParagraphElement>>()
     const txtNode_home_Ref = useRef<NodeListOf<HTMLParagraphElement>>()
     const txtNode_skill_Ref = useRef<NodeListOf<HTMLParagraphElement>>()
     const txtNode_project_Ref = useRef<NodeListOf<HTMLParagraphElement>>()
     const txtNode_contact_Ref = useRef<NodeListOf<HTMLParagraphElement>>()
+
+    const [isActiveSkill, setisActiveSkill] = useState(false)
 
     const propertiesRef = useRef<PropertiesProp>({
         dirTop: 0,
@@ -227,30 +230,39 @@ export const AnimationLetters = () => {
 
         if (!txtNode_skill_Ref.current) return;
 
-        if (!state.controlAnimation_letters.skill || !state.controlAnimation_letters.expertise && !state.isScreenLock) {
 
-                updateStyleToStatic(txtNode_skill_Ref.current)
+        if (!isActiveSkill) return;
 
-            updateZindex = setTimeout(() => {
-                setStyleStatic(txtNode_skill_Ref.current!)
-            }, 2000);
-        }
+        updateStyleToStatic(txtNode_skill_Ref.current)
+
+        updateZindex = setTimeout(() => {
+            setStyleStatic(txtNode_skill_Ref.current!)
+        }, 2000);
 
         return () => {
             if (updateZindex) clearTimeout(updateZindex);
-            if (!state.controlAnimation_letters.skill && !state.controlAnimation_letters.expertise && !state.isScreenLock) {
-                console.log(state.controlAnimation_letters)
-
-                updateStyleToNoStatic(txtNode_skill_Ref.current, postionSkill_Ref);
-
-            }
         }
 
     }, [
-        state.controlAnimation_letters.skill,
-        state.controlAnimation_letters.expertise,
-        state.isScreenLock
-    ])
+        isActiveSkill
+    ]);
+
+    useEffect(() => {
+ 
+        if (!state.controlAnimation_letters.skill && !state.isScreenLock) {
+            setisActiveSkill(true)
+        }
+        else if (!state.controlAnimation_letters.expertise&& !state.isScreenLock) {
+            setisActiveSkill(true)
+        } else {
+            setisActiveSkill(false);
+            updateStyleToNoStatic(txtNode_skill_Ref.current, postionSkill_Ref);
+            setisActiveSkill(false)
+        }
+
+    }, [state.controlAnimation_letters.expertise, state.controlAnimation_letters.skill, state.isScreenLock])
+
+
 
     // //---PROJECT
     useEffect(() => {
@@ -286,7 +298,7 @@ export const AnimationLetters = () => {
         let updateZindex: ReturnType<typeof setTimeout>;
 
         if (!state.controlAnimation_letters.contact && !state.isScreenLock) {
-            
+
             updateStyleToStatic(txtNode_contact_Ref.current);
             updateZindex = setTimeout(() => {
                 setStyleStatic(txtNode_contact_Ref.current!)
@@ -295,15 +307,15 @@ export const AnimationLetters = () => {
 
         return () => {
             if (updateZindex) clearTimeout(updateZindex);
-        if (!state.controlAnimation_letters.contact && !state.isScreenLock) {
-            updateStyleToNoStatic(txtNode_contact_Ref.current,postionContact_Ref)
-        }
+            if (!state.controlAnimation_letters.contact && !state.isScreenLock) {
+                updateStyleToNoStatic(txtNode_contact_Ref.current, postionContact_Ref)
+            }
 
         }
 
     }, [state.controlAnimation_letters.contact, state.isScreenLock])
     // //---SET STYLE WHEN IS ACTIVE VIEW
-    
+
     useEffect(() => {
 
         const { home, skill, project, contact, expertise } = state.controlAnimation_letters;
