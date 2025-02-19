@@ -38,7 +38,7 @@
     justify-content: flex-end;
     align-items:end;
 }
-.content__asideBar li a p{
+.content__asideBar li div p{
     padding: 0 5px;
     background-color: #0f172ae4;
 }
@@ -55,11 +55,11 @@
 }
 
 
-.content__asideBar li a{
+.content__asideBar li div{
     text-decoration: none;
 }
 
-.content__asideBar a p:active{
+.content__asideBar div p:active{
     background-color: rgb(51, 59, 103);
 }
 

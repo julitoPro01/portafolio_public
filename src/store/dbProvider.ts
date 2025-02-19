@@ -42,3 +42,31 @@ export const getProject_db= async():Promise<StateDataProject[]>=>{
         return [];
     }
 };
+
+export const getProfile_db =async():Promise<String | null  | undefined>=>{
+    try{
+        let img;
+        const collect = collection(fireBaseDb,"profile");
+        const profileSnapshot = await getDocs(collect);
+        profileSnapshot.docs.forEach(values=>{
+            img = values.data().img;
+        })
+        return img;
+    }catch{
+        return null;
+    }
+}
+
+export const getHome_db =async():Promise<String | null  | undefined>=>{
+    try{
+        let txt;
+        const collect = collection(fireBaseDb,"home");
+        const profileSnapshot = await getDocs(collect);
+        profileSnapshot.docs.forEach(values=>{
+            txt = values.data().presentation;
+        })
+        return txt;
+    }catch{
+        return null;
+    }
+}

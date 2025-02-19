@@ -1,11 +1,13 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UidNodePage } from "./UidPageNode";
 import { DataContext } from '../context/UserDataContext';
-import { getSkills_db, getDevSkills_db, getProject_db } from "../store/dbProvider";
+import { getSkills_db, getDevSkills_db, getProject_db, getHome_db } from "../store/dbProvider";
 
 export const Home = () => {
 
   const { dispatch_getSkills, dispatch_getDevSkills, dispatch_getProject } = useContext(DataContext);
+
+  const [txt, settxt] = useState<any>("")
 
   useEffect(() => {
 
@@ -32,19 +34,22 @@ export const Home = () => {
 
   }, []);
 
+  useEffect(() => {
+    
+    getHome_db().then(settxt)
   
+  }, []);
 
   return (
     <div className=" content__home" id={UidNodePage.home}>
         <p className="loading_img">
         </p>
       <p className="description fs-5 mb-5 ms-5 ps-md-0 ps-4"  >
-        Soy Julano, actualmente culminando la carrera de desarrollo de software.
-        Me apasiona crear aplicaciones web y móviles utilizando
-        tecnologías como JavaScript,
-        .NET y Kotlin. Siempre estoy buscando mejorar
-        mis habilidades y aprender nuevas herramientas
-        para desarrollar soluciones eficientes.
+       {
+        !txt 
+        ? "Loading..."
+        : txt
+       }
       </p>
     </div>
   )

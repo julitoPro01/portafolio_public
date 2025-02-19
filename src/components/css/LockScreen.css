@@ -11,6 +11,7 @@
     cursor:pointer;
 
     display: inline-flex ;
+    width: 100%;
 }
 
 
@@ -148,7 +149,7 @@
 }
 
 .content-eye .eye {
-    border: 6px solid rgb(104, 21, 21);
+    border: 6px solid rgb(65, 20, 20);
     overflow: hidden;
     border-style: double;
     border-radius: 0px 100px 0px 130px;

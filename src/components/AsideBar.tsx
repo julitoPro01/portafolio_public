@@ -1,4 +1,4 @@
-import { FC, RefObject, useCallback, useContext, useEffect, useRef } from "react";
+import { FC, RefObject, useCallback, useContext, useEffect, useLayoutEffect, useRef } from "react";
 import { UidNodePage, UidNodePagevalue } from "../pages/UidPageNode";
 import { IconAsideBar, Items } from "./IconAsideBar";
 import { ThemeContext } from "../context/UserThemeContext";
@@ -55,11 +55,10 @@ export const AsideBar: FC<AsideProps> = ({ nodeAppMainRef }: AsideProps) => {
     }
 
     const handleChengePage =(href:string)=>{
-        if(window.history.length > 2){
-            window.history.replaceState(null,'', window.location.origin+`/#${href}`)
-        }else{
-            window.location.href = window.location.origin+`/#${href}`
-        }
+        const path = window.location.origin+`/#${href}`
+        window.history.replaceState(null,'', path)
+       localStorage.setItem("path",path)
+
     }
 
     const onEndScroll = () => {
@@ -72,16 +71,13 @@ export const AsideBar: FC<AsideProps> = ({ nodeAppMainRef }: AsideProps) => {
             numGetPositionUid.current.isScroll &&
             handleChengePage(id);
 
-            const link = nodeLinkRef.current?.querySelectorAll('a');
+            const link = nodeLinkRef.current?.querySelectorAll('div');
 
             for (let node of link!) {
-                const Attribute = node.getAttribute('href')
+                // const Attribute = node.getAttribute('href')
+                const Attribute = node.dataset.href
 
                 if (Attribute == '#' + id) {
-                    if(isActiveLink.current){
-                        window.history.replaceState(null, '', window.location.origin)
-                        window.history.pushState(null, '', window.location.origin + `#${id}`)
-                    }
 
                     previousNodeRef.current?.classList.toggle('active')
 
@@ -123,28 +119,6 @@ export const AsideBar: FC<AsideProps> = ({ nodeAppMainRef }: AsideProps) => {
 
 
     useEffect(() => {
-        const home = window.location.origin + '/';
-        const handleChangePage = () => {
-            const act = window.location.href;
-
-            if (home == act) {
-                window.location.replace(home + '#home')
-
-            }
-        }
-
-
-        window.addEventListener('popstate', handleChangePage)
-
-        return () => {
-            window.removeEventListener('popstate', handleChangePage)
-
-        }
-    }, [])
-
-
-
-    useEffect(() => {
 
         let clear;
 
@@ -173,7 +147,7 @@ export const AsideBar: FC<AsideProps> = ({ nodeAppMainRef }: AsideProps) => {
         target().addEventListener('scroll', activeView)
 
         previousNodeRef.current = nodeLinkRef.current
-            ?.querySelector('a')?.querySelector('p')!;
+            ?.querySelector('div')?.querySelector('p')!;
 
         return () => {
             if (!target()) return
@@ -182,7 +156,14 @@ export const AsideBar: FC<AsideProps> = ({ nodeAppMainRef }: AsideProps) => {
 
     }, []);
 
-
+    useLayoutEffect(() => {
+      
+        const path = localStorage.getItem("path");
+        if(!!path){
+            window.location.replace(path);
+        }
+      
+    }, [])
 
     return (
 
@@ -198,7 +179,7 @@ export const AsideBar: FC<AsideProps> = ({ nodeAppMainRef }: AsideProps) => {
 
                 {
                     ItemBar.map((value, i) => (
-                        <IconAsideBar key={value.href} Props={{ value, i, onGetPosition }} handleChengePage={handleChengePage} />
+                        <IconAsideBar key={value.href} Props={{ value, i, onGetPosition }} />
                     ))
                 }
 

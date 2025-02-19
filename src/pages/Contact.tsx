@@ -15,7 +15,7 @@ export const Contact = () => {
       </form>
       <p  >zosimo179@gmail.com</p>
       <p>
-        <a className="link link-light" href="https://w.app/7q4m2j" target="_blank">WhatsApp</a>
+        <a className="link link-light" href="https://api.whatsapp.com/send?phone=51986875779&text=Hola,%20acabo%20de%20ver%20tu%20portafolio..." target="_blank">WhatsApp</a>
       </p>
     </div>
   )

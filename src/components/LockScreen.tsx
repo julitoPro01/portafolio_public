@@ -1,9 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import perfil from '../assets/perfil.webp';
 import { getDateTime } from '../helper/getDateTime';
 import { animationAyes, animationRange } from "../animation";
 import { type_uidElement } from "./type";
+import { getProfile_db } from "../store/dbProvider";
 
 
 export const LockScreen = () => {
@@ -12,6 +13,7 @@ export const LockScreen = () => {
     const nodeRange = useRef(null);
     const nodeEye = useRef(null);
 
+    const [profile, setprofile] = useState<any>("");
 
     const { dateTime, setDateTime } = getDateTime();
 
@@ -33,7 +35,13 @@ export const LockScreen = () => {
     }, []);
 
 
-
+    useEffect(() => {
+      
+        getProfile_db().then(setprofile)
+            .catch(console.error)
+    
+    }, [])
+    
     return (
         <>
             <div className={`row m-0 pb-4 ${type_uidElement.lock_screen}`} id={type_uidElement.lock_screen}
@@ -78,7 +86,11 @@ export const LockScreen = () => {
 
                     <div className="col content-profile text-center pt-5 ">
                         <figure className="">
-                            <img src={perfil} alt="perfil" className="w-75" />
+                            {
+                                !!profile
+                                ?  <img src={profile} alt="perfil" className="w-50 rounded-1" />
+                                : <img src={perfil} alt="perfil" className="w-75" />
+                            }
                             <figcaption className="mt-5 fs-5">
                                 Hola, <br />
                                 Me llamo Zosimo Torres <br />

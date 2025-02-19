@@ -56,7 +56,7 @@ export const Skils = memo(() => {
 
         </ul>
       </div >
-      <p className="--footer" >
+      <p className="--footer ms-md-3 ps-5" >
         "Lenguajes y tecnologías con los que he trabajado, algunos con mayor experiencia y otros explorados a nivel básico."
       </p>
     </div>

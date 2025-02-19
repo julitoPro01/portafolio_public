@@ -145,13 +145,14 @@
 
 .content__skil__body .--footer {
   position: absolute;
-  width: 50%;
+  width: 60%;
   max-width: 500px;
   left: 10px;
   top: 100px;
   font-family: var(--fontRoboto);
-  font-weight: lighter;
+  font-weight:200;
   color: lightgrey;
+  text-shadow: 0px 0px 10px rgb(4, 0, 0);
 }
 
 @media (max-height:500px) {}
@@ -164,7 +165,7 @@
   .content__skil__body .--footer {
     position: absolute;
     left: 10px;
-    top: 100px;
+    top: 90px;
   }
 
 }
