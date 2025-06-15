@@ -15,10 +15,6 @@ export const Expertise = () => {
     const descRef = useRef<HTMLDivElement>(null);
     const itemsD_front = useRef<{ i: number, left: number, top: number }[]>([]);
 
-    const onEnter = (i: number) => {
-        console.log(i)
-    }
-
     useEffect(() => {
         const node = descRef.current
         if (!node) return;
@@ -59,9 +55,9 @@ export const Expertise = () => {
                         <div className="_child">
                             <div className="d-flex flex-wrap _name">
                                 {
-                                    listIconDev.frontend.map((val, i) => (
+                                    listIconDev.frontend.map((val) => (
                                         <p key={val.name}
-                                            onClick={() => onEnter(i)}
+                        
                                             className="fs-6 mx-3 px-3"> {val.name} </p>
                                     ))
                                 }
