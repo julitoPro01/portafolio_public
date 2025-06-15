@@ -119,7 +119,7 @@ export const AsideBar: FC<AsideProps> = () => {
                     </button>
 
                     <button className="btn   border-0">
-                        <a href="https://drive.google.com/file/d/1zdFMk5Na73rAukD0GD-LBw5lokbFCbB0/view?usp=drive_link"
+                        <a href="https://drive.google.com/file/d/17jSC8mSgupxDZ0yYnv9wesVimjaF2Itr/view?usp=drive_link"
                             target="_blank" >
                             <BsPersonLinesFill size={"2em"} />
                             <span className="_text_hover animate__animated  mx-2"> Descargar CV </span>
