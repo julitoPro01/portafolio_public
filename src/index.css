@@ -2,30 +2,50 @@
 @import url(./layout/css/style.css);
 @import url(./pages/style/style.css);
 
+:root {
 
-body{
-  background-color:black!important;
-  background-image: url(./assets/dark-black-abstract-background-with-wood-chips.jpg);
-  /* background-image: url(./assets/fondo.jpg); */
-  background-position: center;
-  background-size:cover;
-  background-repeat: no-repeat;
-  
-  height: 100vh;
+  --backroungMain: rgb(125, 138, 133) !important;
+  --fontProtest: "Protest Guerrilla", sans-serif;
+  --fontSofadi: "Sofadi One", system-ui;
+  ;
+  --fontRoboto: "Roboto Condensed";
+  --swanky: "Fontdiner Swanky", serif;
+  --shoulders: "Big Shoulders Inline";
+  --moda:"Bodoni Moda"
 }
 
-.title__{
+
+body {
+
+  /* background: */
+    /* linear-gradient( */
+      /* to top, rgb(0, 0, 0), rgba(0, 0, 0, 0)), */
+       /* url(./assets/6243378.jpg); */
+    /* linear-gradient(to top, rgb(0, 0, 0), rgba(1, 4, 5, 0.808)), url(./assets/v627-aew-23-technologybackground.jpg); */
+    /* linear-gradient(to top, rgb(0, 0, 0), rgba(29, 77, 96, 0.808)), url(./assets/wireframe_landscape_banner_design_1404.jpg); */
+  background-size: cover;
+  background-position: center;
+  /* background-attachment: fixed; */
+/* background-color:#ECE7E1 !important; */
+background-color:#1A1818 !important;
+}
+
+
+@keyframes static {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+
+    background-position: 200% -200%;
+    /* background-position: 0% 0%; */
+  }
+}
+
+.title__ {
   position: sticky;
   top: 0;
   z-index: 1;
   color: transparent;
 }
-:root{
-  --fontProtest: "Protest Guerrilla", sans-serif;
-  --fontSofadi: "Sofadi One", system-ui;;
-  --fontRoboto: "Roboto Condensed";
-  --swanky: "Fontdiner Swanky", serif;
-  
-}
-
-

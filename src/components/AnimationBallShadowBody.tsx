@@ -47,20 +47,20 @@ export const AnimationBallShadowBody = memo(({ style_prop }: Props) => {
     }, [state.isThemeBlack,]);
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
 
-        const bgUrl = getComputedStyle(document.querySelector("body")!).backgroundImage;
-        const imgSrc = bgUrl.replace(/url\(["']?(.*?)["']?\)/, '$1');
+    //     const bgUrl = getComputedStyle(document.querySelector("body")!).backgroundImage;
+    //     const imgSrc = bgUrl.replace(/url\(["']?(.*?)["']?\)/, '$1');
 
-        const img = new Image();
-        img.src = imgSrc;
+    //     const img = new Image();
+    //     img.src = imgSrc;
 
-        img.onload = function () {
-            setcloseLoading(val => ({ ...val, isOk: true }))
-        };
+    //     img.onload = function () {
+    //         setcloseLoading(val => ({ ...val, isOk: true }))
+    //     };
 
-    }, [])
+    // }, [])
 
     useEffect(() => {
         let clear;
@@ -85,17 +85,17 @@ export const AnimationBallShadowBody = memo(({ style_prop }: Props) => {
             ref={contentBallRed}
 
         >
-            <div className="wallpaper" >
+            {/* <div className="wallpaper" >
 
-            </div>
+            </div> */}
 
-            <div className={`capa_wallpaper`} style={{
+            {/* <div className={`capa_wallpaper`} style={{
                 display: closeLoading.loading ? 'none' : ''
             }} >
                 <div className="spinner-grow" role="status">
                     <span className="visually-hidden">Loading...</span>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 })

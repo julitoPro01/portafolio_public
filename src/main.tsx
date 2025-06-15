@@ -6,6 +6,7 @@ import { AppRouter } from './routers/AppRouter'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import 'animate.css';
 
 import './style/light.css';
 import './style/night.css';

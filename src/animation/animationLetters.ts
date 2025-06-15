@@ -157,7 +157,7 @@ export const setStyleLetters = () => {
                 span.classList.toggle('isActiveStyle')
                 
                 node.style.animation="";
-                node.style.animation="shower 1s linear 1 forwards "
+                node.style.animation="shower .2s linear 1 forwards "
             }
         });
     }
@@ -167,7 +167,6 @@ export const setStyleLetters = () => {
 
         txtNode.forEach((node, i) => {
             const span = node.querySelector('.span_visibility') as HTMLSpanElement;
-
                 const computedStyle = getComputedStyle(node);
                 const {m41:x,m42:y} = new DOMMatrix(computedStyle.transform);
                 positionMatrix.current![i].x = x;
@@ -177,7 +176,7 @@ export const setStyleLetters = () => {
                 if (span.classList.contains('isActiveStyle')) {
                     span.classList.toggle('isActiveStyle');
                     node.style.animation="";
-                    node.style.animation="shower02 1s linear 1 forwards"
+                    node.style.animation="shower02 2s linear 1 forwards"
                 }
             });
     }
@@ -186,7 +185,7 @@ export const setStyleLetters = () => {
         if(!txtNode?.length) return
 
         txtNode.forEach((node) => {
-            node.style.transition = `transform 2s linear`;
+            node.style.transition = `transform .5s linear`;
             node.style.transform = `translate(${0}px,${0}px)`
 
         });
@@ -198,7 +197,7 @@ export const setStyleLetters = () => {
             if (span.classList.contains('isActiveStyle')) {
                 span.classList.toggle('isActiveStyle');
                 node.style.animation="";
-                node.style.animation="shower02 1s linear 1 forwards"
+                node.style.animation="shower02 .5s linear 1 forwards"
             }
 
         });

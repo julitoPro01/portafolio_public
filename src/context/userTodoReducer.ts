@@ -4,6 +4,14 @@ import { ControlProperties, PropertyLetter, PropsState, PropsThemeAction } from 
 export const userTodoReducer=(state:PropsState,{type,payload}:PropsThemeAction)
     :PropsState =>{
     switch (type) {
+
+        case '[handleOpen_project]':{
+            return{
+                ...state,
+                options:{isOpendProyect:payload.options.isOpendProyect}
+            }
+        }
+
         case '[typeTheme_Light]':{
             return {
                 ...state,

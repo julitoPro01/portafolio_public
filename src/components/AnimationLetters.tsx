@@ -8,11 +8,12 @@ const { content__txt__home, content__txt__skill,
     content__txt__project, content__txt__contact
 } = tpye_uidElementViewLetter;
 
+const currentTime = 500;
+
 export const AnimationLetters = () => {
 
     const { state } = useContext(ThemeContext)
 
-    const postionGeneral_Ref = useRef<Posi[]>([]);
     const postionHome_Ref = useRef<Posi[]>([]);
     const postionSkill_Ref = useRef<Posi[]>([]);
     const postionProject_Ref = useRef<Posi[]>([]);
@@ -21,7 +22,6 @@ export const AnimationLetters = () => {
 
 
     const contentRef = useRef(null);
-    const txtNode_general_Ref = useRef<NodeListOf<HTMLParagraphElement>>()
     const txtNode_home_Ref = useRef<NodeListOf<HTMLParagraphElement>>()
     const txtNode_skill_Ref = useRef<NodeListOf<HTMLParagraphElement>>()
     const txtNode_project_Ref = useRef<NodeListOf<HTMLParagraphElement>>()
@@ -211,14 +211,16 @@ export const AnimationLetters = () => {
             updateStyleToStatic(txtNode_home_Ref.current);
             updateZindex = setTimeout(() => {
                 setStyleStatic(txtNode_home_Ref.current!)
-            }, 2000);
+            }, currentTime);
         }
 
 
         return () => {
             if (updateZindex) clearTimeout(updateZindex);
             if (!state.controlAnimation_letters.home && !state.isScreenLock) {
-                updateStyleToNoStatic(txtNode_home_Ref.current, postionHome_Ref)
+                updateStyleToNoStatic(txtNode_home_Ref.current, postionHome_Ref);
+                getPositionRects(txtNode_home_Ref.current!, postionHome_Ref.current)
+
             }
 
         };
@@ -237,7 +239,7 @@ export const AnimationLetters = () => {
 
         updateZindex = setTimeout(() => {
             setStyleStatic(txtNode_skill_Ref.current!)
-        }, 2000);
+        }, currentTime);
 
         return () => {
             if (updateZindex) clearTimeout(updateZindex);
@@ -248,15 +250,17 @@ export const AnimationLetters = () => {
     ]);
 
     useEffect(() => {
- 
+
         if (!state.controlAnimation_letters.skill && !state.isScreenLock) {
             setisActiveSkill(true)
         }
-        else if (!state.controlAnimation_letters.expertise&& !state.isScreenLock) {
+        else if (!state.controlAnimation_letters.expertise && !state.isScreenLock) {
             setisActiveSkill(true)
         } else {
             setisActiveSkill(false);
             updateStyleToNoStatic(txtNode_skill_Ref.current, postionSkill_Ref);
+
+            getPositionRects(txtNode_skill_Ref.current!, postionSkill_Ref.current)
             setisActiveSkill(false)
         }
 
@@ -277,13 +281,15 @@ export const AnimationLetters = () => {
 
             updateZindex = setTimeout(() => {
                 setStyleStatic(txtNode_project_Ref.current!)
-            }, 2000);
+            }, currentTime);
 
         }
         return () => {
             if (updateZindex) clearTimeout(updateZindex);
             if (!state.controlAnimation_letters.project && !state.isScreenLock) {
                 updateStyleToNoStatic(txtNode_project_Ref.current, postionProject_Ref)
+                getPositionRects(txtNode_project_Ref.current!, postionProject_Ref.current)
+
             }
 
         }
@@ -302,13 +308,15 @@ export const AnimationLetters = () => {
             updateStyleToStatic(txtNode_contact_Ref.current);
             updateZindex = setTimeout(() => {
                 setStyleStatic(txtNode_contact_Ref.current!)
-            }, 2000);
+            }, currentTime);
         }
 
         return () => {
             if (updateZindex) clearTimeout(updateZindex);
             if (!state.controlAnimation_letters.contact && !state.isScreenLock) {
                 updateStyleToNoStatic(txtNode_contact_Ref.current, postionContact_Ref)
+                getPositionRects(txtNode_contact_Ref.current!, postionContact_Ref.current)
+
             }
 
         }
@@ -362,7 +370,7 @@ export const AnimationLetters = () => {
 
         window.onresize = () => {
 
-            getPositionRects(txtNode_general_Ref.current!, postionGeneral_Ref.current)
+            // getPositionRects(txtNode_general_Ref.current!, postionGeneral_Ref.current)
             getPositionRects(txtNode_home_Ref.current!, postionHome_Ref.current)
             getPositionRects(txtNode_skill_Ref.current!, postionSkill_Ref.current)
             getPositionRects(txtNode_project_Ref.current!, postionProject_Ref.current)

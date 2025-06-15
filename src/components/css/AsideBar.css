@@ -1,76 +1,155 @@
-
-.content__asideBar{
-    position: fixed;
-    top: 0;
-    left: auto;
-    z-index: 100;
-    height: 100%;
+._iconHome ._more_info {
     display: flex;
-    align-items: center;
+    font-family: var(--fontRoboto);
+    justify-content: space-around;
+    background-color: #1d1e1e;
+    button {
+        /* margin: 10px; */
+        font-weight: 450;
+        text-wrap: nowrap;
+        position: relative;
+        /* left: -25px; */
+        cursor: pointer;
+        transition: all .1s linear;
+        color: #8e8c8a;
+
+        a {
+            color: #8e8c8a;
+        }
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        box-shadow: inset -1px -3px 3px rgba(0, 0, 0, 0.325);
+    }
+
+    bottom:active {
+        background-color: rgba(73, 46, 13, 0.507);
+    }
+
+    button:hover>._text {
+        color: #623711;
+    }
+
+    ._text_hover {
+        display: none;
+        position: absolute;
+
+        left: 0px;
+        bottom: -25px;
+
+        color: #3c3636;
+        background-color: #ECE7E1;
+        border-radius: 10px;
+        padding: 5px 10px;
+        box-shadow: 5px 5px 5px rgba(1, 1, 7, 0.496);
+        font-size: small;
+    }
+
+
+    ._text {
+        color: #3c3636;
+    }
+
 }
 
 
-@media (max-width: 576px) { 
-    .content__asideBar {
-        left: 0px;
-        right: auto;
+
+._iconHome ._more_info button:hover>._text_hover {
+    display: inline;
+}
+
+._iconHome ._more_info a:hover>._text_hover {
+    display: inline;
+}
+
+/* --------------------------- */
+
+._footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    color: whitesmoke;
+    border-bottom: .5px solid grey;
+    display: flex;
+    justify-content: center;
+
+    p {
+        text-align: center;
+        width: 70px;
+        margin: auto;
+        position: relative;
+        top: 10px;
+        background-color: #1A1818;
+        font-size: small;
     }
 }
 
-.content__asideBar .icon i{
-    cursor: pointer;
-    margin-left: 0;
-}
+/* ------------------------------- */
 
-.content__asideBar ul li{
-    margin:0 20px;
-    list-style: none;
-    box-sizing: border-box;
-}
-
-.content__asideBar li   p{
-    border-radius: 10px;    
-    color: white;
-    font-weight: 100;
-    font-family: var(--fontRoboto);
-    cursor: pointer;
-    display: flex;
-    justify-content: flex-end;
-    align-items:end;
-}
-.content__asideBar li div p{
-    padding: 0 5px;
-    background-color: #0f172ae4;
+/* -----------START------------- */
+.content__asideBar {
+    position: relative;
+    width: 100%;
 }
 
 
-/* ////// ACTIVE P */
+.content__asideBar 
+._contentLink{
+    text-align: center;
+    color: rgb(124, 111, 111);
+    ._items{
+        height: 50px;
+        font-size: large;
+        font-weight: bold;
+        cursor: pointer;
+    }
 
-.content__asideBar .active{
-    background: linear-gradient( 45deg,
-    rgb(1, 18, 18), rgba(217, 225, 223, 0.804),rgb(9, 10, 11)
+    ._items:hover{
+        color: aliceblue;
+    }
+}
+
+.content__asideBar
+._copy{
+    position: absolute;
+    inset: 0;
+     background-color: #1A1818; /* Color de fondo del cuaderno */
+            background-image: 
+                linear-gradient(to right, #cccccc62 1px, transparent 1px), /* Líneas verticales */
+                linear-gradient(to bottom, #cccccc2c 1px, transparent 1px); /* Líneas horizontales */
+            background-size: 15px 13px; /* Tamaño de las celdas */
+    clip-path: polygon(
+        0% 0%,
+        100% 0%,
+        100% 20%,
+        0% 20%
     );
-    transition: background-color 1s linear;
-    color: rgb(0, 0, 0);
+    transition: clip-path 60ms linear;
+    /* clip-path: polygon(
+        0% 25%,
+        100% 25%,
+        100% 45%,
+        0% 45%
+    );
+    clip-path: polygon(
+        0% 50%,
+        100% 50%,
+        100% 70%,
+        0% 70%
+    );
+
+    clip-path: polygon(
+        0% 75%,
+        100% 75%,
+        100% 100%,
+        0% 100%
+    ); */
+
+    ._items{
+        color: rgb(250, 249, 249);
+    }
+
 }
+/* ----------------------------- */
 
-
-.content__asideBar li div{
-    text-decoration: none;
-}
-
-.content__asideBar div p:active{
-    background-color: rgb(51, 59, 103);
-}
-
-.content__asideBar  .icon i:active{
-color: #b7c6c3a4;}
-
-
-.content__asideBar p:hover{
-    color: rgb(13, 113, 189);
-}
-
-.content__asideBar li i::before:active{
-    background-color: black;
-}

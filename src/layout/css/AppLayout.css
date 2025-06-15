@@ -1,183 +1,187 @@
-
-
-.App-layout{
+.App-layout {
     width: 100%;
     height: 100vh;
     position: relative;
-    overflow: hidden;
+    /* display: flex; */
+    /* overflow: hidden; */
 }
+
 
 .App-layout .content-theme-background {
     position: absolute;
-    top: 0;
-    left: 0px;
-    padding:0 10px 10px;
+    top: 0px;
+    right: 0px;
+    padding: 0 10px 10px;
     display: flex;
     flex-wrap: wrap;
-    z-index: 100;
-}
-
-.App-layout ._backgroundImga{
-    position: absolute;
-    color: whitesmoke;
-    width: 100%;
-    height: 100%;
-    background-image: url('./../../assets/laptop-planta-oficina-vista-superior-fondo-negro.png');
-    background-position: top right;
-    background-size:contain;
-    background-repeat: no-repeat;
-    left: 0;
-    top: 0px;
-    transform: translateX(0%)  translateY(50%);
-    transition: transform 1s linear;
-}
-
-.App-layout .content_of_proyect{
+    flex-direction: column;
     
-    overflow: auto;
-    position: absolute;
-    background-color: #0f172af3;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
     z-index: 100;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    .of_detailsProyect{
-        background-color: #1d414e;
-        position: absolute;
-        left:50% ;
-        top: 0;
-        transform: translate(-50%, 0%);
-        margin-top: 100px;
-        width: 90%;
-        max-width: 750px;
-        .__close{
-            margin: 0 ;
-            background-color: #0f172ad9;
-            color: aliceblue;
-            position: sticky;
-            top: -2px;
-            z-index: 1;
-            display: flex;
-            justify-content: end;
-            p{
-
-                cursor: pointer;
-            }
-            .P_close{
-                
-                background-color: rgba(1, 1, 0, 0.797);
-            }
-            .P_close:hover{
-                background-color: rgb(211, 206, 206);
-                color: #0F172A !important;
-            }
-        }
-        .content_DetailsProject{
-            color: aliceblue;
-            
-        }
-    }
-}
-
-.App-layout .of_detailsProyect_toogle{
-    opacity: 1;
+    
 }
 
 
-.content-theme-background button {
-    color: antiquewhite;
-}
 
 
 .App-layout .content-theme-background button {
-    font-size: x-large;
+    font-size:large;
     cursor: pointer;
     background-color: rgba(128, 128, 128, 0.336);
+}
+
+.App-layout ._openMenu {
+    display: none;
 }
 
 
 /* //content__appMain */
 
 .content__appMain {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    position: absolute;
-    color: wheat;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 0.3s linear;
-    height: 100%;
-    z-index: -1;
-
+    display: flex;
     overflow: hidden;
 
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
-
-}
-
-
-.content__appMain .content__home,
-.content__appMain .content__skil__body,
-.content__appMain .content__expersite,
-.content__appMain .content__body__project,
-.content__appMain .content__contact {
-    scroll-snap-align: center;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    /* opacity: 0; */
+    /* filter: blur(5px); */
+    /* transform: scale(.9); */
+    transition: all .2s linear;
     height: 100%;
-    min-height: 500px;
-    overflow-y: auto;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
+    z-index: -1;
+    /* overflow-x: hidden; */
+    /* overflow: hidden; */
+    /* scrollbar-gutter: stable; */
+    /* overflow: scroll; */
+    /* scroll-snap-type: y mandatory; */
+    /* scroll-behavior: smooth; */
+    /* background-color: rgb(75, 84, 84); */
 }
 
 
+.App-layout ._capaLayout {
+    position: absolute;
+    background-color: #1A1818;
+    z-index: 10;
+    inset: 0;
+    display: none;
+}
+
+
+.App-layout ._capaLayoutActive02 {
+    animation: _closeLayout .5s ease-in 2 alternate;
+
+}
+
+@keyframes _closeLayout {
+    from {
+        inset: 0 0 100% 0;
+    }
+
+    50% {
+        inset: 0 0 95% 0;
+    }
+
+    to {
+        inset: 0;
+    }
+}
+
+
+
+/* -------------------------------- */
+._pages {
+    display: flex;
+    width: 100%;
+}
+
+._pages ._aside_bar {
+    position: relative;
+    min-width: 300px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: all .2s linear;
+
+    background-color: #1A1818;
+
+    z-index: 10;
+}
+
+
+
+@media screen and (max-width:720px) {
+
+    .App-layout ._openMenu {
+        display: block;
+    }
+
+    ._pages ._aside_bar {
+        position: absolute;
+        transform: translateX(-100%);
+        min-height: 400px;
+    }
+
+}
+
+._pages ._content_ {
+    flex: 1;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-color: #ECE7E1;
+    border-right: none;
+    border-left: 20px solid #ECE7E1;
+    box-sizing: border-box;
+}
+
+._pages .content__home,
+._pages .content__expersite,
+._pages .content__body__project,
+._pages .content__contact {
+    min-height: 100vh;
+}
+
+.App-layout #offCanvasOPenAside{
+    width: 280px;
+    background-color: #1A1818;
+}
+
+.App-layout #offCanvasOPenAside ._body {
+    overflow: hidden;
+     min-width: 300px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: all .2s linear;
+    position: relative;
+    left: -20px;
+    top: 0;
+}
 
 
 /* -----SCROLL--------- */
 
-.content__body__project::-webkit-scrollbar,
-.content__contact::-webkit-scrollbar,
-.content__appMain .content__expersite::-webkit-scrollbar,
-.content__skil__body::-webkit-scrollbar,
-.content__home::-webkit-scrollbar
- {
-    width: 5px;
+
+
+/* .content__appMain::-webkit-scrollbar{
+    width: 10px;
     height: 5px;
+} */
+
+/* .content__appMain::-webkit-scrollbar
+ {
+    background: transparent;
 }
 
-.content__body__project::-webkit-scrollbar-track,
-.content__contact::-webkit-scrollbar-track,
-.content__skil__body::-webkit-scrollbar-track,
-.content__appMain .content__expersite::-webkit-scrollbar-track,
-.content__home::-webkit-scrollbar-track
- {
-    background: #0f172a00;
+.content__appMain::-webkit-scrollbar-thumb {
+    background-color: #065551;
+    background: linear-gradient(
+        to bottom, rgb(23, 184, 224) , rgb(255, 255, 255)
+    );
+    background-size: 200% 200%;
 }
 
-.content__body__project::-webkit-scrollbar-thumb,
-.content__contact::-webkit-scrollbar-thumb,
-.content__skil__body::-webkit-scrollbar-thumb,
-.content__appMain .content__expersite::-webkit-scrollbar-thumb,
-.content__home::-webkit-scrollbar-thumb
- {
-    background-color: #3f4041;
-    border-radius: 4px;
-    border: 1px solid #605a5a;
-}
-
-.content__body__project::-webkit-scrollbar-thumb:hover,
-.content__contact::-webkit-scrollbar-thumb:hover,
-.content__skil__body::-webkit-scrollbar-thumb:hover,
-.content__appMain .content__expersite::-webkit-scrollbar-thumb:hover,
-.content__home::-webkit-scrollbar-thumb:hover
- {
+.content__appMain::-webkit-scrollbar-thumb:hover {
     background-color: #192f63;
-}
+} */

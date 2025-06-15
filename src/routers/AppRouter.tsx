@@ -1,4 +1,4 @@
-import { Contact, Expertise, Home, Project, Skils } from "../pages"
+import { Contact, Expertise, Home, Project } from "../pages"
 import { AppLayout } from "../layout/AppLayout"
 import { ThemeContextProvider } from "../context/UserThemeContext"
 import { AsideBar } from "../components"
@@ -14,14 +14,26 @@ export const AppRouter: FC = () => {
 
                 <AppLayout>
 
-                    <Home />
-                    <Skils />
-                    <Expertise />
-                    <Project />
-                    <Contact />
 
-                    <AsideBar />
-                    
+                    <div className="_pages">
+
+
+
+                        <div className="_aside_bar">
+                            
+                            <AsideBar />
+                        </div>
+                        <div className="_content_" id="onScrollView">
+
+                            <Home />
+                            <Expertise />
+                            <Project />
+                            <Contact />
+                        </div>
+
+                    </div>
+
+
                 </AppLayout>
 
             </UserDataContext>

@@ -1,6 +1,7 @@
 
 
 export type TypesThemes =
+    "[handleOpen_project]"|
     "[typeTheme_Light]" |
     "[typeTheme_Night]" |
     "[typeAnimation_End]" |
@@ -25,7 +26,8 @@ export interface PropsState{
     isThemeBlack?:boolean,
     isAnimationStart:AniamtionChange,
     isScreenLock:boolean,
-    controlAnimation_letters:PropertyLetter
+    controlAnimation_letters:PropertyLetter,
+    options:{isOpendProyect:boolean}
 }
 export interface PropsThemeAction {
     type: TypesThemes,
@@ -42,5 +44,6 @@ export interface PropsContextTheme {
     dispatch_ThemeAnimationEnd: () => void,
     dispatch_ThemeAnimationStart: () => void,
     dispatch_ScreenLock:(lockScreen:boolean)=>void,
-    dispatch_lettersAnimateControl:(type:TypesThemes)=>void
+    dispatch_lettersAnimateControl:(type:TypesThemes)=>void,
+    dispatch_handleOpendProject:(param:boolean)=>void
 }

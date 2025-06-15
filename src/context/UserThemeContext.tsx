@@ -9,7 +9,8 @@ const InitialState: PropsState = {
     isThemeBlack:true,
     isAnimationStart:0,
     isScreenLock:true,
-    controlAnimation_letters:{general:true,home:true,skill:true,project:true,contact:true,expertise:true}
+    controlAnimation_letters:{general:true,home:false,skill:true,project:true,contact:true,expertise:true},
+    options:{isOpendProyect:false}
 }
 
 export const ThemeContext = createContext({} as PropsContextTheme);
@@ -47,6 +48,15 @@ export const ThemeContextProvider = ({ children }: { children: any }) => {
         dispatch({type,payload:{...state}})
     }
 
+    const dispatch_handleOpendProject=(isOpne:boolean)=>{
+        dispatch({
+            type:"[handleOpen_project]",
+            payload:{
+                ...state,
+                options:{isOpendProyect:isOpne}
+            }
+        })
+    }
     
 
     return (
@@ -57,7 +67,8 @@ export const ThemeContextProvider = ({ children }: { children: any }) => {
             dispatch_ThemeAnimationEnd,
             dispatch_ThemeAnimationStart,
             dispatch_ScreenLock,
-            dispatch_lettersAnimateControl
+            dispatch_lettersAnimateControl,
+            dispatch_handleOpendProject
         }} >
             {children}
         </ThemeContext.Provider>

@@ -1,69 +1,84 @@
-import { memo, useContext, useEffect, useState } from "react"
-import { DataContext } from "../context/UserDataContext"
-import { StateDataProject } from "../context/UserDataType";
+import { memo, useEffect, useState } from "react"
+import { StateDataProject } from '../context/UserDataType';
+import { FaGithub } from "react-icons/fa";
+import { BsGlobe2 } from "react-icons/bs";
 
-export const DetailsProject = memo(({ handleCloseContent }: { handleCloseContent: () => void }) => {
+export const DetailsProject = memo(({ value }: { value: StateDataProject }) => {
 
-    const { state } = useContext(DataContext);
-    const [values, setvalues] = useState<StateDataProject>();
-    const [details, setdetails] = useState([]);
-
+    const [details, setdetails] = useState<{
+        description?: string,
+        sub_description: string,
+        sections: { tool: string, description: string }[],
+        images: string[]
+    }>()
     useEffect(() => {
-        if (!state.stateProject.length) return;
-        if(!state.stateCordOfProyect.item) return
-        const details: [] = JSON.parse(state.stateProject[state.stateCordOfProyect.item - 1].details);
-        setvalues(state.stateProject[state.stateCordOfProyect.item - 1]);
-        setdetails(details)
 
-    }, [state.stateCordOfProyect.item])
+        if (!value.details) return;
+        const detail = JSON.parse(value.details)
+        setdetails(detail)
+
+    }, [value])
 
 
     return (
         <>
-            <div className="__close">
-                <div className="w-100 d-flex align-items-center">
+            <div className=" content_DetailsProject ">
+                <div className="img_panoram mb-4 m-0" >
+                    <img src={value?.img} className="w-100" alt="" />
+                </div>
+                <p className=" fs-5 fw-bolder px-2" >
+                    {value?.name}
+                </p>
+
+                <p className=" rounded px-3 " >
+                    {value?.description}
+                </p>
+
+                <div className="m-2">
+                    <p>
+                        {details?.description}
+                    </p>
+                    <p className="fw-bolder">{details?.sub_description}</p>
                     {
-                        values?.urlgit &&
-                        <a href={values?.urlgit} target="_blank" className="mx-2 text-light" ><i className="bi bi-github"></i></a>
-                    }
-                    {
-                        values?.urlweb &&
-                        <a href={values?.urlweb} target="_blank" className="mx-2 text-light" ><i className="bi bi-globe-americas"></i></a>
+                        details?.sections.map(val => (
+                            <div key={val.tool}>
+                                <p className="px-2 rounded _subtitle">{val.tool}</p>
+                                <p>{val.description}</p>
+                            </div>
+                        ))
                     }
                 </div>
-                <p className="P_close text-light fs-2 m-2 px-2 "
-                    onClick={handleCloseContent} ><i className="bi bi-x-lg"></i>  </p>
 
-            </div>
-            <div className="m-0 mb-4 content_DetailsProject ">
+                <div className="text-end">
 
-                <p className="text-light fs-5 fw-bolder px-2" >
-                    {values?.name}
-                </p>
-
-                <p className="text-light rounded px-3 " >
-                    {values?.description}
-                </p>
                 {
-                    !!details.length &&
-                    details.map((detail: any, i: number) => (
-                        <div key={i} className="m-2" >
-                            <div className=' w-100'>
-                                {detail.img && <img src={detail.img} className=" w-100" alt="..."
-                                    style={{ objectFit: 'contain', maxHeight: '600px' }}
-                                />}
-                            </div>
-                            <div className=" w-100 ">
-                                <p className="fs-5 fw-semibold px-2">{detail?.subtopic}</p>
-                                {detail.description &&
-
-                                    <p className=" text-light rounded px-2 fs-6 w-100">{detail.description}</p>
-                                }
-                            </div>
-                        </div>
-                    ))
+                    value?.urlweb &&
+                    <a href={value.urlweb} target="_blank" className="btn">
+                          <BsGlobe2 size={"2rem"} /> Ver Live
+                    </a>
+                }
+                {
+                    value?.urlgit &&
+                    <a href={value.urlgit} target="_blank" className="btn ">
+                        <FaGithub size={"2rem"} /> Repositorio
+                    </a>
                 }
 
+                </div>
+
+
+
+                {
+                    details?.images.map((val, i) => (
+                        <div key={i} className=" mb-4" >
+                            <img src={val} className="w-100 rounded" alt="" />
+                        </div>
+                    ))
+
+                }
+
+                <div>
+                </div>
             </div>
         </>
     )
