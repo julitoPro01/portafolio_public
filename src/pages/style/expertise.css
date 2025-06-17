@@ -36,6 +36,7 @@
   }
 
   ._frase {
+    position: absolute;
     inset: 50px 1 1 1;
 
     color: #1A1818;
