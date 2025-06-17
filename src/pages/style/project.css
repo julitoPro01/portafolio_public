@@ -166,13 +166,14 @@
 }
 
 @media screen and (max-width:768px) {
+  
   ._smgCardImg {
     display: none;
   }
 
   ._content_card {
     align-items: start;
-
+  margin-top: 0px !important;
     ._sub {
       text-align: start !important;
     }
