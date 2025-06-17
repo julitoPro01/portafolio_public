@@ -34,8 +34,7 @@ export const Expertise = () => {
         <div className="content__expersite" id={UidNodePage.expertise}>
      
             <div className="_pageHead" >
-                <p className="_head m-0">Experiencia
-                </p>
+               
                 <p className="fst-italic p-5 fs-4 fw-bold _frase"> "Las imaginaciones se construyen a base de código y herramientas." </p>
             </div>
             <div className="py-5 _icons_content">
