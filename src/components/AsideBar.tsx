@@ -119,10 +119,10 @@ export const AsideBar: FC<AsideProps> = () => {
                     </button>
 
                     <button className="btn   border-0">
-                        <a href="https://drive.google.com/file/d/17jSC8mSgupxDZ0yYnv9wesVimjaF2Itr/view?usp=drive_link"
+                        <a href="https://drive.google.com/file/d/1xDdHLuVWOhtMfEZrmbVdaewm0I05PqFg/view?usp=sharing"
                             target="_blank" >
                             <BsPersonLinesFill size={"2em"} />
-                            <span className="_text_hover animate__animated  mx-2"> Descargar CV </span>
+                            <span className="_text_hover animate__animated  mx-2"> ver CV </span>
                         </a>
                     </button>
                     <button className="btn  border-0 ">
