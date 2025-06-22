@@ -107,8 +107,7 @@ export const AsideBar: FC<AsideProps> = () => {
     return (
         <>
             <div className="position-absolute top-0 w-100  _iconHome" >
-                <form action="mailto:zosimo179@gmail.com" method="post" id="_openformmailto" >
-                </form>
+            
                 <div className="  _more_info me-2" ref={ref_icon}>
 
                     <button className="btn   border-0">
@@ -133,9 +132,11 @@ export const AsideBar: FC<AsideProps> = () => {
                         </a>
 
                     </button>
-                    <button className="btn  border-0 " form="_openformmailto" type="submit">
+                    <button className="btn  border-0 " >
+                        <a href="#contact" >
                         <MdOutlineMail size={"2em"} />
-                        <span className="_text_hover animate__animated  mx-2"> Email </span>
+                            <span className="_text_hover animate__animated  mx-2" > Email </span>
+                        </a>
                     </button>
                     <button className="btn border-0 ">
                         <a href="https://github.com/julitoPro01"
