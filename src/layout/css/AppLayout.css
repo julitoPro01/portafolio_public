@@ -27,6 +27,7 @@
     font-size:large;
     cursor: pointer;
     background-color: rgba(128, 128, 128, 0.336);
+    border: solid red;
 }
 
 .App-layout ._openMenu {

@@ -112,7 +112,7 @@ export const AppLayout = ({ children }: any) => {
                     <>
                         {
                             !options.isOpendProyect &&
-                            <button className="btn btn-outline-light border-0 rounded-circle me-2 mt-2"
+                            <button className="btn btn-outline-light border-0 me-2 mt-2"
                                 onClick={handleScreenLock}
                             >
                                 <i className="bi bi-lock-fill"></i>
@@ -121,7 +121,7 @@ export const AppLayout = ({ children }: any) => {
 
                         {
                             !options.isOpendProyect &&
-                            <button className="btn btn-outline-dark border-0 rounded-circle me-2 mt-2 _openMenu"
+                            <button className="btn btn-outline-dark border-0  me-2 mt-2 _openMenu"
                                 type="button" data-bs-toggle="offcanvas" data-bs-target="#offCanvasOPenAside" aria-controls="offCanvasOPenAside"
                             >
                                 <i className="bi bi-list"></i>

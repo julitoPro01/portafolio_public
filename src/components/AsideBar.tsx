@@ -6,6 +6,7 @@ import { PiCertificateLight } from "react-icons/pi";
 import { BsPersonLinesFill } from "react-icons/bs";
 import { MdOutlineMail } from "react-icons/md";
 import { FaWhatsapp } from "react-icons/fa";
+import { IoLogoGithub } from "react-icons/io5";
 
 interface AsideProps {
     nodeAppMainRef?: RefObject<HTMLDivElement>
@@ -108,7 +109,7 @@ export const AsideBar: FC<AsideProps> = () => {
             <div className="position-absolute top-0 w-100  _iconHome" >
                 <form action="mailto:zosimo179@gmail.com" method="post" id="_openformmailto" >
                 </form>
-                <div className="  _more_info" ref={ref_icon}>
+                <div className="  _more_info me-2" ref={ref_icon}>
 
                     <button className="btn   border-0">
                         <a className="" href="https://drive.google.com/file/d/1XFEJm8tF49sPtXWBlLawf4izdvc4f1OV/view?usp=drive_link"
@@ -119,7 +120,7 @@ export const AsideBar: FC<AsideProps> = () => {
                     </button>
 
                     <button className="btn   border-0">
-                        <a href="https://drive.google.com/file/d/1xDdHLuVWOhtMfEZrmbVdaewm0I05PqFg/view?usp=sharing"
+                        <a href="https://drive.google.com/file/d/1Q1mP7cD06vC4keh5zydQ8zvfAJS7d3tw/view?usp=sharing"
                             target="_blank" >
                             <BsPersonLinesFill size={"2em"} />
                             <span className="_text_hover animate__animated  mx-2"> ver CV </span>
@@ -136,9 +137,18 @@ export const AsideBar: FC<AsideProps> = () => {
                         <MdOutlineMail size={"2em"} />
                         <span className="_text_hover animate__animated  mx-2"> Email </span>
                     </button>
-
-
+                    <button className="btn border-0 ">
+                        <a href="https://github.com/julitoPro01"
+                            target="_blank" >
+                            <IoLogoGithub size={"2em"} />
+                            <span className="_text_hover animate__animated  mx-2" style={{
+                                left:"-20px"
+                            }}> GitHub </span>
+                        </a>
+                    </button>
                 </div>
+
+                    
 
             </div>
             <aside className=" content__asideBar">
