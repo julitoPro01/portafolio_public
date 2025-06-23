@@ -143,7 +143,7 @@ export const AsideBar: FC<AsideProps> = () => {
                             target="_blank" >
                             <IoLogoGithub size={"2em"} />
                             <span className="_text_hover animate__animated  mx-2" style={{
-                                left:"-20px"
+                                left:"-10px"
                             }}> GitHub </span>
                         </a>
                     </button>

@@ -93,7 +93,7 @@ export const Home = () => {
         </button>
 
         <button className="btn   border-0">
-          <a className="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="https://drive.google.com/file/d/17jSC8mSgupxDZ0yYnv9wesVimjaF2Itr/view?usp=drive_link"
+          <a className="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="https://drive.google.com/file/d/1Q1mP7cD06vC4keh5zydQ8zvfAJS7d3tw/view?usp=sharing"
             target="_blank" >
           {/* <BsPersonLinesFill size={"2em"} /> */}
           <span className="_text mx-2"> Ver Curriculum Vitae </span>

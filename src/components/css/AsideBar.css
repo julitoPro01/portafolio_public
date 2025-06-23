@@ -38,11 +38,11 @@
         left: 0px;
         bottom: -25px;
 
-        color: #3c3636;
-        background-color: #ECE7E1;
+        color: #ECE7E1;
+        /* background-color: #ECE7E1; */
         border-radius: 10px;
         padding: 5px 10px;
-        box-shadow: 5px 5px 5px rgba(1, 1, 7, 0.496);
+        /* box-shadow: 5px 5px 5px rgba(1, 1, 7, 0.496); */
         font-size: small;
     }
 

@@ -12,9 +12,6 @@ export const Contact = () => {
     const inputs = e.currentTarget.querySelectorAll("input, textarea") as any;
 
     setresponse(() => ({ response: false, reject: false, loading: true }))
-    inputs.forEach((input: any) => {
-      input.disabled = true
-    })
 
     emailjs.sendForm(
       'service_fjs3bgx',
@@ -29,12 +26,16 @@ export const Contact = () => {
         })
         setresponse(() => ({ response: true, reject: false, loading: false }))
 
-      }, () => {
-         inputs.forEach((input: any) => {
+      }).catch(() => {
+        inputs.forEach((input: any) => {
           input.disabled = false
         })
-        setresponse(() => ({ reject: true, response: true, loading: false }))
+        setresponse(() => ({ reject: true, response: false, loading: false }))
       });
+      
+    inputs.forEach((input: any) => {
+      input.disabled = true
+    })
 
   }
 
@@ -44,42 +45,43 @@ export const Contact = () => {
     <div className="content__contact mt-5" id={UidNodePage.contact}>
 
       <h2 className="fs-2 fw-bolder m-2 pb-5" >CONTACTAME</h2>
-      <div className="__contactEmail px-2">
+      <div className="__contactEmail  px-2">
 
-      <form id="formulario" onSubmit={handleSendEmail}>
-        <div className="form-floating mb-3">
-          <input
-            type="email"
-            className="form-control"
-            id="floatingInput"
-            name="from_email"
-            placeholder="name@example.com"
-            required
-          />
-          <label htmlFor="floatingInput">Dirección de correo electrónico</label>
-        </div>
-        <div className="form-floating">
-          <textarea
-            className="form-control"
-            placeholder="Leave a comment here"
-            id="floatingTextarea2"
-            name="message"
-            style={{ height: '100px' }}
-            required
-          />
-          <label htmlFor="floatingTextarea2">Comentario</label>
-        </div>
-        <br />
-        <button type="submit" className="btn btn-outline-dark">Enviar</button>
-        <br />
-      </form>
+        <form id="formulario" onSubmit={handleSendEmail}>
+          <input type="hidden" name="title" value={"Portafolio"} />
+          <div className="form-floating mb-3">
+            <input
+              type="email"
+              className="form-control"
+              id="floatingInput"
+              name="email"
+              placeholder="name@example.com"
+              required
+            />
+            <label htmlFor="floatingInput">Ingrese su dirrección de correo electrónico*</label>
+          </div>
+          <div className="form-floating">
+            <textarea
+              className="form-control"
+              placeholder="Leave a comment here"
+              id="floatingTextarea2"
+              name="message"
+              style={{ height: '100px' }}
+              required
+            />
+            <label htmlFor="floatingTextarea2">Comentario*</label>
+          </div>
+          <br />
+          <button type="submit" className="btn btn-outline-dark">Enviar</button>
+          <br />
+        </form>
       </div>
 
-      <div className="content_response mt-2 text-end">
+      <div className="content_response mt-2 me-4 text-end">
 
         <p className=" text-dark _text_loading" style={{ opacity: response.loading ? "1" : "0" }}>Enviando...</p>
-        <p className=" text-success _text_response" style={{ opacity: response.response ? "1" : "0" }}>¡Mensage Enviado!</p>
-        <p className=" badge text-danger _text_error" style={{ opacity: response.reject ? "1" : "0" }}>Ocurrio un error en el servidor, intente mas tarde.</p>
+        <p className=" text-success _text_response" style={{ opacity: response.response ? "1" : "0" }}>¡Mensaje enviado!</p>
+        <p className=" badge text-danger _text_error" style={{ opacity: response.reject ? "1" : "0" }}>Se produjo un error en el servidor, inténtelo nuevamente más tarde.</p>
       </div>
 
       <hr />
